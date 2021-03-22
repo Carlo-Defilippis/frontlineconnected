@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import pic01 from '../images/pic01.jpg'
+import pic01 from '../images/cruiser.jpg'
 import pic02 from '../images/pic02.jpg'
 import pic03 from '../images/pic03.jpg'
 
@@ -28,29 +28,29 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">Intro</h2>
+          <h2 className="major">WHAT WE DO</h2>
           <span className="image main">
             <img src={pic01} alt="" />
           </span>
           <p>
-            Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin
-            aliquam facilisis ante interdum congue. Integer mollis, nisl amet
-            convallis, porttitor magna ullamcorper, amet egestas mauris. Ut
-            magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas.
-            By the way, check out my <a href="#work">awesome work</a>.
+          We understand that time waits for no one and neither does the technology that comes with it. So we’ve developed 
+          a solution for professionals in the field for all lines of work. Originally designed for law enforcement officers 
+          working the road alone, our service digitalizes department forms and makes them available to be filled out on the go.
+          <br />
+          <br />
+          All forms we process are retained on HIPAA compliant servers. However, user input to fill a form out is immediately 
+          cleared once a finalized printable form is created. Our service is designed this way to protect sensitive personal 
+          identifying information.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
-            dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora
-            torquent per conubia nostra, per inceptos himenaeos. Etiam tristique
-            libero eu nibh porttitor fermentum. Nullam venenatis erat id
-            vehicula viverra. Nunc ultrices eros ut ultricies condimentum.
-            Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae
-            dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in
-            lectus. Pellentesque habitant morbi tristique senectus et netus et
-            malesuada fames ac turpis egestas. In non lorem sit amet elit
-            placerat maximus. Pellentesque aliquam maximus risus, vel sed
-            vehicula.
+          So what’s so special about our service? It’s <a style={{ fontWeight: 'bold' }}>100% MOBILE</a>. Front Line Solutions can function and print from any computer 
+          or mobile device via Wifi/Bluetooth/USB onto any printer including mobile printers. Thanks to this game-changing feature, 
+          officers alone on the road can fill out forms on-scene without leaving suspects alone to destroy evidence or to intimidate 
+          victims just to find a form that may or may not be in the trunk of their cruiser.
+          <br />
+          <br />
+          We offer our service with a 7 day trial on a free demo account to learn how our system works. From daily logs and FTO 
+          paperwork to crash reports and affidavits, Front Line Solutions has you covered.
           </p>
           {close}
         </article>
