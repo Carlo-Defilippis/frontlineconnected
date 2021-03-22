@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import pic01 from '../images/cruiser.jpg'
-import pic02 from '../images/pic02.jpg'
-import pic03 from '../images/pic03.jpg'
+import pic02 from '../images/FLSicon_02.png'
+import pic03 from '../images/paperwork.jpg'
 
 class Main extends React.Component {
   render() {
@@ -62,24 +62,17 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">Work</h2>
+          <h2 className="major">User Sign in and Sign up</h2>
           <span className="image main">
-            <img src={pic02} alt="" />
+            <img src={pic02} alt="" style={{ maxHeight: '70px', maxWidth: '70px', margin: 'auto' }} />
           </span>
           <p>
-            Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu,
-            at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent
-            urna nisi, fringila lorem et vehicula lacinia quam. Integer
-            sollicitudin mauris nec lorem luctus ultrices.
+            This is where the user will sign up or sign in.  Login info can be saved in localStorage
+            via javascript module.
           </p>
+          <h3>Welcome $User</h3>
           <p>
-            Nullam et orci eu lorem consequat tincidunt vivamus et sagittis
-            libero. Mauris aliquet magna magna sed nunc rhoncus pharetra.
-            Pellentesque condimentum sem. In efficitur ligula tate urna.
-            Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor.
-            Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis
-            libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat
-            tempus.
+            Here we welcome the user if they are signed in or show the signup form.
           </p>
           {close}
         </article>
@@ -91,18 +84,17 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">About</h2>
+          <h2 className="major">Our Mission</h2>
           <span className="image main">
-            <img src={pic03} alt="" />
+            <img src={pic03} alt="" style={{ maxHeight: 'auto', maxWidth: 'auto' }}/>
           </span>
           <p>
-            Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent
-            eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam
-            erat volutpat. Praesent urna nisi, fringila lorem et vehicula
-            lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.
-            Aliquam libero et malesuada fames ac ante ipsum primis in faucibus.
-            Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit
-            amet.
+          At Front Line Solutions, our mission is to innovate field and office based forms by offering a secure web-based mobile form service.
+          <br />
+          <br />
+          We are a veteran-owned business created by law enforcement officers for law enforcement officers. Our #1 priority for our customers 
+          is safety. Our goal is reducing officer downtime by utilizing mobile support to complete necessary forms on-scene without compromising 
+          officer safety.
           </p>
           {close}
         </article>
