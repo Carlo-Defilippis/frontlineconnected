@@ -4,18 +4,42 @@ import pic01 from '../images/cruiser.jpg'
 import pic02 from '../images/FLSicon_02.png'
 import pic03 from '../images/paperwork.jpg'
 import AuthStateApp from './Amplify'
+import { Hub, Auth } from 'aws-amplify'
 
 
 class Main extends React.Component {
-  
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      user: ''
+    }
+  }
+
+
+  // currentUser = () => {
+  //   Auth.currentAuthenticatedUser()
+  //     .then(user => {
+  //       console.log("USER", user);
+  //       this.setState({
+  //         user: true
+  //       })
+  //     })
+  //     .catch(err => {
+  //       console.log("ERROR", err);
+  //       this.setState({
+  //         user: false
+  //       })
+  //     });
+  // };
 
   render() {
     let close = (
       <div
         className="close"
         onClick={() => {
-          this.props.onCloseArticle()
-          console.log(AuthStateApp)
+          this.props.onCloseArticle()          
+          // console.log('props', this.currentUser())
         }}
       ></div>
     )

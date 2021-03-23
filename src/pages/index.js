@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
-
+import { Auth } from 'aws-amplify';
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -14,7 +14,8 @@ class IndexPage extends React.Component {
       timeout: false,
       articleTimeout: false,
       article: '',
-      loading: 'is-loading'
+      loading: 'is-loading',
+      isLoggedIn: false
     }
     this.handleOpenArticle = this.handleOpenArticle.bind(this)
     this.handleCloseArticle = this.handleCloseArticle.bind(this)
@@ -61,10 +62,28 @@ class IndexPage extends React.Component {
 
   }
 
+  async handleUser() {
+    return await Auth.currentAuthenticatedUser({
+    }).then(user => {
+      console.log(user)
+      this.setState({
+        isLoggedIn: true
+      })
+      console.log('state', this.state.isLoggedIn)
+    })
+      .catch(err => {
+        console.log(err)
+        this.setState({
+          isLoggedIn: false
+        })
+      });
+  }
+
   handleCloseArticle() {
 
     this.setState({
-      articleTimeout: !this.state.articleTimeout
+      articleTimeout: !this.state.articleTimeout,
+      isLoggedIn: this.checkUser
     })
 
     setTimeout(() => {
@@ -95,7 +114,7 @@ class IndexPage extends React.Component {
       <Layout location={this.props.location}>
         <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
           <div id="wrapper">
-            <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} />
+            <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} isLoggedIn={this.handleUser} data={this.state.isLoggedIn} />
             <Main
               isArticleVisible={this.state.isArticleVisible}
               timeout={this.state.timeout}

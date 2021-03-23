@@ -30,7 +30,7 @@ const AuthStateApp = () => {
             { type: "username",
             label: "Email",
             placeholder: "Enter your precincts email",
-            required: true,
+            required: true
         },
             { type: "email",
             email_verified: true,
