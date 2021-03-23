@@ -49,7 +49,7 @@ const Header = props => (
             onClick={() => {
               props.onOpenArticle('contact')
             }}
-          >
+          > 
             Contact Us
           </button>
         </li>
