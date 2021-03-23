@@ -6,14 +6,8 @@ import pic03 from '../images/paperwork.jpg'
 import AuthStateApp from './Amplify'
 
 
-const URL = 'https://hipaa.jotform.com/build/210778676688174'
-
 class Main extends React.Component {
-
-
-  componentDidMount() {
-
-  }
+  
 
   render() {
     let close = (
@@ -21,6 +15,7 @@ class Main extends React.Component {
         className="close"
         onClick={() => {
           this.props.onCloseArticle()
+          console.log(AuthStateApp)
         }}
       ></div>
     )

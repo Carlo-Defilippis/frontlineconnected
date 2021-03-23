@@ -9,7 +9,7 @@ Amplify.configure(awsconfig);
 const AuthStateApp = () => {
     const [authState, setAuthState] = React.useState();
     const [user, setUser] = React.useState();
-
+    // console.log(authState)
     React.useEffect(() => {
         return onAuthUIStateChange((nextAuthState, authData) => {
             setAuthState(nextAuthState);
@@ -34,7 +34,8 @@ const AuthStateApp = () => {
         },
             { type: "email",
             email_verified: true,
-            label: 'Retype Email'
+            label: 'Retype Email',
+            placeholder: 'Enter your precincts email again'
         },
             { type: "password" },
             { type: "address",
