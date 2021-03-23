@@ -28,12 +28,13 @@ const AuthStateApp = () => {
           slot="sign-up"
           formFields={[
             { type: "username",
-            label: "Username",
-            placeholder: "Enter your precincts username",
+            label: "Email",
+            placeholder: "Enter your precincts email",
             required: true,
         },
             { type: "email",
-            email_verified: true
+            email_verified: true,
+            label: 'Retype Email'
         },
             { type: "password" },
             { type: "address",
