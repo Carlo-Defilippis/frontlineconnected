@@ -1,0 +1,7 @@
+type USERS @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  username: String
+  email: String
+  phone_number: String
+  address: String
+}

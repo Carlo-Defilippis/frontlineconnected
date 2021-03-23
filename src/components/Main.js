@@ -3,7 +3,8 @@ import React from 'react'
 import pic01 from '../images/cruiser.jpg'
 import pic02 from '../images/FLSicon_02.png'
 import pic03 from '../images/paperwork.jpg'
-import JotformEmbed from 'react-jotform-embed';
+import AuthStateApp from './Amplify'
+
 
 const URL = 'https://hipaa.jotform.com/build/210778676688174'
 
@@ -71,19 +72,8 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">User Sign in and Sign up</h2>
-          <span className="image main">
-            <img src={pic02} alt="" style={{ maxHeight: '70px', maxWidth: '70px', margin: 'auto' }} />
-          </span>
-          <p>
-            This is where the user will sign up or sign in.  Login info can be saved in localStorage
-            via javascript module.
-          </p>
-          <h3>Welcome $User</h3>
-          <iframe title="your title" style={{ width: '100%', maxWidth: '100%', height: '500px' }} src={URL}></iframe>
-          <p>
-            Here we welcome the user if they are signed in or show the signup form.
-          </p>
+          <AuthStateApp />
+          {/* <iframe title="your title" style={{ width: '100%', maxWidth: '100%', height: '500px' }} src={URL}></iframe> */}
           {close}
         </article>
 

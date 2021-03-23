@@ -1,0 +1,65 @@
+{
+    "identityPoolName": "testAuthIdentityPool",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "frontlfac276fb",
+    "userPoolName": "frontlineconnected",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "ON",
+    "mfaTypes": [
+        "SMS Text Message",
+        "TOTP"
+    ],
+    "smsAuthenticationMessage": "Your login code is {####}. Thanks for using Front Line Solutions.",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Front Line Solutions: password reset",
+    "emailVerificationMessage": "Forgot password code: {####}. Thanks for using Front Line Solutions. If you did not request this, please contact us.",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Numbers",
+        "Requires Symbols",
+        "Requires Uppercase"
+    ],
+    "requiredAttributes": [
+        "preferred_username",
+        "email",
+        "address",
+        "phone_number"
+    ],
+    "userpoolClientGenerateSecret": false,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [],
+    "userpoolClientReadAttributes": [],
+    "userpoolClientLambdaRole": "frontlfac276fb_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": false,
+    "sharedId": "fac276fb",
+    "resourceName": "frontlineconnected",
+    "authSelections": "identityPoolAndUserPool",
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "unauthRoleArn": {
+        "Fn::GetAtt": [
+            "UnauthRole",
+            "Arn"
+        ]
+    },
+    "serviceName": "Cognito",
+    "usernameAttributes": [
+        "email"
+    ],
+    "useDefault": "manual",
+    "userPoolGroups": false,
+    "userPoolGroupList": [],
+    "adminQueries": false,
+    "thirdPartyAuth": false,
+    "authProviders": [],
+    "usernameCaseSensitive": false,
+    "dependsOn": []
+}
