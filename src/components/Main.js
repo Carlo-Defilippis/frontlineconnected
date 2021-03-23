@@ -3,8 +3,17 @@ import React from 'react'
 import pic01 from '../images/cruiser.jpg'
 import pic02 from '../images/FLSicon_02.png'
 import pic03 from '../images/paperwork.jpg'
+import JotformEmbed from 'react-jotform-embed';
+
+const URL = 'https://hipaa.jotform.com/build/210778676688174'
 
 class Main extends React.Component {
+
+
+  componentDidMount() {
+
+  }
+
   render() {
     let close = (
       <div
@@ -71,6 +80,7 @@ class Main extends React.Component {
             via javascript module.
           </p>
           <h3>Welcome $User</h3>
+          <iframe title="your title" style={{ width: '100%', maxWidth: '100%', height: '500px' }} src={URL}></iframe>
           <p>
             Here we welcome the user if they are signed in or show the signup form.
           </p>
