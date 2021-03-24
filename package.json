@@ -5,6 +5,7 @@
   "author": "Carlo DeFilippis",
   "dependencies": {
     "@aws-amplify/ui-react": "^1.0.5",
+    "aws": "0.0.3-2",
     "aws-amplify": "^3.3.25",
     "core-js": "^3.9.1",
     "gatsby": "^2.19.5",
