@@ -10,8 +10,8 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "username": {
-                    "name": "username",
+                "family_name": {
+                    "name": "family_name",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -26,13 +26,6 @@ export const schema = {
                 },
                 "phone_number": {
                     "name": "phone_number",
-                    "isArray": false,
-                    "type": "String",
-                    "isRequired": false,
-                    "attributes": []
-                },
-                "address": {
-                    "name": "address",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -67,5 +60,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "7efac51bfc6f6d23b892dd04fa4c0672"
+    "version": "10baeae0a3ef4fd6b44bfdb6dc3c50cb"
 };

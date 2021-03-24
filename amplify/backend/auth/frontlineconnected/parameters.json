@@ -1,36 +1,40 @@
 {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "frontlfac276fb",
+    "resourceNameTruncated": "frontl47c5ddcf",
     "userPoolName": "frontlineconnected",
     "autoVerifiedAttributes": [
-        "email"
+        "phone_number"
     ],
-    "mfaConfiguration": "ON",
+    "mfaConfiguration": "OPTIONAL",
     "mfaTypes": [
         "SMS Text Message",
         "TOTP"
     ],
-    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsAuthenticationMessage": "Thank you for using Front Line Solutions. Your code is {####}.",
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
-    "passwordPolicyCharacters": [],
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Numbers",
+        "Requires Symbols",
+        "Requires Uppercase"
+    ],
     "requiredAttributes": [
-        "preferred_username",
         "email",
-        "address",
+        "family_name",
         "phone_number"
     ],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "frontlfac276fb_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "frontl47c5ddcf_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "fac276fb",
+    "sharedId": "47c5ddcf",
     "resourceName": "frontlineconnected",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
@@ -49,11 +53,12 @@
     "usernameAttributes": [
         "email"
     ],
-    "useDefault": "default",
+    "useDefault": "manual",
     "userPoolGroups": false,
     "userPoolGroupList": [],
     "adminQueries": false,
+    "thirdPartyAuth": false,
+    "authProviders": [],
     "usernameCaseSensitive": false,
-    "dependsOn": [],
-    "authProviders": []
+    "dependsOn": []
 }
