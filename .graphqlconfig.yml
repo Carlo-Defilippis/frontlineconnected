@@ -1,6 +1,6 @@
 projects:
   frontlineconnected:
-    schemaPath: amplify/backend/api/frontlineconnected/schema.graphql
+    schemaPath: amplify/backend/api/frontlineconnected/build/schema.graphql
     includes:
       - src/graphql/**/*.js
     excludes:
