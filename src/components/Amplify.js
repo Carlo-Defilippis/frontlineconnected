@@ -6,13 +6,13 @@ import awsconfig from '../aws-exports';
 import { DataStore } from '@aws-amplify/datastore'
 import { USERS } from '../models'
 
-await DataStore.save(
-  new USERS({
-  "email": "email",
-  "family_name": "family_name",
-  "phone_number": "phone_number"
-})
-);
+// await DataStore.save(
+//   new USERS({
+//   "email": "email",
+//   "family_name": "family_name",
+//   "phone_number": "phone_number"
+// })
+// );
 
 Amplify.configure(awsconfig);
 
