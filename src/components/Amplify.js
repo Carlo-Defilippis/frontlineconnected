@@ -44,18 +44,13 @@ const AuthStateApp = () => {
         },
             { type: "email",
             email_verified: true,
-            label: 'Retype Email',
-            placeholder: 'Enter your precincts email again',
+            label: 'Email',
+            placeholder: 'Enter your precincts email',
             required: true
         },
             { 
               type: "password",
               required: true
-        },
-            { type: "address",
-            label: "Address",
-            placeholder: "Enter your precincts address",
-            required: true,
         },
             { type: "phone_number",
               required: true
