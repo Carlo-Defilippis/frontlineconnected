@@ -2,8 +2,18 @@ import React from 'react';
 import Amplify from 'aws-amplify';
 import { AmplifyAuthenticator, AmplifySignUp, AmplifySignOut } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
-import awsconfig from '../aws-exports'
- 
+import awsconfig from '../aws-exports';
+import { DataStore } from '@aws-amplify/datastore'
+import { USERS } from '../models'
+
+await DataStore.save(
+  new USERS({
+  "email": "email",
+  "family_name": "family_name",
+  "phone_number": "phone_number"
+})
+);
+
 Amplify.configure(awsconfig);
 
 const AuthStateApp = () => {
