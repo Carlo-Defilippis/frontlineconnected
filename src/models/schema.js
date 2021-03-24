@@ -20,14 +20,14 @@ export const schema = {
                 "email": {
                     "name": "email",
                     "isArray": false,
-                    "type": "String",
+                    "type": "AWSEmail",
                     "isRequired": false,
                     "attributes": []
                 },
                 "phone_number": {
                     "name": "phone_number",
                     "isArray": false,
-                    "type": "String",
+                    "type": "AWSPhone",
                     "isRequired": false,
                     "attributes": []
                 }
@@ -60,5 +60,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "10baeae0a3ef4fd6b44bfdb6dc3c50cb"
+    "version": "2bd154e0da4f4173323839cd9eb6fdbf"
 };
