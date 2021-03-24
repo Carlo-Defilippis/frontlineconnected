@@ -27,24 +27,30 @@ const AuthStateApp = () => {
         <AmplifySignUp
           slot="sign-up"
           formFields={[
-            { type: "username",
-            label: "Email",
-            placeholder: "Enter your precincts email",
+            { type: "family_name",
+            label: "Precinct Name",
+            placeholder: "Enter your precincts name",
             required: true
         },
             { type: "email",
             email_verified: true,
             label: 'Retype Email',
-            placeholder: 'Enter your precincts email again'
+            placeholder: 'Enter your precincts email again',
+            required: true
         },
-            { type: "password" },
+            { 
+              type: "password",
+              required: true
+        },
             { type: "address",
             label: "Address",
             placeholder: "Enter your precincts address",
             required: true,
         },
-            { type: "phone_number"}
-          ]}
+            { type: "phone_number",
+              required: true
+        }
+        ]}
         />
       </AmplifyAuthenticator>
   );
