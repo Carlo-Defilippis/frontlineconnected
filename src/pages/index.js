@@ -15,7 +15,7 @@ class IndexPage extends React.Component {
       articleTimeout: false,
       article: '',
       loading: 'is-loading',
-      isLoggedIn: false
+      data: false
     }
     this.handleOpenArticle = this.handleOpenArticle.bind(this)
     this.handleCloseArticle = this.handleCloseArticle.bind(this)
@@ -23,7 +23,9 @@ class IndexPage extends React.Component {
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
+
   componentDidMount () {
+    this.handleUser();
     this.timeoutId = setTimeout(() => {
         this.setState({loading: ''});
     }, 100);
@@ -62,28 +64,25 @@ class IndexPage extends React.Component {
 
   }
 
-  async handleUser() {
+    async handleUser() {
     return await Auth.currentAuthenticatedUser({
     }).then(user => {
-      console.log(user)
       this.setState({
-        isLoggedIn: true
+        data: true
       })
-      console.log('state', this.state.isLoggedIn)
     })
       .catch(err => {
         console.log(err)
         this.setState({
-          isLoggedIn: false
+          data: false
         })
       });
   }
 
   handleCloseArticle() {
-
+    this.handleUser();
     this.setState({
-      articleTimeout: !this.state.articleTimeout,
-      isLoggedIn: this.checkUser
+      articleTimeout: !this.state.articleTimeout
     })
 
     setTimeout(() => {
@@ -114,7 +113,7 @@ class IndexPage extends React.Component {
       <Layout location={this.props.location}>
         <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
           <div id="wrapper">
-            <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} isLoggedIn={this.handleUser} data={this.state.isLoggedIn} />
+            <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} data={this.state.data} />
             <Main
               isArticleVisible={this.state.isArticleVisible}
               timeout={this.state.timeout}
