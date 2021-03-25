@@ -14,7 +14,6 @@ class Main extends React.Component {
     }
   }
 
-
   // currentUser = () => {
   //   Auth.currentAuthenticatedUser()
   //     .then(user => {
