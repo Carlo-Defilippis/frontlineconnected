@@ -40,7 +40,7 @@ const AuthStateApp = () => {
       <img src={icon} className="position-absolute top-0 start-50 translate-middle"></img>
       <Button variant="primary">Go to my forms</Button>
       <Button variant="primary">Profile</Button>
-      { user && <JSignOut /> }
+      <JSignOut />
     </div>
 ) : (
       <AmplifyAuthenticator>
