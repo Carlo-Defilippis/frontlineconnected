@@ -3,5 +3,5 @@ type USERS @model @auth(rules: [{allow: public}]) {
   family_name: String
   email: AWSEmail
   phone_number: AWSPhone
-}  
+}
  
