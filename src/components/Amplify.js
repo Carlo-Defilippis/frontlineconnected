@@ -16,10 +16,10 @@ import { USERS } from '../models'
 
 Amplify.configure(awsconfig);
 
-async function isData() {
-  let models = await DataStore.query(USERS);
-  console.log('My saved Data: ', JSON.stringify(models));
-}
+// async function isData() {
+//   let models = await DataStore.query(USERS);
+//   console.log('My saved Data: ', JSON.stringify(models));
+// }
 
 
 
@@ -31,8 +31,6 @@ const AuthStateApp = () => {
         return onAuthUIStateChange((nextAuthState, authData) => {
             setAuthState(nextAuthState);
             setUser(authData)
-            console.log(user)
-            isData()
         });
     }, []);
 
