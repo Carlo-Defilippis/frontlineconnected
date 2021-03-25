@@ -16,6 +16,13 @@ import { USERS } from '../models'
 
 Amplify.configure(awsconfig);
 
+async function isData() {
+  let models = await DataStore.query(USERS);
+  console.log('My saved Data: ', JSON.stringify(models));
+}
+
+
+
 const AuthStateApp = () => {
     const [authState, setAuthState] = React.useState();
     const [user, setUser] = React.useState();
@@ -24,12 +31,14 @@ const AuthStateApp = () => {
         return onAuthUIStateChange((nextAuthState, authData) => {
             setAuthState(nextAuthState);
             setUser(authData)
+            console.log(user)
+            isData()
         });
     }, []);
 
   return authState === AuthState.SignedIn && user ? (
       <div className="App">
-          <div>Hello, {user.family_name}</div>
+          <div>Hello, {user.attributes.family_name}</div>
           <AmplifySignOut />
       </div>
     ) : (
