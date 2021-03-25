@@ -1,6 +1,6 @@
 import React from 'react';
 import Amplify from 'aws-amplify';
-import { AmplifyAuthenticator, AmplifySignUp, AmplifySignOut } from '@aws-amplify/ui-react';
+import { AmplifyAuthenticator, AmplifySignUp } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import awsconfig from '../aws-exports';
 import icon from '../images/FLSicon_02.png'
@@ -37,7 +37,7 @@ const AuthStateApp = () => {
   return authState === AuthState.SignedIn && user ? (
     <div className="position-relative User">
       <h3>Welcome to your user portal</h3>
-      <img src={icon} className="position-absolute top-0 start-50 translate-middle"></img>
+      <img src={icon} alt='Front Line Solutions Logo' className="position-absolute top-0 start-50 translate-middle"></img>
       <Button variant="primary">Go to my forms</Button>
       <Button variant="primary">Profile</Button>
       <JSignOut />

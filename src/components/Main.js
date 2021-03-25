@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import pic01 from '../images/cruiser.jpg'
-import pic02 from '../images/FLSicon_02.png'
 import pic03 from '../images/paperwork.jpg'
 import AuthStateApp from './Amplify'
 
@@ -34,13 +33,15 @@ class Main extends React.Component {
 
   render() {
     let close = (
-      <div
+      <area
         className="close"
         onClick={() => {
-          this.props.onCloseArticle()          
-          // console.log('props', this.currentUser())
+          this.props.onCloseArticle();
         }}
-      ></div>
+        onKeyDown={() => {
+          this.props.onCloseArticle();
+        }}
+      ></area>
     )
 
     return (
@@ -56,9 +57,9 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">WHAT WE DO</h2>
+          <h2 className="major" style={{ margin: '0', padding: '0', width: '100%', textAlign: 'center' }}>WHAT WE DO</h2>
           <span className="image main">
-            <img src={pic01} alt="" />
+            <img src={pic01} alt="Police Vehicle" />
           </span>
           <p>
           We understand that time waits for no one and neither does the technology that comes with it. So we’ve developed 
@@ -102,9 +103,9 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">Our Mission</h2>
+          <h2 className="major" style={{ margin: '0', padding: '0', width: '100%', textAlign: 'center' }}>Our Mission</h2>
           <span className="image main">
-            <img src={pic03} alt="" style={{ maxHeight: 'auto', maxWidth: 'auto' }}/>
+            <img src={pic03} alt="Paperwork" style={{ maxHeight: 'auto', maxWidth: 'auto' }}/>
           </span>
           <p>
           At Front Line Solutions, our mission is to innovate field and office based forms by offering a secure web-based mobile form service.
@@ -124,7 +125,7 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         >
-          <h2 className="major">Contact</h2>
+          <h2 className="major" style={{ margin: '0', padding: '0', width: '100%', textAlign: 'center' }}>Contact</h2>
           <form method="post" action="#">
             <div className="field half first">
               <label htmlFor="name">Name</label>

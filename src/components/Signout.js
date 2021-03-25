@@ -5,9 +5,6 @@ import { Auth } from 'aws-amplify';
 
 // Component that replaces amplify styles and uses bootstrap instead
 class JSignOut extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
