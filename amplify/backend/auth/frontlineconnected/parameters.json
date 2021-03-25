@@ -1,7 +1,7 @@
 {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "frontl47c5ddcf",
+    "resourceNameTruncated": "frontl420d80d6",
     "userPoolName": "frontlineconnected",
     "autoVerifiedAttributes": [
         "phone_number"
@@ -12,7 +12,7 @@
         "TOTP"
     ],
     "smsAuthenticationMessage": "Thank you for using Front Line Solutions. Your code is {####}.",
-    "smsVerificationMessage": "Your verification code is {####}",
+    "smsVerificationMessage": "Body {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
@@ -25,16 +25,16 @@
     ],
     "requiredAttributes": [
         "email",
-        "family_name",
-        "phone_number"
+        "phone_number",
+        "family_name"
     ],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "frontl47c5ddcf_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "frontl420d80d6_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "47c5ddcf",
+    "sharedId": "420d80d6",
     "resourceName": "frontlineconnected",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {

@@ -164,7 +164,7 @@ Resources:
   # Created to allow the UserPool SMS Config to publish via the Simple Notification Service during MFA Process
     Type: AWS::IAM::Role
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, 'frontl47c5ddcf_sns-role', !Join ['',[ 'sns', '47c5ddcf', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, 'frontl420d80d6_sns-role', !Join ['',[ 'sns', '420d80d6', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
       AssumeRolePolicyDocument:
         Version: "2012-10-17"
         Statement:
@@ -176,10 +176,10 @@ Resources:
               - "sts:AssumeRole"
             Condition:
               StringEquals:
-                sts:ExternalId: frontl47c5ddcf_role_external_id
+                sts:ExternalId: frontl420d80d6_role_external_id
       Policies:
         -
-          PolicyName: frontl47c5ddcf-sns-policy
+          PolicyName: frontl420d80d6-sns-policy
           PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -209,12 +209,12 @@ Resources:
           Mutable: true
         
         -
-          Name: family_name
+          Name: phone_number
           Required: true
           Mutable: true
         
         -
-          Name: phone_number
+          Name: family_name
           Required: true
           Mutable: true
         
@@ -239,7 +239,7 @@ Resources:
       SmsAuthenticationMessage: !Ref smsAuthenticationMessage
       SmsConfiguration:
         SnsCallerArn: !GetAtt SNSRole.Arn
-        ExternalId: frontl47c5ddcf_role_external_id
+        ExternalId: frontl420d80d6_role_external_id
     
     DependsOn: SNSRole
     
@@ -249,7 +249,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: frontl47c5ddcf_app_clientWeb
+      ClientName: frontl420d80d6_app_clientWeb
       
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
@@ -259,7 +259,7 @@ Resources:
   # Depends on UserPool for ID reference
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
-      ClientName: frontl47c5ddcf_app_client
+      ClientName: frontl420d80d6_app_client
       
       GenerateSecret: !Ref userpoolClientGenerateSecret
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
@@ -270,7 +270,7 @@ Resources:
   # Created to execute Lambda which gets userpool app client config values
     Type: 'AWS::IAM::Role'
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, !Ref userpoolClientLambdaRole, !Join ['',['upClientLambdaRole', '47c5ddcf', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, !Ref userpoolClientLambdaRole, !Join ['',['upClientLambdaRole', '420d80d6', !Select [3, !Split ['-', !Ref 'AWS::StackName']], '-', !Ref env]]]
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -324,7 +324,7 @@ Resources:
   # Marked as depending on UserPoolClientRole for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: frontl47c5ddcf_userpoolclient_lambda_iam_policy
+      PolicyName: frontl420d80d6_userpoolclient_lambda_iam_policy
       Roles:
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -341,7 +341,7 @@ Resources:
   # Marked as depending on UserPoolClientLambdaPolicy for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: frontl47c5ddcf_userpoolclient_lambda_log_policy
+      PolicyName: frontl420d80d6_userpoolclient_lambda_log_policy
       Roles:
         - !Ref UserPoolClientRole
       PolicyDocument:
@@ -378,7 +378,7 @@ Resources:
   # Created to execute Lambda which sets MFA config values
     Type: 'AWS::IAM::Role'
     Properties:
-      RoleName: !If [ShouldNotCreateEnvResources, 'frontl47c5ddcf_totp_lambda_role', !Join ['',['frontl47c5ddcf_totp_lambda_role', '-', !Ref env]]]
+      RoleName: !If [ShouldNotCreateEnvResources, 'frontl420d80d6_totp_lambda_role', !Join ['',['frontl420d80d6_totp_lambda_role', '-', !Ref env]]]
       AssumeRolePolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -389,14 +389,14 @@ Resources:
             Action:
               - 'sts:AssumeRole'
       Policies:
-      - PolicyName: frontl47c5ddcf_totp_pass_role_policy
+      - PolicyName: frontl420d80d6_totp_pass_role_policy
         PolicyDocument:
           Version: 2012-10-17
           Statement:
             - Effect: Allow
               Action:
                 - 'iam:PassRole'
-              Resource: !If [ShouldNotCreateEnvResources, 'arn:aws:iam:::role/frontl47c5ddcf_totp_lambda_role', !Join ['',['arn:aws:iam:::role/frontl47c5ddcf_totp_lambda_role', '-', !Ref env]]]
+              Resource: !If [ShouldNotCreateEnvResources, 'arn:aws:iam:::role/frontl420d80d6_totp_lambda_role', !Join ['',['arn:aws:iam:::role/frontl420d80d6_totp_lambda_role', '-', !Ref env]]]
   MFALambda:
   # Lambda which sets MFA config values
   # Depends on MFALambdaRole for role ARN
@@ -452,9 +452,9 @@ Resources:
   # Marked as depending on MFALambda for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: frontl47c5ddcf_totp_lambda_iam_policy
+      PolicyName: frontl420d80d6_totp_lambda_iam_policy
       Roles:
-        - !If [ShouldNotCreateEnvResources, 'frontl47c5ddcf_totp_lambda_role', !Join ['',['frontl47c5ddcf_totp_lambda_role', '-', !Ref env]]]
+        - !If [ShouldNotCreateEnvResources, 'frontl420d80d6_totp_lambda_role', !Join ['',['frontl420d80d6_totp_lambda_role', '-', !Ref env]]]
       PolicyDocument:
         Version: '2012-10-17'
         Statement:
@@ -468,9 +468,9 @@ Resources:
   # Marked as depending on MFALambdaPolicy for easier to understand CFN sequencing
     Type: 'AWS::IAM::Policy'
     Properties:
-      PolicyName: frontl47c5ddcf_totp_lambda_log_policy
+      PolicyName: frontl420d80d6_totp_lambda_log_policy
       Roles:
-        - !If [ShouldNotCreateEnvResources, 'frontl47c5ddcf_totp_lambda_role', !Join ['',['frontl47c5ddcf_totp_lambda_role', '-', !Ref env]]]
+        - !If [ShouldNotCreateEnvResources, 'frontl420d80d6_totp_lambda_role', !Join ['',['frontl420d80d6_totp_lambda_role', '-', !Ref env]]]
       PolicyDocument:
         Version: 2012-10-17
         Statement:
@@ -496,7 +496,7 @@ Resources:
       totpEnabled: true
       smsConfigCaller: !GetAtt SNSRole.Arn
       smsAuthenticationMessage: !Ref smsAuthenticationMessage
-      smsConfigExternalId: frontl47c5ddcf_role_external_id
+      smsConfigExternalId: frontl420d80d6_role_external_id
     DependsOn: MFALogPolicy
   
     
