@@ -1,0 +1,19 @@
+
+
+.User {
+    @include vendor('flex-grow', '1');
+    @include vendor('flex-shrink', '1');
+    @include vendor('display', 'flex');
+    @include vendor('align-items', 'center');
+    @include vendor('justify-content', 'center');
+    @include vendor('flex-direction', 'column');
+    position: relative;
+    max-width: 100%;
+    z-index: 5;
+    padding-bottom: 5px;
+
+    img {
+      max-width: 30%;
+      padding-bottom: 10%; 
+    }
+}

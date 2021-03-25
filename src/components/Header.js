@@ -30,7 +30,7 @@ const Header = props => (
           <button onClick={() => { 
             props.onOpenArticle('work')
             }}>
-              {props.data ? 'Forms' : 'Sign Up/Login'}
+              {props.data ? 'User Portal' : 'Sign Up/Login'}
           </button>
         </li>
         <li>

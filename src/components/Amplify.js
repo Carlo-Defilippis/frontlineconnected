@@ -1,8 +1,10 @@
 import React from 'react';
 import Amplify from 'aws-amplify';
-import { AmplifyAuthenticator, AmplifySignUp, AmplifySignOut } from '@aws-amplify/ui-react';
+import { AmplifyAuthenticator, AmplifyConfirmSignUp , AmplifySignUp, AmplifySignOut } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import awsconfig from '../aws-exports';
+import icon from '../images/FLSicon_02.png'
+import Button from 'react-bootstrap/Button';
 import { DataStore } from '@aws-amplify/datastore'
 import { USERS } from '../models'
 
@@ -26,20 +28,24 @@ Amplify.configure(awsconfig);
 const AuthStateApp = () => {
     const [authState, setAuthState] = React.useState();
     const [user, setUser] = React.useState();
-    // console.log(authState)
+    console.log(authState)
     React.useEffect(() => {
         return onAuthUIStateChange((nextAuthState, authData) => {
             setAuthState(nextAuthState);
-            setUser(authData)
+            setUser(authData);
+            console.log(user)
         });
     }, []);
 
   return authState === AuthState.SignedIn && user ? (
-      <div className="User">
-          <div>Hello, {user.attributes.family_name}</div>
-          <AmplifySignOut />
-      </div>
-    ) : (
+    <div className="position-relative User">
+    <h3>Welcome to your user portal</h3>
+    <img src={icon} className="position-absolute top-0 start-50 translate-middle"></img>
+    <Button variant="primary">Go to my forms</Button>
+    <br />
+      <AmplifySignOut className="position-absolute top-100 start-50 translate-middle" />
+    </div>
+) : (
       <AmplifyAuthenticator>
         <AmplifySignUp
           slot="sign-up"
