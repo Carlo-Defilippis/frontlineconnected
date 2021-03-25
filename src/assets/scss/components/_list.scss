@@ -20,6 +20,7 @@
 		list-style: disc;
 		margin: 0 0 _size(element-margin) 0;
 		padding-left: 1em;
+		padding-top: 1em;
 
 		li {
 			padding-left: 0.5em;
@@ -147,7 +148,7 @@
 
 			@include breakpoint(xsmall) {
 				margin: 0 0 _size(element-margin) 0;
-
+				
 				li {
 					padding: (_size(element-margin) * 0.5) 0 0 0;
 					display: block;

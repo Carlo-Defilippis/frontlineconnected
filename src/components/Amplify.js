@@ -43,7 +43,7 @@ const AuthStateApp = () => {
     <img src={icon} className="position-absolute top-0 start-50 translate-middle"></img>
     <Button variant="primary">Go to my forms</Button>
     <br />
-      <AmplifySignOut className="position-absolute top-100 start-50 translate-middle" />
+    <AmplifySignOut style={{ borderRadius: '5%' }} />
     </div>
 ) : (
       <AmplifyAuthenticator>

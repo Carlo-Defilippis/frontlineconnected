@@ -117,7 +117,7 @@
       list-style: none;
       margin: auto;
       align-items: center;
-      // padding-left: 0;
+      padding-left: 0;
       // border: solid _size(border-width) _palette(border);
       // border-radius: _size(border-radius);
 
@@ -239,6 +239,10 @@
       p {
         line-height: 1.875;
       }
+
+      li {
+        padding-left: 0;
+      }
     }
   }
 
@@ -256,9 +260,11 @@
         @include vendor('flex-direction', 'column');
         min-width: 10rem;
         max-width: 100%;
+        padding-top: 0;
 
         li {
           border-left: 0;
+          padding-left: 0;
           // border-top: solid _size(border-width) _palette(border);
 
           &:first-child {

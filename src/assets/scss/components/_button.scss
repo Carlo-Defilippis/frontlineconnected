@@ -72,6 +72,14 @@
 			cursor: default;
 			opacity: 0.25;
 		}
+
+		@include breakpoint(small) {
+			padding-bottom: 2rem 1rem;
+		}
+
+		@include breakpoint(xsmall) {
+			padding-bottom: 1rem;
+		}
 	}
 
 	input[type="submit"],

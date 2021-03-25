@@ -10,10 +10,36 @@
     position: relative;
     max-width: 100%;
     z-index: 5;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 
     img {
       max-width: 30%;
       padding-bottom: 10%; 
     }
+
+    button {
+        background-color: #0091ff;
+        box-shadow: none;
+        font-family: 'Amazon Ember', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+        font-weight: bold;
+        letter-spacing: 0.2mm;
+        color: white;
+        font-size: 92%;
+        margin-bottom: 5%;
+    }
+
+    amplify-sign-out {
+        border-radius: 3%!important;
+        background-color: #dd3f5b;
+    }
+
+    amplify-button {
+        border-radius: 3%!important;
+        background-color: #dd3f5b;
+    }
+
+    button:hover {
+        opacity: 0.7;
+    }
+
 }
