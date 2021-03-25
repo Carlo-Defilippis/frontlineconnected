@@ -2,7 +2,7 @@ projects:
   frontlineconnected:
     schemaPath: amplify/backend/api/frontlineconnected/build/schema.graphql
     includes:
-      - src/graphql/**/*.js
+      - src/graphql/*
     excludes:
       - ./amplify/**
     extensions:
