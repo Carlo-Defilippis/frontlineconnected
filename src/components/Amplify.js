@@ -29,7 +29,7 @@ const AuthStateApp = () => {
 
   return authState === AuthState.SignedIn && user ? (
       <div className="App">
-          <div>Hello, {user.username}</div>
+          <div>Hello, {user.family_name}</div>
           <AmplifySignOut />
       </div>
     ) : (
