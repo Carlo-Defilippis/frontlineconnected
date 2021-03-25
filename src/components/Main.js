@@ -33,15 +33,12 @@ class Main extends React.Component {
 
   render() {
     let close = (
-      <area
+      <div
         className="close"
         onClick={() => {
           this.props.onCloseArticle();
         }}
-        onKeyDown={() => {
-          this.props.onCloseArticle();
-        }}
-      ></area>
+      ></div>
     )
 
     return (
