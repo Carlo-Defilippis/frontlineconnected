@@ -23,7 +23,8 @@
 		cursor: pointer;
 		display: inline-block;
 		font-size: 0.8rem;
-		font-weight: _font(weight);
+		// font-weight: _font(weight);
+		font-weight: bold;
 		height: _size(element-height);
 		letter-spacing: _font(letter-spacing);
 		line-height: _size(element-height);

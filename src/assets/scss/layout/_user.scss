@@ -28,14 +28,8 @@
         margin-bottom: 5%;
     }
 
-    amplify-sign-out {
+    .signOutButton > * {
         border-radius: 3%!important;
-        background-color: #dd3f5b;
-    }
-
-    amplify-button {
-        border-radius: 3%!important;
-        background-color: #dd3f5b;
     }
 
     button:hover {

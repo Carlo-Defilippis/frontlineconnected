@@ -1,12 +1,11 @@
 import React from 'react';
 import Amplify from 'aws-amplify';
-import { AmplifyAuthenticator, AmplifyConfirmSignUp , AmplifySignUp, AmplifySignOut } from '@aws-amplify/ui-react';
+import { AmplifyAuthenticator, AmplifySignUp, AmplifySignOut } from '@aws-amplify/ui-react';
 import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
 import awsconfig from '../aws-exports';
 import icon from '../images/FLSicon_02.png'
 import Button from 'react-bootstrap/Button';
-import { DataStore } from '@aws-amplify/datastore'
-import { USERS } from '../models'
+import JSignOut from './Signout';
 
 // await DataStore.save(
 //   new USERS({
@@ -28,22 +27,20 @@ Amplify.configure(awsconfig);
 const AuthStateApp = () => {
     const [authState, setAuthState] = React.useState();
     const [user, setUser] = React.useState();
-    console.log(authState)
     React.useEffect(() => {
         return onAuthUIStateChange((nextAuthState, authData) => {
             setAuthState(nextAuthState);
             setUser(authData);
-            console.log(user)
         });
     }, []);
 
   return authState === AuthState.SignedIn && user ? (
     <div className="position-relative User">
-    <h3>Welcome to your user portal</h3>
-    <img src={icon} className="position-absolute top-0 start-50 translate-middle"></img>
-    <Button variant="primary">Go to my forms</Button>
-    <br />
-    <AmplifySignOut style={{ borderRadius: '5%' }} />
+      <h3>Welcome to your user portal</h3>
+      <img src={icon} className="position-absolute top-0 start-50 translate-middle"></img>
+      <Button variant="primary">Go to my forms</Button>
+      <Button variant="primary">Profile</Button>
+      { user && <JSignOut /> }
     </div>
 ) : (
       <AmplifyAuthenticator>
