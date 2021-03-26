@@ -9,6 +9,28 @@ Parameters:
     Type: String
 
   
+  
+  
+  functionfrontlineconnected86228a56CustomMessageArn:
+    Type: String
+    Default: functionfrontlineconnected86228a56CustomMessageArn
+  
+  functionfrontlineconnected86228a56CustomMessageName:
+    Type: String
+    Default: functionfrontlineconnected86228a56CustomMessageName
+  
+  
+  
+  functionfrontlineconnected86228a56PostConfirmationArn:
+    Type: String
+    Default: functionfrontlineconnected86228a56PostConfirmationArn
+  
+  functionfrontlineconnected86228a56PostConfirmationName:
+    Type: String
+    Default: functionfrontlineconnected86228a56PostConfirmationName
+  
+  
+  
 
     
   identityPoolName:
@@ -59,10 +81,10 @@ Parameters:
   defaultPasswordPolicy:
     Type: String
             
-    
   passwordPolicyMinLength:
-    Type: Number
-          
+    Type: String
+  
+            
         
   passwordPolicyCharacters:
     Type: CommaDelimitedList
@@ -75,10 +97,10 @@ Parameters:
   userpoolClientGenerateSecret:
     Type: String
             
-    
   userpoolClientRefreshTokenValidity:
-    Type: Number
-          
+    Type: String
+  
+            
         
   userpoolClientWriteAttributes:
     Type: CommaDelimitedList
@@ -117,7 +139,6 @@ Parameters:
   userPoolGroupList:
     Type: CommaDelimitedList
       
-            
   serviceName:
     Type: String
   
@@ -130,6 +151,43 @@ Parameters:
   dependsOn:
     Type: CommaDelimitedList
       
+  
+  thirdPartyAuth:
+    Type: String
+            
+  
+  userPoolGroups:
+    Type: String
+            
+  
+  adminQueries:
+    Type: String
+            
+  triggers:
+    Type: String
+  
+            
+  
+  hostedUI:
+    Type: String
+            
+            
+  verificationBucketName:
+    Type: String
+  
+            
+      
+  parentStack:
+    Type: String
+        
+        
+  permissions:
+    Type: CommaDelimitedList
+      
+        
+  authProviders:
+    Type: CommaDelimitedList
+      
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
   
@@ -137,6 +195,27 @@ Conditions:
   
 
 Resources:
+  
+  CustomMessageConfirmationBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: "Retain"
+    Properties:
+      BucketName:  !If [ShouldNotCreateEnvResources, !Ref verificationBucketName, !Join ['',[!Ref verificationBucketName, '-', !Ref env]]]
+      AccessControl: "Private"
+      WebsiteConfiguration:
+        IndexDocument: "index.html"
+        ErrorDocument: "index.html"
+      CorsConfiguration:
+        CorsRules:
+          -
+            AllowedHeaders:
+              - "Authorization"
+              - "Content-Length"
+            AllowedMethods:
+              - "GET"
+            AllowedOrigins:
+              - "*"
+            MaxAge: 3000
   
   
   # BEGIN SNS ROLE RESOURCE
@@ -190,6 +269,21 @@ Resources:
         
       
       
+      LambdaConfig:
+        
+        
+          CustomMessage: !Ref functionfrontlineconnected86228a56CustomMessageArn
+        
+        
+        
+        
+          PostConfirmation: !Ref functionfrontlineconnected86228a56PostConfirmationArn
+        
+        
+        
+        
+        
+      
       
       AutoVerifiedAttributes: !Ref autoVerifiedAttributes
       
@@ -200,10 +294,10 @@ Resources:
       Policies:
         PasswordPolicy:
           MinimumLength: !Ref passwordPolicyMinLength
-          RequireLowercase: false
-          RequireNumbers: false
-          RequireSymbols: false
-          RequireUppercase: false
+          RequireLowercase: true
+          RequireNumbers: true
+          RequireSymbols: true
+          RequireUppercase: true
       
       MfaConfiguration: !Ref mfaConfiguration
       SmsVerificationMessage: !Ref smsVerificationMessage
@@ -212,6 +306,68 @@ Resources:
         SnsCallerArn: !GetAtt SNSRole.Arn
         ExternalId: frontl86228a56_role_external_id
     
+  
+  
+  
+  UserPoolCustomMessageLambdaInvokePermission:
+    Type: "AWS::Lambda::Permission"
+    DependsOn: UserPool
+    Properties:
+      Action: "lambda:invokeFunction"
+      Principal: "cognito-idp.amazonaws.com"
+      FunctionName: !Ref functionfrontlineconnected86228a56CustomMessageName
+      SourceArn: !GetAtt UserPool.Arn
+  
+  
+  
+  
+  UserPoolPostConfirmationLambdaInvokePermission:
+    Type: "AWS::Lambda::Permission"
+    DependsOn: UserPool
+    Properties:
+      Action: "lambda:invokeFunction"
+      Principal: "cognito-idp.amazonaws.com"
+      FunctionName: !Ref functionfrontlineconnected86228a56PostConfirmationName
+      SourceArn: !GetAtt UserPool.Arn
+  
+  
+  
+  
+  
+  # Updating lambda role with permissions to Cognito
+  
+  
+  frontlineconnected86228a56PostConfirmationAddToGroupCognito:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: frontlineconnected86228a56PostConfirmationAddToGroupCognito
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+            
+              - cognito-idp:AdminAddUserToGroup
+            
+              - cognito-idp:GetGroup
+            
+              - cognito-idp:CreateGroup
+            
+            
+            
+            Resource: !GetAtt
+            
+              - UserPool
+            
+              - Arn
+            
+            
+            
+
+      Roles:
+        - !Join ['',["frontlineconnected86228a56PostConfirmation", '-', !Ref env]]
+  
+  
   
   UserPoolClientWeb:
   # Created provide application access to user pool

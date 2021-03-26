@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Col, Row, InputGroup, setValidated } from 'react-bootstrap';
+import { Button, Form, Col, Row, InputGroup } from 'react-bootstrap';
 import { Auth } from 'aws-amplify';
 import zipcodes from 'zipcodes-nrviens'
 import passwordComplexity from 'joi-password-complexity';
@@ -11,8 +11,6 @@ class SignUpForm extends Component {
         this.myConfRef = React.createRef();
         this.state = {
             username: '',
-            password: '',
-            confirm_password: '',
             email: '',
             phone_number: '',
             first_name: '',
@@ -35,7 +33,7 @@ class SignUpForm extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const { signedUp, username, password, confirm_password, email, phone_number, first_name, last_name, city, state, zip, confirmationCode } = this.state;
+        const { signedUp, username, email, phone_number, first_name, last_name, city, state, zip, confirmationCode } = this.state;
         const form = e.currentTarget;
 
         console.log(this.myPwRef.current.value, passwordComplexity().validate(this.myPwRef.current.value))
@@ -73,12 +71,11 @@ class SignUpForm extends Component {
                 password: this.myPwRef.current.value,
                 attributes: {
                     email: email,
-                    phone_number: phone_number,
-                    first_name: first_name,
-                    last_name: last_name,
-                    city: city,
-                    state: state,
-                    zip: zip
+                    'first_name': first_name,
+                    'last_name': last_name,
+                    'city': city,
+                    'state': state,
+                    'custom:zip': zip
                 }
             })
                 .then(() => {
@@ -185,7 +182,6 @@ class SignUpForm extends Component {
                                         aria-describedby="inputGroupPrepend"
                                         required
                                         name="password"
-                                        onSubmit={this.handleChange}
                                     />
                                 </InputGroup>
                             </Form.Group>
@@ -199,7 +195,6 @@ class SignUpForm extends Component {
                                         aria-describedby="inputGroupPrepend"
                                         required
                                         name="confirm_password"
-                                        onSubmit={this.handleChange}
                                     />
                                     <Form.Control.Feedback type="invalid">
                                     </Form.Control.Feedback>

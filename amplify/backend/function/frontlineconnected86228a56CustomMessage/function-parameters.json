@@ -1,0 +1,26 @@
+{
+  "trigger": true,
+  "modules": [
+    "verification-link"
+  ],
+  "parentResource": "frontlineconnected86228a56",
+  "functionName": "frontlineconnected86228a56CustomMessage",
+  "resourceName": "frontlineconnected86228a56CustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": [
+    {
+      "key": "RESOURCENAME",
+      "value": "resourceName"
+    }
+  ],
+  "triggerDir": "C:\\Users\\na2tt\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "triggerEventPath": "CustomMessage.event.json",
+  "roleName": "frontlineconnected86228a56CustomMessage",
+  "skipEdit": true,
+  "REDIRECTURL": "",
+  "EMAILSUBJECT": "Front Line Solutions: Confirmation",
+  "EMAILMESSAGE": "Thank you for choosing Front Line Solutions. Click the link below to verify your email.",
+  "RESOURCENAME": "resourceName",
+  "enableCors": false
+}
