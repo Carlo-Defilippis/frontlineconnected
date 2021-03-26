@@ -29,6 +29,11 @@
 			margin: ($gutter * 1.25) 0 0 0 !important;
 		}
 
+		.form-control:disabled, .form-control[readonly] {
+			background-color: transparent;
+			color: inherit;
+		}
+
 		@include breakpoint(small) {
 			.field {
 				margin: 0 0 ($gutter * 0.75) 0;
