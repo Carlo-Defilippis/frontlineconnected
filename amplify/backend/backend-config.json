@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "frontlineconnected86228a56": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

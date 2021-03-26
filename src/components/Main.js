@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import pic01 from '../images/cruiser.jpg'
-import pic03 from '../images/paperwork.jpg'
-import AuthStateApp from './Amplify'
+import PropTypes from 'prop-types';
+import React from 'react';
+import pic01 from '../images/cruiser.jpg';
+import pic03 from '../images/paperwork.jpg';
+// import AuthStateApp from './Amplify';
+import SignUpForm from './SignUpForm';
 
 
 class Main extends React.Component {
@@ -86,8 +87,9 @@ class Main extends React.Component {
             this.props.articleTimeout ? 'timeout' : ''
           }`}
           style={{ display: 'none' }}
-        >
-          <AuthStateApp />
+        > 
+          <SignUpForm />
+          {/* <AuthStateApp /> */}
           {/* <iframe title="your title" style={{ width: '100%', maxWidth: '100%', height: '500px' }} src={URL}></iframe> */}
           {close}
         </article>

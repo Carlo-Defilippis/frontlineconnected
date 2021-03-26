@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import icon from '../images/FLSicon_02.png'
 
+
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
     <div className="logo" style={{ position: 'relative' }}>
