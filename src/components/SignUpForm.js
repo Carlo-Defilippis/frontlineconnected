@@ -71,10 +71,10 @@ class SignUpForm extends Component {
                 password: this.myPwRef.current.value,
                 attributes: {
                     email: email,
-                    'first_name': first_name,
-                    'last_name': last_name,
-                    'city': city,
-                    'state': state,
+                    'custom:first_name': first_name,
+                    'custom:last_name': last_name,
+                    'custom:city': city,
+                    'custom:state': state,
                     'custom:zip': zip
                 }
             })
