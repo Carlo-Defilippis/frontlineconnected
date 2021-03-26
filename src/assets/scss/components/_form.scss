@@ -90,10 +90,10 @@
 			'box-shadow #{_duration(transition)} ease-in-out',
 			'background-color #{_duration(transition)} ease-in-out'
 		));
-		background: white;
+		background: transparent;
 		border-radius: _size(border-radius);
 		border: solid _size(border-width) _palette(border);
-		color: black;
+		color: inherit;
 		display: block;
 		outline: 0;
 		padding: 0 1rem;
