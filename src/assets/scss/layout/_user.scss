@@ -3,6 +3,22 @@
 #work .MuiPaper-root {
     position: relative;
     top: auto;
+    width: 90%;
+    min-width: none;
+}
+
+.MuiContainer-maxWidthXs {
+    @include vendor('flex-grow', '1');
+    @include vendor('flex-shrink', '1');
+    @include vendor('display', 'flex');
+    @include vendor('align-items', 'center');
+    @include vendor('justify-content', 'center');
+    @include vendor('flex-direction', 'column');
+    position: relative;
+    min-width: none;
+    z-index: 5;
+    padding-bottom: 10px;
+
 }
 
 .MuiToolbar-root {
