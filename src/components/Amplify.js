@@ -29,19 +29,16 @@ const signUpConfig = {
           required: true,
           displayOrder: 2,
           type: 'text',
-          intl: {
-            label: 'signUp.labels.family_name',
-          }
+        //   intl: {
+        //     label: 'signUp.labels.family_name',
+        //   }
         },
         {
           label: 'Last Name',
           key: 'last_name',
           required: true,
           displayOrder: 2,
-          type: 'text',
-          intl: {
-            label: 'signUp.labels.given_name',
-          }
+          type: 'text'
         },
         {
             label: 'City',
