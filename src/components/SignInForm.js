@@ -1,4 +1,3 @@
-import { Button } from 'bootstrap';
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Auth } from 'aws-amplify';
@@ -66,7 +65,7 @@ class SignInForm extends Component {
                     <input type='text' name='username' onChange={ this.handleChange } />
                     <label>Password</label>
                     <input type='password' name='password' onChange={ this.handleChange } />
-                    <Button>Sign In</Button>
+                    <Button onClick={this.handleSubmit}>Sign In</Button>
                 </form>
             )
         }

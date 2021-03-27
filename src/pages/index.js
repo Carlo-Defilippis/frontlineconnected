@@ -5,10 +5,6 @@ import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
 import { Auth } from 'aws-amplify';
-import awsmobile from '../aws-exports'
-import Amplify from 'aws-amplify';
-
-Amplify.configure(awsmobile);
 
 
 class IndexPage extends React.Component {

@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import pic01 from '../images/cruiser.jpg';
 import pic03 from '../images/paperwork.jpg';
-// import AuthStateApp from './Amplify';
+import { Auth } from 'aws-amplify'
 import SignUpForm from './SignUpForm';
-
+import UserPortal from './Amplify';
 
 class Main extends React.Component {
   constructor(props) {
@@ -15,23 +15,24 @@ class Main extends React.Component {
     }
   }
 
-  // currentUser = () => {
-  //   Auth.currentAuthenticatedUser()
-  //     .then(user => {
-  //       console.log("USER", user);
-  //       this.setState({
-  //         user: true
-  //       })
-  //     })
-  //     .catch(err => {
-  //       console.log("ERROR", err);
-  //       this.setState({
-  //         user: false
-  //       })
-  //     });
-  // };
+  currentUser = () => {
+    Auth.currentAuthenticatedUser()
+      .then(user => {
+        console.log("USER", user);
+        this.setState({
+          user: true
+        })
+      })
+      .catch(err => {
+        console.log("ERROR", err);
+        this.setState({
+          user: false
+        })
+      });
+  };
 
   render() {
+    console.log('props in main', this.props)
     let close = (
       <div
         className="close"
@@ -88,7 +89,7 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         > 
-          <SignUpForm />
+          <UserPortal />
           {/* <AuthStateApp /> */}
           {/* <iframe title="your title" style={{ width: '100%', maxWidth: '100%', height: '500px' }} src={URL}></iframe> */}
           {close}

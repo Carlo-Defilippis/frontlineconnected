@@ -1,8 +1,10 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Button, Form, Col, Row, InputGroup } from 'react-bootstrap';
+import { Button, Form, Col, Row, InputGroup, Link } from 'react-bootstrap';
 import { Auth } from 'aws-amplify';
 import zipcodes from 'zipcodes-nrviens'
 import passwordComplexity from 'joi-password-complexity';
+import SignInForm from './SignInForm';
 
 class SignUpForm extends Component {
     constructor(props) {
@@ -24,11 +26,13 @@ class SignUpForm extends Component {
             validZip: '',
             placeHolderCity: 'Check Zip to populate this field.',
             placeHolderState: 'Check Zip.',
-            confirm_passwordError: ''
+            confirm_passwordError: '',
+            isUser: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleZip = this.handleZip.bind(this);
+        this.handleIsUser = this.handleIsUser.bind(this);
     }
 
     handleSubmit(e) {
@@ -43,19 +47,17 @@ class SignUpForm extends Component {
         }
 
         if (this.myPwRef.current.value === this.myConfRef.current.value && this.myPwRef.current.value !== '' && this.myConfRef.current.value !== '') {
-            if(!passwordComplexity().validate(this.myPwRef.current.value).error) {
+            if (!passwordComplexity().validate(this.myPwRef.current.value).error) {
                 this.setState({
                     confirm_passwordError: '',
                     validated: true
                 })
-                console.log('if state is true')
             } else {
                 this.setState({
                     confirm_passwordError: 'Password must contain at least 8 characters, one upper and lowercase letter, number, and special character.'
-                }) 
-                console.log("else was hit")
+                })
                 e.preventDefault();
-                e.stopPropagation();           
+                e.stopPropagation();
             }
         } else {
             this.setState({
@@ -82,7 +84,7 @@ class SignUpForm extends Component {
                     this.setState({
                         signedUp: true
                     })
-                    console.log('signed up')})
+                })
                 .catch(err => console.log(err));
         } else {
             Auth.confirmSignUp(email, confirmationCode)
@@ -130,16 +132,28 @@ class SignUpForm extends Component {
         }
     }
 
+    componentDidMount() {
+        this.setState({
+            isUser: this.state.isUser
+        })
+    }
+
+    handleIsUser(e) {
+        this.setState({
+            isUser: !this.state.isUser
+        })
+    }
+
     render() {
-        const { signedUp, password, confirm_password, validZip, placeHolderCity, placeHolderState } = this.state;
+        const { signedUp, isUser } = this.state;
 
         if (!signedUp) {
             return (
                 <div>
                     <Form noValidate className="signUpForm" variant='light' validated={this.state.validated} onSubmit={this.handleSubmit}>
-                    <Form.Row>
-                        <Form.Group as={Col} md="5" controlId="validationCustomUsername">
-                            <Form.Label>Username</Form.Label>
+                        <Form.Row>
+                            <Form.Group as={Col} md="5" controlId="validationCustomUsername">
+                                <Form.Label>Username</Form.Label>
                                 <InputGroup hasValidation>
                                     <Form.Control
                                         type="text"
@@ -172,8 +186,8 @@ class SignUpForm extends Component {
                             </Form.Group>
                         </Form.Row>
                         <Form.Row>
-                        <Form.Group as={Col} md="5" controlId="validationPassword">
-                            <Form.Label>Username</Form.Label>
+                            <Form.Group as={Col} md="5" controlId="validationPassword">
+                                <Form.Label>Username</Form.Label>
                                 <InputGroup>
                                     <Form.Control
                                         ref={this.myPwRef}
@@ -229,38 +243,38 @@ class SignUpForm extends Component {
                         <Form.Row>
                             <Form.Group as={Col} md="6" controlId="validationCustom03">
                                 <Form.Label>City</Form.Label>
-                                <Form.Control 
+                                <Form.Control
                                     variant="dark"
                                     type=""
                                     placeholder={this.state.placeHolderCity}
-                                    required 
+                                    required
                                     name="city"
                                     disabled
                                     value={this.state.city}
                                     onChange={this.handleChange}
-                                    />
+                                />
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a valid city.
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="3" controlId="validationCustom04">
                                 <Form.Label>State</Form.Label>
-                                <Form.Control 
+                                <Form.Control
                                     type=""
                                     placeholder={this.state.placeHolderState}
-                                    required 
+                                    required
                                     name="state"
                                     disabled
                                     value={this.state.state}
                                     onChange={this.handleChange}
-                                    />
+                                />
                                 <Form.Control.Feedback type="invalid">
                                     Please choose a state.
                                 </Form.Control.Feedback>
                             </Form.Group>
                             <Form.Group as={Col} md="3" controlId="validationCustom05">
                                 <Form.Label>Zip</Form.Label>
-                                <Form.Control 
+                                <Form.Control
                                     name="zip"
                                     type="text"
                                     maxLength='5'
@@ -268,11 +282,11 @@ class SignUpForm extends Component {
                                     placeholder="Zip"
                                     required
                                     onChange={this.handleChange}
-                                    />
+                                />
                                 <Form.Control.Feedback type="invalid">
                                     Please provide a valid zip.
                                 </Form.Control.Feedback>
-                                    <div style={{ display: 'block' }} className='invalid-feedback'>{this.state.validZip}</div>
+                                <div style={{ display: 'block' }} className='invalid-feedback'>{this.state.validZip}</div>
                                 <Button style={{ marginTop: '3px' }} onClick={this.handleZip}>Check Zip</Button>
                             </Form.Group>
                         </Form.Row>
@@ -293,25 +307,7 @@ class SignUpForm extends Component {
         } else {
             return (
                 <div>
-                    <Form>
-                        <Form.Group as={Row} controlId="formPlaintextEmail">
-                            <Form.Label column sm="2">
-                                Email
-                            </Form.Label>
-                            <Col sm="10">
-                                <Form.Control placeholder="Enter your email" type='text' name='email' onChange={this.handleChange} text="dark" />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} controlId="fromPlainText">
-                            <Form.Label column sm="2">
-                                Confirmation Code
-                            </Form.Label>
-                            <Col sm="10">
-                                <Form.Control type="text" placeholder="Enter your confirmation code" name='confirmationCode' onChange={this.handleChange} text="dark" />
-                            </Col>
-                        </Form.Group>
-                        <Button onClick={this.handleSubmit}>Confirm</Button>
-                    </Form>
+                    <SignInForm />
                 </div>
 
             )
@@ -319,5 +315,15 @@ class SignUpForm extends Component {
 
     }
 }
+
+SignUpForm.propTypes = {
+    route: PropTypes.object,
+    article: PropTypes.string,
+    articleTimeout: PropTypes.bool,
+    onCloseArticle: PropTypes.func,
+    timeout: PropTypes.bool,
+    setWrapperRef: PropTypes.func,
+}
+
 
 export default SignUpForm;

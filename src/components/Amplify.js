@@ -1,52 +1,72 @@
-// import React from 'react';
-// import Amplify from 'aws-amplify';
-// import { AmplifyAuthenticator, AmplifySignUp } from '@aws-amplify/ui-react';
-// import { AuthState, onAuthUIStateChange } from '@aws-amplify/ui-components';
-// import awsconfig from '../aws-exports';
-// import icon from '../images/FLSicon_02.png'
-// import Button from 'react-bootstrap/Button';
-// import JSignOut from './Signout';
-
-// // await DataStore.save(
-// //   new USERS({
-// //   "email": "email",
-// //   "family_name": "family_name",
-// //   "phone_number": "phone_number"
-// // })
-// // );
-
-// Amplify.configure(awsconfig);
-
-// // async function isData() {
-// //   let models = await DataStore.query(USERS);
-// //   console.log('My saved Data: ', JSON.stringify(models));
-// // }
+import React, { Component } from 'react';
+import Amplify from "aws-amplify";
+import { withAuthenticator } from "amplify-material-ui";
+import Bootstrap from 'react-bootstrap';
+import awsmobile from '../aws-exports';
+import JSignOut from './Signout';
+import logo from '../images/FLSicon_02.png'
+Amplify.configure(awsmobile);
 
 
 
-// const AuthStateApp = () => {
-//     const [authState, setAuthState] = React.useState();
-//     const [user, setUser] = React.useState();
-//     React.useEffect(() => {
-//         return onAuthUIStateChange((nextAuthState, authData) => {
-//             setAuthState(nextAuthState);
-//             setUser(authData);
-//         });
-//     }, []);
+class UserPortal extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
 
-//   return authState === AuthState.SignedIn && user ? (
-//     <div className="position-relative User">
-//       <h3>Welcome to your user portal</h3>
-//       <img src={icon} alt='Front Line Solutions Logo' className="position-absolute top-0 start-50 translate-middle"></img>
-//       <Button variant="primary">Go to my forms</Button>
-//       <Button variant="primary">Profile</Button>
-//       <JSignOut />
-//     </div>
-// ) : (
-//       <AmplifyAuthenticator>
-//         <AmplifySignUp/>
-//       </AmplifyAuthenticator>
-//   );
-// }
+        }
+    }
 
-// export default AuthStateApp;
+    render() {
+        return (
+            <div>
+                <h1>Hello user</h1>
+                <JSignOut />
+            </div>
+        )
+    }
+}
+
+export default withAuthenticator(UserPortal, {
+    initialAuthState: 'signIn',
+    signUpFields: [
+        {
+          label: 'First name',
+          key: 'first_name',
+          required: true,
+          displayOrder: 1,
+          type: 'text',
+          intl: {
+            label: 'signUp.labels.family_name',
+          }
+        },
+        {
+          label: 'Surname',
+          key: 'last_name',
+          required: true,
+          displayOrder: 2,
+          type: 'text',
+          intl: {
+            label: 'signUp.labels.given_name',
+          }
+        },
+        {
+          label: 'Email',
+          key: 'email',
+          required: true,
+          displayOrder: 3,
+          type: 'email',
+        },
+        {
+          label: 'Password',
+          key: 'password',
+          required: true,
+          displayOrder: 4,
+          type: 'password',
+        },
+      ],
+      initialValues: {
+        given_name: 'John',
+        family_name: 'Smith',
+      },
+})

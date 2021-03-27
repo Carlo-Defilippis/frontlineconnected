@@ -1,5 +1,14 @@
 
 
+#work .MuiPaper-root {
+    position: relative;
+    top: auto;
+}
+
+.MuiToolbar-root {
+    position: absolute;
+}
+
 .User {
     @include vendor('flex-grow', '1');
     @include vendor('flex-shrink', '1');
