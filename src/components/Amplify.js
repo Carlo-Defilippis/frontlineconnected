@@ -10,10 +10,24 @@ Amplify.configure(awsmobile);
 const signUpConfig = {
     signUpFields: [
         {
+            label: 'User Name',
+            key: 'username',
+            required: true,
+            displayOrder: 1,
+            type: 'text'
+          },
+          {
+            label: 'Email',
+            key: 'email',
+            required: true,
+            displayOrder: 1,
+            type: 'text'
+          },
+        {
           label: 'First name',
           key: 'first_name',
           required: true,
-          displayOrder: 1,
+          displayOrder: 2,
           type: 'text',
           intl: {
             label: 'signUp.labels.family_name',
@@ -30,12 +44,26 @@ const signUpConfig = {
           }
         },
         {
-          label: 'Email',
-          key: 'email',
-          required: true,
-          displayOrder: 3,
-          type: 'email',
-        },
+            label: 'City',
+            key: 'city',
+            required: true,
+            displayOrder: 3,
+            type: 'text'
+          },
+          {
+            label: 'State',
+            key: 'state',
+            required: true,
+            displayOrder: 3,
+            type: 'text'
+          },
+          {
+            label: 'Zip Code',
+            key: 'zip',
+            required: true,
+            displayOrder: 3,
+            type: 'text'
+          },
         {
           label: 'Password',
           key: 'password',

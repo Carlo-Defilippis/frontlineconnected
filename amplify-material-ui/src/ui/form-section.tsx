@@ -7,11 +7,11 @@ import { FormContainer } from './form-container';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
-      marginTop: theme.spacing(12),
+      marginTop: theme.spacing(5),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      minWidth: '300px',
+      minWidth: 'none',
       padding: theme.spacing(1),
     },
   })
