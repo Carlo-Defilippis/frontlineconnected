@@ -13,6 +13,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
 import { UsernameAttribute } from './types';
+import { UsernameAttributes } from 'aws-amplify-react';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -42,16 +43,16 @@ export interface GreetingsProps {
 }
 
 export const Greetings: React.FC<GreetingsProps> = (props) => {
+  const { authData } = useAuthContext();
   const {
     className,
     renderUserMenu,
-    title = 'Greetings',
+    usernameAttribute = UsernameAttribute.USERNAME,
+    title = 'Welcome ' + authData.username,
     burgerMenu,
     globalSignOut,
-    usernameAttribute = UsernameAttribute.USERNAME,
   } = props;
 
-  const { authData } = useAuthContext();
 
   const signOut = useSignOut(globalSignOut);
 

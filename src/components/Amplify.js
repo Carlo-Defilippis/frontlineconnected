@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Amplify from "aws-amplify";
 import { withAuthenticator } from "../../amplify-material-ui/src";
-import Bootstrap from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 import awsmobile from '../aws-exports';
 import JSignOut from './Signout';
-import logo from '../images/FLSicon_02.png'
+import { Auth } from 'aws-amplify';
 Amplify.configure(awsmobile);
 
 const signUpConfig = {
@@ -14,8 +14,7 @@ const signUpConfig = {
             key: 'username',
             required: true,
             displayOrder: 1,
-            type: 'text',
-            placeholder: 'Choose a User Name to log in with'
+            type: 'text'
           },
           {
             label: 'Email',
@@ -76,18 +75,50 @@ const signUpConfig = {
     //   }
 }
 
+
+
+
 class UserPortal extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+          user: []
         }
+        this.handleClickButton = this.handleClickButton.bind(this)
     }
+
+
+    componentDidMount() {
+      this.currentUser();
+    }
+
+    currentUser = () => {
+      Auth.currentAuthenticatedUser()
+        .then(user => {
+          console.log("USER", user);
+          this.setState({
+            user: user
+          })
+        })
+        .catch(err => {
+          console.log("ERROR", err);
+          this.setState({
+            user: false
+          })
+        });
+    };
+
+    handleClickButton() {
+      console.log(this.currentUser(), this.state.user.username)
+    }
+
+
 
     render() {
         return (
-            <div>
-                <h1>Hello user</h1>
+            <div className="userPortalScreen">
+                <h2>Hello user</h2>
+                <Button onClick={this.handleClickButton}>My Forms</Button>
                 <JSignOut />
             </div>
         )

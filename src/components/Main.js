@@ -31,7 +31,7 @@ class Main extends React.Component {
   };
 
   render() {
-    console.log('props in main', this.props)
+    // console.log('props in main', this.props)
     let close = (
       <div
         className="close"
