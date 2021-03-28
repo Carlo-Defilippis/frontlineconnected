@@ -14,7 +14,8 @@ const signUpConfig = {
             key: 'username',
             required: true,
             displayOrder: 1,
-            type: 'text'
+            type: 'text',
+            placeholder: 'Choose a User Name to log in with'
           },
           {
             label: 'Email',

@@ -3,7 +3,6 @@ import React from 'react';
 import pic01 from '../images/cruiser.jpg';
 import pic03 from '../images/paperwork.jpg';
 import { Auth } from 'aws-amplify'
-import SignUpForm from './SignUpForm';
 import UserPortal from './Amplify';
 
 class Main extends React.Component {
