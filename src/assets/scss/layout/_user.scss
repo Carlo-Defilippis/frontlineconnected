@@ -7,6 +7,14 @@
     min-width: none;
 }
 
+.firstButton {
+    margin-top: 20px;
+    min-width: 150px;
+}
+
+.MuiToolbar-regular {
+    background-color: #0091ff;
+}
 // .MuiContainer-maxWidthXs {
 //     @include vendor('flex-grow', '1');
 //     @include vendor('flex-shrink', '1');
@@ -54,6 +62,7 @@
 
     .signOutButton > * {
         border-radius: 3%!important;
+        min-width: 150px!important;
     }
 
     button:hover {
@@ -98,4 +107,9 @@
     button:hover {
         opacity: 0.7;
     }
+}
+
+.signOutButton {
+    border-radius: 4%!important;
+    min-width: 150px!important;
 }

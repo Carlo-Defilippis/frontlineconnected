@@ -117,8 +117,8 @@ class UserPortal extends Component {
     render() {
         return (
             <div className="userPortalScreen">
-                <h2>Hello user</h2>
-                <Button onClick={this.handleClickButton}>My Forms</Button>
+                
+                <Button className="firstButton" onClick={this.handleClickButton}>My Forms</Button>
                 <JSignOut />
             </div>
         )

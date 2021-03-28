@@ -11,7 +11,7 @@ class JSignOut extends React.Component {
 
   render() {
     return (
-      <Button light={valueOf.toString()} outline={valueOf.toString()} sm={valueOf.toString()} border="0" onClick={() => Auth.signOut()}>Sign Out</Button>
+      <Button className="signOutButton" light={valueOf.toString()} outline={valueOf.toString()} sm={valueOf.toString()} border="0" onClick={() => Auth.signOut()}>Sign Out</Button>
     )
   }
 }
