@@ -44,22 +44,21 @@
 					@include vendor('transition-delay', 'none !important');
 				}
 			}
+			.resp-container {
+				position: relative;
+				overflow: hidden;
+				padding-top: 56.25%;
+			}
+		
+			.resp-iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 100%!important;
+				bottom: 100%!important;
+				width: 100%!important;
+				height: 100%!important;
+				border: 0;
+			}
 
-	}
-
-	.resp-container {
-		position: relative;
-		overflow: hidden;
-		padding-top: 56.25%;
-	}
-
-	.resp-iframe {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 100%!important;
-		bottom: 100%!important;
-		width: 100%!important;
-		height: 100%!important;
-		border: 0;
 	}
