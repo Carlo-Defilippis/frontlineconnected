@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { DataStore } from '@aws-amplify/datastore';
 import { Auth } from 'aws-amplify';
-import Button from 'react-bootstrap/Button'
-
+import Button from 'react-bootstrap/Button';
+import GenCards from './Cards/GetCards';
 
 
 class UserForms extends React.Component {
@@ -41,11 +41,12 @@ class UserForms extends React.Component {
         console.log('State in user forms ', this.state)
       }
 
+
     render() {
         return (
             <div className="userPortalScreen">
-                <h1>This is a test!</h1>
-
+                <h3>This is a test!</h3>
+                <GenCards parentState={this.state.userId} />
                 <Button onClick={this.handleClickUploadButton} >Click here to upload a new form</Button>
             </div>
         )}

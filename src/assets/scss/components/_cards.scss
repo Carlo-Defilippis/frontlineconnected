@@ -1,0 +1,18 @@
+.masonry { 
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .masonry-brick {
+    justify-content: center;
+    min-height: auto;
+    min-width: 40px;
+    max-height: auto;
+    max-width: 350px;
+    margin: 0 8px 8px 0; /* Some gutter */
+    align-self: flex-start!important;
+  }
+
