@@ -166,7 +166,7 @@ const FormTemplate = (props) => {
 
             <Form.Row>
                 <Form.Group>
-                    <Form.Label>Officer's Observations: </Form.Label>
+                    <Form.Label>Terms and conditions: </Form.Label>
                     <Form.Check
                         required
                         type="checkbox"
