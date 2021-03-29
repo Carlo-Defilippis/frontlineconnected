@@ -32,3 +32,28 @@
       margin: 0 8px 8px 0; /* Some gutter */
     }
   }
+
+  .mySingleForm {
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: fit-content;
+  }
+
+  .formInputFields input {
+    background-color: white!important;
+    color: black;
+    font-weight: 600;
+
+        ::-moz-selection {
+          background-color: white;
+          color: black;
+      }
+      
+      ::selection {
+        background-color: white;
+        color: black;
+      }
+  }

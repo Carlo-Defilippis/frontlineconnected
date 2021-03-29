@@ -2,7 +2,7 @@ import React from 'react'
 import { DataStore } from '@aws-amplify/datastore';
 import { Auth } from 'aws-amplify';
 import Button from 'react-bootstrap/Button';
-import GenCards from './Cards/GetCards';
+import GetCards from './Cards/GetCards';
 
 
 class UserForms extends React.Component {
@@ -22,7 +22,6 @@ class UserForms extends React.Component {
       currentUser = () => {
         Auth.currentAuthenticatedUser()
           .then(user => {
-            console.log("USER", user);
             this.setState({
               user: user,
               userId: user.attributes.sub
@@ -49,8 +48,7 @@ class UserForms extends React.Component {
         const myInfo = this.state.userId
         return (
             <div className="userPortalScreen" >
-                <h3>This is a test!</h3>
-                <GenCards parentState={myInfo}/>
+                <GetCards parentState={myInfo}/>
                 <Button onClick={this.handleClickUploadButton} >Click here to upload a new form</Button>
             </div>
         )}
