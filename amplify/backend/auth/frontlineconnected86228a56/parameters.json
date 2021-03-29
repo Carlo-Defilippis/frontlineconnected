@@ -34,7 +34,7 @@
         "email"
     ],
     "userpoolClientLambdaRole": "frontl86228a56_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": false,
+    "userpoolClientSetAttributes": true,
     "sharedId": "86228a56",
     "resourceName": "frontlineconnected86228a56",
     "authSelections": "identityPoolAndUserPool",
@@ -52,41 +52,24 @@
     },
     "useDefault": "manual",
     "userPoolGroupList": [
-        "myusers"
+        "newGroup"
     ],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "dependsOn": [
-        {
-            "category": "function",
-            "resourceName": "frontlineconnected86228a56CustomMessage",
-            "triggerProvider": "Cognito",
-            "attributes": [
-                "Arn",
-                "Name"
-            ]
-        },
-        {
-            "category": "function",
-            "resourceName": "frontlineconnected86228a56PostConfirmation",
-            "triggerProvider": "Cognito",
-            "attributes": [
-                "Arn",
-                "Name"
-            ]
-        }
-    ],
+    "dependsOn": [],
     "thirdPartyAuth": false,
     "userPoolGroups": false,
     "adminQueries": false,
-    "triggers": "{\n  \"CustomMessage\": [\n    \"verification-link\"\n  ],\n  \"PostConfirmation\": [\n    \"add-to-group\"\n  ]\n}",
-    "hostedUI": false,
+    "triggers": "{}",
+    "hostedUI": true,
     "verificationBucketName": "frontlineconnected86228a56verificationbucket",
     "parentStack": {
         "Ref": "AWS::StackId"
     },
-    "permissions": [
-        "{\n  \"policyName\": \"AddToGroupCognito\",\n  \"trigger\": \"PostConfirmation\",\n  \"effect\": \"Allow\",\n  \"actions\": [\n    \"cognito-idp:AdminAddUserToGroup\",\n    \"cognito-idp:GetGroup\",\n    \"cognito-idp:CreateGroup\"\n  ],\n  \"resource\": {\n    \"paramType\": \"!GetAtt\",\n    \"keys\": [\n      \"UserPool\",\n      \"Arn\"\n    ]\n  }\n}"
-    ],
-    "authProviders": []
+    "permissions": [],
+    "authProviders": [],
+    "hostedUIDomainName": "frontlineconnectedf0fc1cf4-f0fc1cf4",
+    "authProvidersUserPool": [],
+    "hostedUIProviderMeta": "[]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://main.d3hpf8tcq6az58.amplifyapp.com/\"],\"LogoutURLs\":[\"https://main.d3hpf8tcq6az58.amplifyapp.com/\"]}"
 }

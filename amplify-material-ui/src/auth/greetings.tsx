@@ -13,7 +13,6 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
 import { UsernameAttribute } from './types';
-import { UsernameAttributes } from 'aws-amplify-react';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

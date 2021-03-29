@@ -41,15 +41,15 @@
     },
     "Resources": {
     
-        "myusersGroup": {
+        "newGroupGroup": {
           "Type" : "AWS::Cognito::UserPoolGroup",
           "Properties" : {
-              "GroupName" : "myusers",
+              "GroupName" : "newGroup",
               "Precedence" : 1,
               
               "RoleArn" : {
                 "Fn::GetAtt": [
-                    "myusersGroupRole",
+                    "newGroupGroupRole",
                     "Arn"
                 ]
               },
@@ -60,7 +60,7 @@
             }
         },
         
-        "myusersGroupRole": {
+        "newGroupGroupRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName":{
@@ -70,7 +70,7 @@
                           {
                             "Ref": "authfrontlineconnected86228a56UserPoolId"
                           },
-                          "-myusersGroupRole"
+                          "-newGroupGroupRole"
                         ]
                     ]
                 },
@@ -295,10 +295,10 @@
     
     "Outputs": {
       
-        "myusersGroupRole": {
+        "newGroupGroupRole": {
             "Value": {
                 "Fn::GetAtt": [
-                    "myusersGroupRole",
+                    "newGroupGroupRole",
                     "Arn"
                 ]
             }

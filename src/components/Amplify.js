@@ -21,14 +21,14 @@ const signUpConfig = {
       label: 'Email',
       key: 'email',
       required: true,
-      displayOrder: 1,
+      displayOrder: 2,
       type: 'text'
     },
     {
       label: 'First name',
-      key: 'custom:first_name',
+      key: 'first_name',
       required: true,
-      displayOrder: 2,
+      displayOrder: 3,
       type: 'text',
       //   intl: {
       //     label: 'signUp.labels.family_name',
@@ -36,37 +36,37 @@ const signUpConfig = {
     },
     {
       label: 'Last Name',
-      key: 'custom:last_name',
+      key: 'last_name',
       required: true,
-      displayOrder: 2,
+      displayOrder: 4,
       type: 'text'
     },
     {
       label: 'City',
       key: 'city',
       required: true,
-      displayOrder: 3,
+      displayOrder: 5,
       type: 'text'
     },
     {
       label: 'State',
-      key: 'custom:state',
+      key: 'state',
       required: true,
-      displayOrder: 3,
+      displayOrder: 6,
       type: 'text'
     },
     {
       label: 'Zip Code',
-      key: 'custom:zip',
+      key: 'zip',
       required: true,
-      displayOrder: 3,
+      displayOrder: 7,
       type: 'text'
     },
     {
       label: 'Password',
       key: 'password',
       required: true,
-      displayOrder: 4,
+      displayOrder: 8,
       type: 'password',
     },
   ],

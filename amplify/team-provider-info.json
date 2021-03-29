@@ -15,20 +15,6 @@
       "auth": {
         "frontlineconnected86228a56": {},
         "userPoolGroups": {}
-      },
-      "function": {
-        "frontlineconnected86228a56CustomMessage": {
-          "REDIRECTURL": "",
-          "EMAILSUBJECT": "Front Line Solutions: Confirmation",
-          "EMAILMESSAGE": "Thank you for choosing Front Line Solutions. Click the link below to verify your email.",
-          "deploymentBucketName": "amplify-frontlineconnected-dev-172609-deployment",
-          "s3Key": "amplify-builds/frontlineconnected86228a56CustomMessage-6561776f55782f6e4d36-build.zip"
-        },
-        "frontlineconnected86228a56PostConfirmation": {
-          "GROUP": "myusers",
-          "deploymentBucketName": "amplify-frontlineconnected-dev-172609-deployment",
-          "s3Key": "amplify-builds/frontlineconnected86228a56PostConfirmation-38466f454e4a4d46374d-build.zip"
-        }
       }
     }
   }

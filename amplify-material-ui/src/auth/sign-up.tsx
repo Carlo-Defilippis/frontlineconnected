@@ -94,13 +94,13 @@ const sortByDisplayOrder = (a: SignUpField, b?: SignUpField) => {
 
 export const SignUp: React.FC<SignUpProps> = (props) => {
   const { validationData, signUpConfig } = props;
-
+  console.log('Sign Up Config: ', signUpConfig, 'Validation Data: ',validationData);
   const signUpFields = signUpConfig?.signUpFields ?? defaultSignUpFields;
   const initialValues = signUpConfig?.initialValues ?? {};
   signUpFields.forEach(
     (field) => (initialValues[field.key] = initialValues[field.key] ?? '')
   );
-
+  console.log('Sign up fields: ', signUpFields);
   const classes = useStyles();
   const { formatMessage } = useIntl();
   const { showNotification } = useNotificationContext();
