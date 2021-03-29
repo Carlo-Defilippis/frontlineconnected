@@ -16,3 +16,13 @@
     align-self: flex-start!important;
   }
 
+  @media screen and (max-width: 425px) {
+    .masonry-brick {
+      justify-content: center;
+      min-height: auto;
+      min-width: 120px;
+      max-height: auto;
+      max-width: 150px;
+      margin: 0 8px 8px 0; /* Some gutter */
+    }
+  }
