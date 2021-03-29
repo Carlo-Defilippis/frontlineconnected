@@ -26,7 +26,7 @@ const signUpConfig = {
     },
     {
       label: 'First name',
-      key: 'first_name',
+      key: 'custom:first_name',
       required: true,
       displayOrder: 2,
       type: 'text',
@@ -36,7 +36,7 @@ const signUpConfig = {
     },
     {
       label: 'Last Name',
-      key: 'last_name',
+      key: 'custom:last_name',
       required: true,
       displayOrder: 2,
       type: 'text'
@@ -50,14 +50,14 @@ const signUpConfig = {
     },
     {
       label: 'State',
-      key: 'state',
+      key: 'custom:state',
       required: true,
       displayOrder: 3,
       type: 'text'
     },
     {
       label: 'Zip Code',
-      key: 'zip',
+      key: 'custom:zip',
       required: true,
       displayOrder: 3,
       type: 'text'
