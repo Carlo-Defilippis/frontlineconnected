@@ -47,11 +47,11 @@ const FormTemplate = (props) => {
                     <Form.Label><ins>SSN:</ins></Form.Label>
                     <InputGroup hasValidation>
                         <InputGroup.Prepend>
-                            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+                            <InputGroup.Text id="inputGroupPrepend">SSN</InputGroup.Text>
                         </InputGroup.Prepend>
                         <Form.Control
                             type="text"
-                            placeholder="Username"
+                            placeholder="Social Security #"
                             aria-describedby="inputGroupPrepend"
                             required
                             autoComplete="off"
@@ -62,8 +62,8 @@ const FormTemplate = (props) => {
                     </InputGroup>
                 </Form.Group>
                 <Form.Group as={Col} md="6" controlId="validationCustom03">
-                    <Form.Label><ins>OLN</ins></Form.Label>
-                    <Form.Control type="text" placeholder="City" required autoComplete="off" />
+                    <Form.Label><ins>OLN:</ins></Form.Label>
+                    <Form.Control type="text" placeholder="OLN" required autoComplete="off" />
                     <Form.Control.Feedback type="invalid">
                         Please provide a OLN.
                     </Form.Control.Feedback>
@@ -73,25 +73,25 @@ const FormTemplate = (props) => {
             <Form.Row>
                 <Form.Group as={Col} md="6">
                     <Form.Label className="mt-1 mb-0">Hat/Cap:</Form.Label>
-                    <Form.Control type="text" placeholder="State" autoComplete="off" />
+                    <Form.Control type="text" placeholder="" autoComplete="off" />
                     <Form.Label className="mt-1 mb-0">Shirt/Blouse:</Form.Label>
-                    <Form.Control type="text" placeholder="State" autoComplete="off" />
+                    <Form.Control type="text" placeholder="" autoComplete="off" />
                 </Form.Group>
                 <Form.Group as={Col} md="6">
                     <Form.Label className="mt-1 mb-0">Shoes:</Form.Label>
-                    <Form.Control type="text" placeholder="State" autoComplete="off" />
+                    <Form.Control type="text" placeholder="" autoComplete="off" />
                     <Form.Label className="mt-1 mb-0">Condition of clothing:</Form.Label>
-                    <Form.Control type="text" placeholder="State" autoComplete="off" />
+                    <Form.Control type="text" placeholder="" autoComplete="off" />
                 </Form.Group>
                 <Form.Group as={Col} md="6">
                     <Form.Label className="mt-0 mb-0">Coat/Sweater:</Form.Label>
-                    <Form.Control type="text" placeholder="State" autoComplete="off" />
+                    <Form.Control type="text" placeholder="" autoComplete="off" />
                     <Form.Label className="mt-0 mb-0">Pants/Skirt:</Form.Label>
-                    <Form.Control type="text" placeholder="State" autoComplete="off" />
+                    <Form.Control type="text" placeholder="" autoComplete="off" />
                 </Form.Group>
                 <Form.Group as={Col} md="6">
                     <Form.Label className="mt-0 mb-0">Heels:</Form.Label>
-                    <Form.Control type="text" placeholder="State" autoComplete="off" />
+                    <Form.Control type="text" placeholder="" autoComplete="off" />
                 </Form.Group>
             </Form.Row>
             <Form.Label><ins>Officer's Observations</ins></Form.Label>
