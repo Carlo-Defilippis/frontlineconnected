@@ -4,6 +4,11 @@ import { Form, Col, Button, InputGroup, Row } from 'react-bootstrap'
 
 const FormTemplate = (props) => {
 
+
+    function myCustomForm() {
+        
+    }
+
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (event) => {
@@ -108,7 +113,7 @@ const FormTemplate = (props) => {
                             id="formHorizontalRadios2"
                         />
                 </Form.Group>
-                <Form.Group as={Col} md="6">
+                <Form.Group as={Col} md="5">
                         <Form.Check className="mt-2"
                             type="radio"
                             label="Slight"
@@ -144,7 +149,7 @@ const FormTemplate = (props) => {
                             type="radio"
                             label="Mumbled"
                             name="speechradio"
-                            id="speech2"
+                            id="speech3"
                         />
                 </Form.Group>
                 <Form.Group as={Col} md="4">
@@ -152,13 +157,85 @@ const FormTemplate = (props) => {
                             type="radio"
                             label="Fair"
                             name="speechradio"
-                            id="speech3"
+                            id="speech4"
                         />
                         <Form.Check className="mt-2"
                             type="radio"
                             label="Good"
                             name="speechradio"
-                            id="speech4"
+                            id="speech5"
+                        />
+                </Form.Group>            
+                </Form.Row>
+
+                <Form.Label>Eyes:</Form.Label>
+                <Form.Row>
+                <Form.Group as={Col} md="5">
+
+                        <Form.Check className="mt-2"
+                            type="radio"
+                            label="Red"
+                            name="eyesradio"
+                            id="eyes1"
+                        />
+                        <Form.Check className="mt-2"
+                            type="radio"
+                            label="Bloodshot"
+                            name="eyesradio"
+                            id="eyes2"
+                        />
+                        <Form.Check className="mt-2"
+                            type="radio"
+                            label="Glassy"
+                            name="eyesradio"
+                            id="eyes3"
+                        />
+                </Form.Group>
+                <Form.Group as={Col} md="4">
+                        <Form.Check className="mt-2"
+                            type="radio"
+                            label="Droopy eyelids"
+                            name="eyesradio"
+                            id="eyes4"
+                        />
+                        <Form.Check className="mt-2"
+                            type="radio"
+                            label="Glasses/Contacts"
+                            name="eyesradio"
+                            id="eyes5"
+                        />
+                </Form.Group>            
+                </Form.Row>
+
+                <Form.Row>
+                <Form.Label>Admitted Consumption:</Form.Label>
+                <Form.Group as={Col} md="6">
+
+                        <Form.Check className="mt-2"
+                            type="radio"
+                            label="Beer"
+                            name="admitted"
+                            id="admitted1"
+                        />
+                        <Form.Check className="mt-2"
+                            type="radio"
+                            label="Wine"
+                            name="admitted"
+                            id="admitted2"
+                        />
+                </Form.Group>
+                <Form.Group as={Col} md="5">
+                        <Form.Check className="mt-2"
+                            type="radio"
+                            label="Liquor"
+                            name="admitted"
+                            id="admitted3"
+                        />
+                        <Form.Check className="mt-2"
+                            type="radio"
+                            label="Other"
+                            name="admitted"
+                            id="admitted4"
                         />
                 </Form.Group>            
                 </Form.Row>
