@@ -88,7 +88,7 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         > 
-          <UserPortal />
+          <UserPortal data={this.props} />
           {/* <AuthStateApp /> */}
           {/* <iframe title="your title" style={{ width: '100%', maxWidth: '100%', height: '500px' }} src={URL}></iframe> */}
           {close}

@@ -128,7 +128,7 @@ class UserPortal extends Component {
     return (
       <div className="userPortalScreen">
         <Button className="firstButton" onClick={this._onButtonClick}>My Forms</Button>
-        {this.state.showForms ? <UserForms /> : null }
+        {this.state.showForms ? <UserForms data={this.props} /> : null }
         <JSignOut />
       </div>
     )

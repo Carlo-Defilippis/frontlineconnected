@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { DataStore } from '@aws-amplify/datastore';
 import { Auth } from 'aws-amplify';
 import Button from 'react-bootstrap/Button';
@@ -31,23 +31,26 @@ class UserForms extends React.Component {
           .catch(err => {
             console.log("ERROR", err);
             this.setState({
-              user: false
+              user: false,
             })
+            alert("There was an error, we'll log you out. Try signing in and trying again.")
+            Auth.signOut()
           });
       };
 
     
       handleClickUploadButton() {
         console.log('State in user forms ', this.state)
+        console.log('This is the props ', this.props)
       }
 
 
     render() {
         const myInfo = this.state.userId
         return (
-            <div className="userPortalScreen">
+            <div className="userPortalScreen" >
                 <h3>This is a test!</h3>
-                <GenCards parentState={myInfo} />
+                <GenCards parentState={myInfo}/>
                 <Button onClick={this.handleClickUploadButton} >Click here to upload a new form</Button>
             </div>
         )}

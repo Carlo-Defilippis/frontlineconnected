@@ -1,48 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import '../../assets/scss/components/_cards.scss'
-import { Auth } from 'aws-amplify'
+import { Row, Col, Container } from 'react-bootstrap';
+import '../../assets/scss/components/_cards.scss';
+import { intoxicated_driver_form_page_1 } from './CardImages/index'
+
+
+
 
 const GenCards = (props) => {
 
     const [ user, setUser ] = React.useState()
-
-    // const currentUser = () => {
-    //     Auth.currentAuthenticatedUser()
-    //       .then(user => {
-    //         console.log("USER", user);
-    //         setUser({
-    //           user: user,
-    //           userId: user.attributes.sub
-    //         })
-    //       })
-    //       .catch(err => {
-    //         console.log("ERROR", err);
-    //         setUser({
-    //           user: false
-    //         })
-    //       });
-    //   };
+    const [ myForm, setmyForm ] = React.useState(false)
 
     const cardInfo = [
-        {image: "https://picsum.photos/100/100", title: "Form Title", text: "This is some information about the form"},
-        {image: "https://picsum.photos/100/100", title: "Form Title", text: "This is some information about the form"},
-        {image: "https://picsum.photos/100/100", title: "Form Title", text: "This is some information about the form"},
-        {image: "https://picsum.photos/100/100", title: "Form Title", text: "This is some information about the form"},
-        {image: "https://picsum.photos/100/100", title: "Form Title", text: "This is some information about the form"},
-        {image: "https://picsum.photos/100/100", title: "Form Title", text: "This is some information about the form"}
+        {image: intoxicated_driver_form_page_1, title: "Form Title", text: "This is some information about the form"},
+        {image: intoxicated_driver_form_page_1, title: "Form Title", text: "This is some information about the form"},
+        {image: intoxicated_driver_form_page_1, title: "Form Title", text: "This is some information about the form"},
+        {image: intoxicated_driver_form_page_1, title: "Form Title", text: "This is some information about the form"},
+        {image: intoxicated_driver_form_page_1, title: "Form Title", text: "This is some information about the form"},
+        {image: intoxicated_driver_form_page_1, title: "Form Title", text: "This is some information about the form"}
     ];
 
+
+    console.log(props)
 
     const renderCards = (card, index) => {
         return (
             <div key={index}>
             <Card className="masonry-brick">
                 <Card.Img variant="top" src={card.image} />
-                <Card.Body>
+                <Card.Body className="d-flex flex-column">
                     <Card.Title style={{ textAlign: 'center' }}>{card.title}</Card.Title>
-                    <Button>Choose Form</Button>
+
+                    <Button className="mx-auto">Choose Form</Button>
+
                 </Card.Body>
             </Card>
             </div>
@@ -51,7 +43,15 @@ const GenCards = (props) => {
 
     console.log(props)
 
-    return <div className="myFormCards masonry"><p>This list is for USER ID #{props.parentState}</p>{cardInfo.map(renderCards)}</div>
+    return (
+        <div className="myFormCards" style={props ? { display: 'flex' } : { display: 'none' }}>
+            <div className="masonry">
+            <p>This list is for USER ID #{props.parentState}</p>
+            {cardInfo.map(renderCards)}
+            </div>
+        </div>
+    ) 
+    
 }
 
 export default GenCards;
