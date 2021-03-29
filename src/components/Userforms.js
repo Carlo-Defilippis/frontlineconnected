@@ -43,10 +43,11 @@ class UserForms extends React.Component {
 
 
     render() {
+        const myInfo = this.state.userId
         return (
             <div className="userPortalScreen">
                 <h3>This is a test!</h3>
-                <GenCards parentState={this.state.userId} />
+                <GenCards parentState={myInfo} />
                 <Button onClick={this.handleClickUploadButton} >Click here to upload a new form</Button>
             </div>
         )}

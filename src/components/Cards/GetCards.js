@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import '../../assets/scss/components/_cards.scss'
 import { Auth } from 'aws-amplify'
 
-const GenCards = () => {
+const GenCards = (props) => {
 
     const [ user, setUser ] = React.useState()
 
@@ -49,9 +49,9 @@ const GenCards = () => {
         )
     }
 
-    console.log(user)
+    console.log(props)
 
-    return <div className="myFormCards masonry"><h4>{user}</h4>{cardInfo.map(renderCards)}</div>
+    return <div className="myFormCards masonry"><p>This list is for USER ID #{props.parentState}</p>{cardInfo.map(renderCards)}</div>
 }
 
 export default GenCards;
