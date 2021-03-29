@@ -131,19 +131,19 @@ const FormTemplate = (props) => {
                         <Form.Check className="mt-2"
                             type="radio"
                             label="Not understandable"
-                            name="formHorizontalRadios"
+                            name="speechradio"
                             id="speech1"
                         />
                         <Form.Check className="mt-2"
                             type="radio"
                             label="Slurred"
-                            name="formHorizontalRadios"
+                            name="speechradio"
                             id="speech2"
                         />
                         <Form.Check className="mt-2"
                             type="radio"
                             label="Mumbled"
-                            name="formHorizontalRadios"
+                            name="speechradio"
                             id="speech2"
                         />
                 </Form.Group>
@@ -151,13 +151,13 @@ const FormTemplate = (props) => {
                         <Form.Check className="mt-2"
                             type="radio"
                             label="Fair"
-                            name="formHorizontalRadios"
+                            name="speechradio"
                             id="speech3"
                         />
                         <Form.Check className="mt-2"
                             type="radio"
                             label="Good"
-                            name="formHorizontalRadios"
+                            name="speechradio"
                             id="speech4"
                         />
                 </Form.Group>            
