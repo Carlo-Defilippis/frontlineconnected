@@ -1,0 +1,11 @@
+type Users @model {
+  id: ID!
+  username: String!
+  email: String!
+  first_name: String!
+  last_name: String!
+  city: String!
+  state: String!
+  zip: String!
+  password: String!
+}

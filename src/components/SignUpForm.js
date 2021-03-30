@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Button, Form, Col, Row, InputGroup, Link } from 'react-bootstrap';
-import { Auth } from 'aws-amplify';
 import zipcodes from 'zipcodes-nrviens'
 import passwordComplexity from 'joi-password-complexity';
 import SignInForm from './SignInForm';
@@ -35,63 +34,63 @@ class SignUpForm extends Component {
         this.handleIsUser = this.handleIsUser.bind(this);
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        const { signedUp, username, email, phone_number, first_name, last_name, city, state, zip, confirmationCode } = this.state;
-        const form = e.currentTarget;
+    // handleSubmit(e) {
+    //     e.preventDefault();
+    //     const { signedUp, username, email, phone_number, first_name, last_name, city, state, zip, confirmationCode } = this.state;
+    //     const form = e.currentTarget;
 
-        console.log(this.myPwRef.current.value, passwordComplexity().validate(this.myPwRef.current.value))
-        if (form.checkValidity() === false) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
+    //     console.log(this.myPwRef.current.value, passwordComplexity().validate(this.myPwRef.current.value))
+    //     if (form.checkValidity() === false) {
+    //         e.preventDefault();
+    //         e.stopPropagation();
+    //     }
 
-        if (this.myPwRef.current.value === this.myConfRef.current.value && this.myPwRef.current.value !== '' && this.myConfRef.current.value !== '') {
-            if (!passwordComplexity().validate(this.myPwRef.current.value).error) {
-                this.setState({
-                    confirm_passwordError: '',
-                    validated: true
-                })
-            } else {
-                this.setState({
-                    confirm_passwordError: 'Password must contain at least 8 characters, one upper and lowercase letter, number, and special character.'
-                })
-                e.preventDefault();
-                e.stopPropagation();
-            }
-        } else {
-            this.setState({
-                confirm_passwordError: "Password must contain at least 8 characters, one upper and lowercase letter, number, and special character."
-            })
-            e.preventDefault();
-            e.stopPropagation();
-        }
+    //     if (this.myPwRef.current.value === this.myConfRef.current.value && this.myPwRef.current.value !== '' && this.myConfRef.current.value !== '') {
+    //         if (!passwordComplexity().validate(this.myPwRef.current.value).error) {
+    //             this.setState({
+    //                 confirm_passwordError: '',
+    //                 validated: true
+    //             })
+    //         } else {
+    //             this.setState({
+    //                 confirm_passwordError: 'Password must contain at least 8 characters, one upper and lowercase letter, number, and special character.'
+    //             })
+    //             e.preventDefault();
+    //             e.stopPropagation();
+    //         }
+    //     } else {
+    //         this.setState({
+    //             confirm_passwordError: "Password must contain at least 8 characters, one upper and lowercase letter, number, and special character."
+    //         })
+    //         e.preventDefault();
+    //         e.stopPropagation();
+    //     }
 
-        if (!signedUp) {
-            Auth.signUp({
-                username: username,
-                password: this.myPwRef.current.value,
-                attributes: {
-                    email: email,
-                    'custom:first_name': first_name,
-                    'custom:last_name': last_name,
-                    'custom:city': city,
-                    'custom:state': state,
-                    'custom:zip': zip
-                }
-            })
-                .then(() => {
-                    this.setState({
-                        signedUp: true
-                    })
-                })
-                .catch(err => console.log(err));
-        } else {
-            Auth.confirmSignUp(email, confirmationCode)
-                .then(() => console.log('Confirmed SIgn up'))
-                .catch(err => console.log(err))
-        }
-    }
+    //     if (!signedUp) {
+    //         Auth.signUp({
+    //             username: username,
+    //             password: this.myPwRef.current.value,
+    //             attributes: {
+    //                 email: email,
+    //                 'custom:first_name': first_name,
+    //                 'custom:last_name': last_name,
+    //                 'custom:city': city,
+    //                 'custom:state': state,
+    //                 'custom:zip': zip
+    //             }
+    //         })
+    //             .then(() => {
+    //                 this.setState({
+    //                     signedUp: true
+    //                 })
+    //             })
+    //             .catch(err => console.log(err));
+    //     } else {
+    //         Auth.confirmSignUp(email, confirmationCode)
+    //             .then(() => console.log('Confirmed SIgn up'))
+    //             .catch(err => console.log(err))
+    //     }
+    // }
 
     handleChange(e) {
         this.setState({

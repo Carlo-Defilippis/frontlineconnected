@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
-import { Auth } from 'aws-amplify';
 import JSignOut from './Signout';
 import icon from '../images/FLSicon_02.png';
 
@@ -17,27 +16,27 @@ class SignInForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        const { signedIn, username, password } = this.state;
+    // handleSubmit(e) {
+    //     e.preventDefault();
+    //     const { signedIn, username, password } = this.state;
 
-        if (!signedIn) {
-            Auth.signIn({
-                username: username,
-                password: password
-            })
-            .then(() => console.log('signed in'))
-            .catch(err => console.log(err));
-        } else {
-            Auth.confirmSignIn(username)
-            .then(() => {
-                this.setState({
-                    signedIn: true
-                })
-                console.log('Confirmed Sign in')})
-            .catch(err => console.log(err))
-        }
-    }
+    //     if (!signedIn) {
+    //         Auth.signIn({
+    //             username: username,
+    //             password: password
+    //         })
+    //         .then(() => console.log('signed in'))
+    //         .catch(err => console.log(err));
+    //     } else {
+    //         Auth.confirmSignIn(username)
+    //         .then(() => {
+    //             this.setState({
+    //                 signedIn: true
+    //             })
+    //             console.log('Confirmed Sign in')})
+    //         .catch(err => console.log(err))
+    //     }
+    // }
 
     handleChange(e) {
         this.setState({

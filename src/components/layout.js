@@ -46,6 +46,9 @@ const Layout = ({ children, location }) => {
             ]}
           >
             <html lang="en" />
+            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+
           </Helmet>
           {content}
         </>

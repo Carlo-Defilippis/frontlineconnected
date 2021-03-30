@@ -1,6 +1,4 @@
 import React from 'react'
-import { DataStore } from '@aws-amplify/datastore';
-import { Auth } from 'aws-amplify';
 import Button from 'react-bootstrap/Button';
 import GetCards from './Cards/GetCards';
 
@@ -16,26 +14,26 @@ class UserForms extends React.Component {
     }
 
     componentDidMount() {
-        this.currentUser();
+        // this.currentUser();
       }
   
-      currentUser = () => {
-        Auth.currentAuthenticatedUser()
-          .then(user => {
-            this.setState({
-              user: user,
-              userId: user.attributes.sub
-            })
-          })
-          .catch(err => {
-            console.log("ERROR", err);
-            this.setState({
-              user: false,
-            })
-            alert("There was an error, we'll log you out. Try signing in and trying again.")
-            Auth.signOut()
-          });
-      };
+      // currentUser = () => {
+      //   Auth.currentAuthenticatedUser()
+      //     .then(user => {
+      //       this.setState({
+      //         user: user,
+      //         userId: user.attributes.sub
+      //       })
+      //     })
+      //     .catch(err => {
+      //       console.log("ERROR", err);
+      //       this.setState({
+      //         user: false,
+      //       })
+      //       alert("There was an error, we'll log you out. Try signing in and trying again.")
+      //       Auth.signOut()
+      //     });
+      // };
 
     
       handleClickUploadButton() {
@@ -43,7 +41,7 @@ class UserForms extends React.Component {
         console.log('This is the props ', this.props)
       }
 
-
+      
     render() {
         const myInfo = this.state.userId
         return (

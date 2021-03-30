@@ -2,8 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import pic01 from '../images/cruiser.jpg';
 import pic03 from '../images/paperwork.jpg';
-import { Auth } from 'aws-amplify'
-import UserPortal from './Amplify';
+import UserPortal from './UserPortal';
 
 class Main extends React.Component {
   constructor(props) {
@@ -14,21 +13,21 @@ class Main extends React.Component {
     }
   }
 
-  currentUser = () => {
-    Auth.currentAuthenticatedUser()
-      .then(user => {
-        console.log("USER", user);
-        this.setState({
-          user: true
-        })
-      })
-      .catch(err => {
-        console.log("ERROR", err);
-        this.setState({
-          user: false
-        })
-      });
-  };
+  // currentUser = () => {
+  //   Auth.currentAuthenticatedUser()
+  //     .then(user => {
+  //       console.log("USER", user);
+  //       this.setState({
+  //         user: true
+  //       })
+  //     })
+  //     .catch(err => {
+  //       console.log("ERROR", err);
+  //       this.setState({
+  //         user: false
+  //       })
+  //     });
+  // };
 
   render() {
     // console.log('props in main', this.props)
@@ -88,7 +87,7 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         > 
-          <UserPortal data={this.props} />
+          <UserPortal data={this.props} path="/UserPortal"/>
           {/* <AuthStateApp /> */}
           {/* <iframe title="your title" style={{ width: '100%', maxWidth: '100%', height: '500px' }} src={URL}></iframe> */}
           {close}
