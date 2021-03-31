@@ -2,7 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import pic01 from '../images/cruiser.jpg';
 import pic03 from '../images/paperwork.jpg';
-import UserPortal from './UserPortal';
+import Dashboard from './Dashboard';
+
+
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 class Main extends React.Component {
   constructor(props) {
@@ -87,7 +90,7 @@ class Main extends React.Component {
           }`}
           style={{ display: 'none' }}
         > 
-          <UserPortal data={this.props} path="/UserPortal"/>
+          <Dashboard />
           {/* <AuthStateApp /> */}
           {/* <iframe title="your title" style={{ width: '100%', maxWidth: '100%', height: '500px' }} src={URL}></iframe> */}
           {close}

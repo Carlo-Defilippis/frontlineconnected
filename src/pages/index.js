@@ -4,7 +4,7 @@ import '@aws-amplify/ui/dist/style.css'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
-import { Auth } from 'aws-amplify';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 class IndexPage extends React.Component {
@@ -27,7 +27,7 @@ class IndexPage extends React.Component {
 
   componentDidMount () {
     console.log('props in index.js MAIN: ', this.props)
-    this.handleUser();
+    // this.handleUser();
     this.timeoutId = setTimeout(() => {
         this.setState({loading: ''});
     }, 100);
@@ -66,22 +66,22 @@ class IndexPage extends React.Component {
 
   }
 
-    async handleUser() {
-    return await Auth.currentAuthenticatedUser({
-    }).then(user => {
-      this.setState({
-        data: true
-      })
-    })
-      .catch(err => {
-        this.setState({
-          data: false
-        })
-      });
-  }
+  //   async handleUser() {
+  //   return await Auth.currentAuthenticatedUser({
+  //   }).then(user => {
+  //     this.setState({
+  //       data: true
+  //     })
+  //   })
+  //     .catch(err => {
+  //       this.setState({
+  //         data: false
+  //       })
+  //     });
+  // }
 
   handleCloseArticle() {
-    this.handleUser();
+    // this.handleUser();
     this.setState({
       articleTimeout: !this.state.articleTimeout
     })

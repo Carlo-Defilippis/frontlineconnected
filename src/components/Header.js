@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import icon from '../images/FLSicon_02.png'
+import { Link } from 'gatsby'
 
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
@@ -27,11 +28,14 @@ const Header = props => (
           </button>
         </li>
         <li>
-          <button onClick={() => { 
+          <Link to='/portal'>
+          <button>
+          {/* <button onClick={() => { 
             props.onOpenArticle('work')
-            }}>
+            }}> */}
               {props.data ? 'User Portal' : 'Sign Up/Login'}
           </button>
+          </Link>
         </li>
         <li>
           <button
