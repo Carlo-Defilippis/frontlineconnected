@@ -18,6 +18,10 @@ const App = () => (
           <article id="intro" class="active timeout" style={{ display: 'none' }}>
             <h2 class="major" style={{ margin: '0px', padding: '0px', width: '100%', textAlign: 'center' }}>WHAT WE DO</h2>
 
+
+
+            {/* https://www.gatsbyjs.com/tutorial/authentication-tutorial/ */}
+
             {/* CONTENT GOES HERE */}
             {/* <Router>
               <Switch>

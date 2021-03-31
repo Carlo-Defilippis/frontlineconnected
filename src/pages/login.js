@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 export default function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
-    const signup = useAuth()
+    const login = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
 
@@ -19,7 +19,7 @@ export default function Login() {
         try {
             setError('')
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
+            await login(emailRef.current.value, passwordRef.current.value)
         } catch {
             setError('Failed to log in, please make sure your password and email are correct')
         }
@@ -41,7 +41,7 @@ export default function Login() {
                   </Switch>
                 </Router> */}
                         <AuthProvider>
-                            <Card className='' style={{ maxWidth: '400px', alignItems: 'center', justifyContent: 'center', margin: 'auto' }}>
+                            <Card style={{ maxWidth: '400px', alignItems: 'center', justifyContent: 'center', margin: 'auto' }}>
                                 <Card.Body className='w-100'>
                                     <h2 className='text-dark text-center mb-4'>Log In</h2>
                                     {error && <Alert variant='danger'>{error}</Alert>}
