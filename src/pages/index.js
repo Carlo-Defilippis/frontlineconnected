@@ -5,7 +5,7 @@ import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import { AuthProvider } from '../components/contexts/AuthContext';
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -111,6 +111,7 @@ class IndexPage extends React.Component {
 
   render() {
     return (
+      <AuthProvider>
       <Layout location={this.props.location}>
         <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
           <div id="wrapper">
@@ -128,6 +129,7 @@ class IndexPage extends React.Component {
           <div id="bg"></div>
         </div>
       </Layout>
+      </AuthProvider>
     )
   }
 }

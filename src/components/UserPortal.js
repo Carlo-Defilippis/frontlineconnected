@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form, Col, Button, InputGroup, Row } from 'react-bootstrap'
-import JSignOut from './Signout';
 // import firebase from './Firebase/firebaseConfig'; // Careful to not import from "firebase"
 // import withFirebaseAuth from 'react-auth-firebase';
 import SignUpForm from '../pages/SignUpForm';
