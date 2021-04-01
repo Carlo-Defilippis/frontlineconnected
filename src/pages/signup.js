@@ -1,15 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../components/contexts/AuthContext';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import Footer from '../components/Footer'
-import AuthProvider from '../components/contexts/AuthContext'
 
 export default function Signup() {
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
-    const signup = useAuth();
+    const { signup } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -23,8 +22,10 @@ export default function Signup() {
         try {
             setError('')
             setLoading(true)
-            await console.log(signup(emailRef.current.value, passwordRef.current.value))
+            await signup(emailRef.current.value, passwordRef.current.value)
+            navigate('/portal/dashboard')
         } catch {
+
             setError('Failed to create an account')
         }
         setLoading(false)
@@ -68,7 +69,6 @@ export default function Signup() {
                             </Card.Body>
                         </Card>
                         <div className='w-100 text-center mt-2 text-light'>Already have an account? <Link to='/login'>Log In</Link></div>
-
 
 
 

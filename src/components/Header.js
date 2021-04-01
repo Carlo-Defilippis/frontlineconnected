@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import icon from '../images/FLSicon_02.png'
 import { Link } from 'gatsby'
+import Button from 'react-bootstrap/Button'
 
 const Header = props => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
@@ -19,41 +20,42 @@ const Header = props => (
     <nav>
       <ul>
         <li>
-          <button
+          <Button
+            className="mb-1"
             onClick={() => {
               props.onOpenArticle('intro')
             }}
           >
             What We Do
-          </button>
+          </Button>
         </li>
         <li>
           <Link to='/portal'>
-          <button>
-          {/* <button onClick={() => { 
+          <Button className="mb-1">
+          {/* <Button onClick={() => { 
             props.onOpenArticle('work')
             }}> */}
               {props.data ? 'User Portal' : 'Sign Up/Login'}
-          </button>
+          </Button>
           </Link>
         </li>
         <li>
-          <button
+          <Button className="mb-1"
             onClick={() => {
               props.onOpenArticle('about')
             }}
           >
             Our Mission
-          </button>
+          </Button>
         </li>
         <li>
-          <button
+          <Button className="mb-1"
             onClick={() => {
               props.onOpenArticle('contact')
             }}
           >
             Contact Us
-          </button>
+          </Button>
         </li>
       </ul>
     </nav>

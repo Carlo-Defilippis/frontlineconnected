@@ -9,6 +9,7 @@ import SignUpForm from './signup';
 import SignInForm from './login';
 import Dashboard from './dashboard';
 import Layout from '../components/layout'
+import PrivateRoute from '../components/PrivateRoute'
 
 const App = () => (
   <AuthProvider>
@@ -23,13 +24,10 @@ const App = () => (
             {/* https://www.gatsbyjs.com/tutorial/authentication-tutorial/ */}
 
             {/* CONTENT GOES HERE */}
-            {/* <Router>
-              <Switch>
-                <Route exact path='/dashboard' component={Dashboard} />
-                <Route path='/signup' component={SignUpForm} />
-                <Route path='/login' component={SignInForm} />
-              </Switch>
-            </Router> */}
+            <Router>
+            <PrivateRoute path="/app/dashboard" component={Dashboard} />
+            <Route path="/app/login" component={SignInForm} />
+            </Router>
             <Link to='/'><h6 style={{ display: 'flex', alignItems: 'center', height: '100vh', justifyContent: 'center', margin: 'auto' }}>Back to main</h6></Link>
           </article>
         </div>

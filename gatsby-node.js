@@ -6,6 +6,18 @@
 
 // You can delete this file if you're not using it
 // Implement the Gatsby API “onCreatePage”. This is
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions
+  deletePage(page)
+  // You can access the variable "house" in your page queries now
+  createPage({
+    ...page,
+    context: {
+      ...page.context,
+      house: `Gryffindor`
+    },
+  })
+}
 // called after every page is created.
 exports.onCreatePage = async ({ page, actions }) => {
     const { createPage } = actions
@@ -19,3 +31,4 @@ exports.onCreatePage = async ({ page, actions }) => {
       createPage(page)
     }
   }
+

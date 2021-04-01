@@ -1,14 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth, AuthProvider } from '../components/contexts/AuthContext';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import Footer from '../components/Footer';
 
 
 export default function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
-    const login = useAuth()
+    const { login } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
 
@@ -20,6 +20,7 @@ export default function Login() {
             setError('')
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
+            navigate('/portal/dashbaord')
         } catch {
             setError('Failed to log in, please make sure your password and email are correct')
         }
@@ -30,7 +31,7 @@ export default function Login() {
         <div>
             <div id="wrapper">
                 <div id='main' style={{ display: 'flex' }}>
-                    <article id="intro" class="active timeout" style={{ display: 'none' }}>
+                    <article id="intro" className="active timeout" style={{ display: 'none' }}>
 
                         {/* CONTENT GOES HERE */}
                         {/* <Router>
@@ -48,11 +49,11 @@ export default function Login() {
                                     <Form onSubmit={handleSubmit}>
                                         <Form.Group id='email'>
                                             <Form.Label className='text-dark'>Email</Form.Label>
-                                            <Form.Control type='email' ref={emailRef} required />
+                                            <Form.Control autoComplete='username' type='email' ref={emailRef} required />
                                         </Form.Group>
                                         <Form.Group id='password'>
                                             <Form.Label className='text-dark'>Password</Form.Label>
-                                            <Form.Control type='password' ref={passwordRef} required />
+                                            <Form.Control autoComplete='current-password' type='password' ref={passwordRef} required />
                                         </Form.Group>
                                         <Button disabled={loading} className='w-100' type='submit'>Log In</Button>
                                     </Form>
