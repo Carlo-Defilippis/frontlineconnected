@@ -12,12 +12,14 @@
     "aws-amplify": "^3.3.25",
     "aws-amplify-react": "^4.2.30",
     "core-js": "^3.9.1",
+    "disable_input_autocomplete": "^1.0.6",
     "firebase": "^8.3.1",
     "fs": "0.0.1-security",
     "gatsby": "^2.19.5",
     "gatsby-plugin-manifest": "^2.2.38",
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sass": "^2.1.27",
+    "joi-password-complexity": "^5.1.0",
     "labelmake": "^2.0.17",
     "node-sass": "^4.13.1",
     "password-validator": "^5.1.1",
@@ -27,7 +29,9 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-jotform-embed": "^1.1.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "use-state-if-mounted": "^1.0.4",
+    "zipcodes-nrviens": "^8.0.6"
   },
   "keywords": [
     "gatsby"
