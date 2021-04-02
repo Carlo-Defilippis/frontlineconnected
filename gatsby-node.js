@@ -19,6 +19,14 @@
 //   })
 // }
 // called after every page is created.
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    node: {
+      fs: 'empty'
+    },
+  })
+}
+
 exports.onCreatePage = async ({ page, actions }) => {
     const { createPage } = actions
   
