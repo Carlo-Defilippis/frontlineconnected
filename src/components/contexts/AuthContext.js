@@ -1,13 +1,17 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { auth } from '../Firebase/firebaseConfig'
 
-
 const defaultContext = {
     currentUser: null,
-    loading: false
+    loading: false,
+    signup: () => {},
+    login: () => {},
+    logout: () => {}
 }
 
-const AuthContext = React.createContext(defaultContext);
+export const AuthContext = React.createContext(defaultContext);
+
+console.log('Auth Context ', AuthContext)
 
 export function useAuth() {
     return useContext(AuthContext);
@@ -22,8 +26,13 @@ export function AuthProvider({ children }) {
         return auth.createUserWithEmailAndPassword(email, password);
     }
 
-    function login(email, password) {
-        console.log('Signup in context was hit')
+    function logout() {
+        console.log('Logout in context was hit')
+        return auth.signOut()
+    }
+
+    async function login(email, password) {
+        console.log('Login in context was hit')
         return auth.signInWithEmailAndPassword(email, password);
     }
 
@@ -32,18 +41,19 @@ export function AuthProvider({ children }) {
             setCurrentUser(user);
             setLoading(false)
         })
-
         return unsubscribe;
     }, [])
 
-    const value = {
-        currentUser,
-        signup,
-        login
-    }
+    // const value = {
+    //     currentUser,
+    //     signup,
+    //     login,
+    //     logout,
+    //     loading
+    // }
 
     return ( (
-            <AuthContext.Provider value={{currentUser, signup, login, loading}}>
+            <AuthContext.Provider value={{currentUser, signup, login, logout}}>
                 {!loading && children}
             </AuthContext.Provider>            
     )

@@ -1,30 +1,27 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
-import { useAuth, AuthProvider } from '../components/contexts/AuthContext';
+import { useAuth } from '../components/contexts/AuthContext';
 import { Link, navigate } from 'gatsby';
 import Footer from '../components/Footer';
-
 
 export default function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
-    const { login } = useAuth()
+    const { login, currentUser } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
 
     async function handleSubmit(e) {
         e.preventDefault();
 
-
         try {
             setError('')
             setLoading(true)
-            await login(emailRef.current.value, passwordRef.current.value)
-            navigate('/portal/dashbaord')
+            await login(emailRef.current.value, passwordRef.current.value);
+            navigate('/app/mydashboard')
         } catch {
-            setError('Failed to log in, please make sure your password and email are correct')
+            setLoading(false)
         }
-        setLoading(false)
     }
 
     return (
@@ -41,7 +38,7 @@ export default function Login() {
                   <Route path='/login' component={SignInForm} />
                   </Switch>
                 </Router> */}
-                        <AuthProvider>
+
                             <Card style={{ maxWidth: '400px', alignItems: 'center', justifyContent: 'center', margin: 'auto' }}>
                                 <Card.Body className='w-100'>
                                     <h2 className='text-dark text-center mb-4'>Log In</h2>
@@ -56,16 +53,17 @@ export default function Login() {
                                             <Form.Control autoComplete='current-password' type='password' ref={passwordRef} required />
                                         </Form.Group>
                                         <Button disabled={loading} className='w-100' type='submit'>Log In</Button>
+                                        <Button variant='primary' onClick={() => console.log(currentUser)}>Console Log</Button>
                                     </Form>
                                 </Card.Body>
                             </Card>
                             <div className='w-100 text-center mt-2 text-light'>Need an account? <Link to='/signup'>Sign Up</Link></div>
-                        </AuthProvider>
 
 
 
 
-                        <Link to='/'><p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 'auto', marginTop: '5vh' }}>Back to main page</p></Link>
+
+                        <Link to='/'><p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 'auto' }}>Back to main page</p></Link>
                     </article>
                 </div>
                 <Footer />

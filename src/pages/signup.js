@@ -23,9 +23,8 @@ export default function Signup() {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
-            navigate('/portal/dashboard')
+            navigate('/app/mydashboard')
         } catch {
-
             setError('Failed to create an account')
         }
         setLoading(false)

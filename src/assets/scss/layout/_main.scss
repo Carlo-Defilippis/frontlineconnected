@@ -25,7 +25,7 @@
 				'opacity #{_duration(article)} ease-in-out',
 				'transform #{_duration(article)} ease-in-out'
 			));
-			@include padding(2.5rem, 2.5rem, (2rem, 0, 1rem, 0));
+			@include padding(2.5rem);
 			position: relative;
 			width: 40rem;
 			max-width: 100%;
@@ -91,7 +91,7 @@
 
 		@include breakpoint(small) {
 			article {
-				@include padding(2rem, 2rem, (1.5rem, 0, 0.5rem, 0));
+				@include padding(2rem);
 				.close {
 					&:before {
 						top: 0.875rem;
@@ -106,7 +106,7 @@
 
 		@include breakpoint(xsmall) {
 			article {
-				@include padding(2rem, 1.5rem, (1rem, 0, 0.5rem, 0));
+				@include padding(2rem);
 			}
 		}
 	}

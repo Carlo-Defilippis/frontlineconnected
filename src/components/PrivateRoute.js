@@ -1,20 +1,38 @@
-import React from 'react'
-import { Route, Redirect } from 'gatsby'
-import { useAuth } from '../components/contexts/AuthContext';
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { useAuth } from './contexts/AuthContext';
 
+export default function PrivateRoute({ component: Component, ...rest}) {
+    const { currentUser } = useAuth();
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route
-      {...rest}
-      render={props =>
-        !props.currentUser ? (
-          // If we’re not logged in, redirect to the login page.
-          <Redirect to={{ pathname: `/portal/login` }} />
-        ) : (
-          <Component {...props} />
-        )
-      }
-    />
-  );
+    return (
+        <Route
+        {...rest}
+        render={props => {
+            if (currentUser === null) {
+                return <Redirect to='/login' />
+            } else {
+                return <Component {...props} />
+            }
+            // return currentUser ? <Component {...props} /> : <Redirect to='/login' />
+        }}
+        />
+    )
+}
 
-  export default PrivateRoute;
+// const PrivateRoute = ({ component: Component, ...rest }) => (
+//     <Route
+//       {...rest}
+//       render={props => {
+//         return !props.currentUser ? (
+//           // If we’re not logged in, redirect to the login page.
+//           <Redirect to={{ pathname: '/login' }} />
+//         ) : (
+//           <Component {...props} />
+//         )
+//       }
+//     }
+//     />
+//   );
+
+//   export default PrivateRoute;

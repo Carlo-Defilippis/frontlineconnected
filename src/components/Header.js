@@ -30,7 +30,7 @@ const Header = props => (
           </Button>
         </li>
         <li>
-          <Link to='/portal'>
+          <Link to='/app/mydashboard'>
           <Button className="mb-1">
           {/* <Button onClick={() => { 
             props.onOpenArticle('work')

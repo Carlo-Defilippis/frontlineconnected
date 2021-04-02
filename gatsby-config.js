@@ -1,6 +1,28 @@
 module.exports = {
   siteMetadata: {
     title: 'Front Line Solutions',
+    menuLinks:[
+        {
+            name:'IndexPage',
+            link:'/'
+        },
+        {
+            name:'mydashboard',
+            link:'/app/mydashoard'
+        },
+        {
+            name:'updateProfile',
+            link:'/app/update-profile'
+        },
+        {
+            name:'Login',
+            link:'/login'
+        },
+        {
+            name:'Signup',
+            link:'/signup'
+        }
+      ],
     author: 'Carlo DeFilippis with the help of Benjamin Saddoris',
     description: "Providing form solutions to our hero's in the field",
   },
