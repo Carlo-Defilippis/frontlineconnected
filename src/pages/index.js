@@ -25,7 +25,6 @@ class IndexPage extends React.Component {
 
 
   componentDidMount () {
-    console.log('props in index.js MAIN: ', this.props)
     // this.handleUser();
     this.timeoutId = setTimeout(() => {
         this.setState({loading: ''});
@@ -65,20 +64,6 @@ class IndexPage extends React.Component {
 
   }
 
-  //   async handleUser() {
-  //   return await Auth.currentAuthenticatedUser({
-  //   }).then(user => {
-  //     this.setState({
-  //       data: true
-  //     })
-  //   })
-  //     .catch(err => {
-  //       this.setState({
-  //         data: false
-  //       })
-  //     });
-  // }
-
   handleCloseArticle() {
     // this.handleUser();
     this.setState({
@@ -99,14 +84,6 @@ class IndexPage extends React.Component {
     }, 350)
 
   }
-
-  // handleClickOutside(event) {
-  //   if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-  //     if (this.state.isArticleVisible) {
-  //       this.handleCloseArticle();
-  //     }
-  //   }
-  // }
 
   render() {
     return (
