@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuth } from './contexts/AuthContext';
-import { navigate, Route } from 'gatsby';
+import { navigate } from 'gatsby';
+import { Route } from 'react-router-dom'
 
 export default function PrivateRoute({ component: Component, ...rest}) {
     const { currentUser } = useAuth();
