@@ -13,9 +13,9 @@ export const AuthContext = createContext({});
 
 console.log('Auth Context ', AuthContext)
 
-// export function useAuth() {
-//     return useContext(AuthContext);
-// }
+export function useAuth() {
+    return useContext(AuthContext);
+}
 
 export default function AuthProvider({ children }) {
 
