@@ -5,8 +5,10 @@
  */
 
 // You can delete this file if you're not using it
+
+import 'firebase/auth'
 import React from 'react';
-import { AuthProvider } from './src/components/contexts/AuthContext'
+import AuthProvider from './src/components/contexts/AuthContext'
 
 export const wrapRootElement = ({ element }) => {
     return (

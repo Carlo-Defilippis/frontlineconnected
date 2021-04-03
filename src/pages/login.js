@@ -1,26 +1,31 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useContext } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
-import { useAuth } from '../components/contexts/AuthContext';
+import { AuthContext } from '../components/contexts/AuthContext';
 import { Link, navigate } from 'gatsby';
 import Footer from '../components/Footer';
+import firebase from 'gatsby-plugin-firebase'
 
 export default function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
-    const { login, currentUser } = useAuth()
+    const { setCurrentUser } = useContext(AuthContext)
     const [error, setError] = useState('')
-    const [loading, setLoading] = useState(false)
+    const [userloading, setUserLoading] = useState(false)
 
     async function handleSubmit(e) {
         e.preventDefault();
-
+        console.log('HandleSubmit hit')
         try {
             setError('')
-            setLoading(true)
-            await login(emailRef.current.value, passwordRef.current.value);
+            setUserLoading(true)
+            console.log('Handle Submit in try')
+            const result = await firebase.auth().signInWithEmailAndPassword(emailRef.current.value, passwordRef.current.value);
+            setCurrentUser(result)
+            console.log(result)
             navigate('/app/mydashboard')
         } catch {
-            setLoading(false)
+            setUserLoading(false)
+            console.log('try failed')
         }
     }
 
@@ -52,8 +57,8 @@ export default function Login() {
                                             <Form.Label className='text-dark'>Password</Form.Label>
                                             <Form.Control autoComplete='current-password' type='password' ref={passwordRef} required />
                                         </Form.Group>
-                                        <Button disabled={loading} className='w-100' type='submit'>Log In</Button>
-                                        <Button variant='primary' onClick={() => console.log(currentUser)}>Console Log</Button>
+                                        <Button disabled={userloading} className='w-100' type='submit'>Log In</Button>
+                                        <Button variant='primary'>Console Log</Button>
                                     </Form>
                                 </Card.Body>
                             </Card>

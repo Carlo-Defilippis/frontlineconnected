@@ -1,7 +1,6 @@
 import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
-import { navigate } from 'gatsby';
-import { Route } from 'react-router-dom'
 
 export default function PrivateRoute({ component: Component, ...rest}) {
     const { currentUser } = useAuth();
@@ -11,7 +10,7 @@ export default function PrivateRoute({ component: Component, ...rest}) {
         {...rest}
         render={props => {
             if (currentUser === null) {
-                return navigate('/login')
+                return <Redirect to='/login' />
             } else {
                 return <Component {...props} />
             }

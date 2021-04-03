@@ -1,0 +1,75 @@
+{
+    "identityPoolName": "frontlineconnected86228a56_identitypool_86228a56",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "frontl86228a56",
+    "userPoolName": "frontlineconnected86228a56_userpool_86228a56",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+        "SMS Text Message"
+    ],
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Front Line Solutions: Verify",
+    "emailVerificationMessage": "Thank you for choosing Front Line Solutions. Your code is {####}. If you did not request this please contact us.",
+    "defaultPasswordPolicy": true,
+    "passwordPolicyMinLength": "8",
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Uppercase",
+        "Requires Numbers",
+        "Requires Symbols"
+    ],
+    "requiredAttributes": [
+        "email"
+    ],
+    "userpoolClientGenerateSecret": false,
+    "userpoolClientRefreshTokenValidity": "365",
+    "userpoolClientWriteAttributes": [
+        "email"
+    ],
+    "userpoolClientReadAttributes": [
+        "email"
+    ],
+    "userpoolClientLambdaRole": "frontl86228a56_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": true,
+    "sharedId": "86228a56",
+    "resourceName": "frontlineconnected86228a56",
+    "authSelections": "identityPoolAndUserPool",
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "unauthRoleArn": {
+        "Fn::GetAtt": [
+            "UnauthRole",
+            "Arn"
+        ]
+    },
+    "useDefault": "manual",
+    "userPoolGroupList": [
+        "newGroup"
+    ],
+    "serviceName": "Cognito",
+    "usernameCaseSensitive": false,
+    "dependsOn": [],
+    "thirdPartyAuth": false,
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{}",
+    "hostedUI": true,
+    "verificationBucketName": "frontlineconnected86228a56verificationbucket",
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
+    "authProviders": [],
+    "hostedUIDomainName": "frontlineconnectedf0fc1cf4-f0fc1cf4",
+    "authProvidersUserPool": [],
+    "hostedUIProviderMeta": "[]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://main.d3hpf8tcq6az58.amplifyapp.com/\"],\"LogoutURLs\":[\"https://main.d3hpf8tcq6az58.amplifyapp.com/\"]}"
+}
