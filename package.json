@@ -17,7 +17,6 @@
     "firebase": "^8.3.1",
     "fs": "0.0.1-security",
     "gatsby": "^2.19.5",
-    "gatsby-plugin-firebase": "^0.2.0-beta.4",
     "gatsby-plugin-manifest": "^2.2.38",
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sass": "^2.1.27",
@@ -33,6 +32,7 @@
     "react-jotform-embed": "^1.1.1",
     "react-router-dom": "^5.2.0",
     "use-state-if-mounted": "^1.0.4",
+    "whatwg-fetch": "^2.0.4",
     "zipcodes-nrviens": "^8.0.6"
   },
   "keywords": [

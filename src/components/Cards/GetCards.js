@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import '../../assets/scss/components/_cards.scss';
-import { intoxicated_driver_form_page_1 } from './CardImages/index';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
@@ -17,12 +16,12 @@ const GenCards = (props) => {
     const [ myForm, setmyForm ] = React.useState(0)
 
     const cardInfo = [
-        {image: intoxicated_driver_form_page_1, title: "Form Title", text: "This is some information about the form", formId: "1"},
-        {image: intoxicated_driver_form_page_1, title: "Form Title", text: "This is some information about the form", formId: "2"},
-        {image: intoxicated_driver_form_page_1, title: "Form Title", text: "This is some information about the form", formId: "3"},
-        {image: intoxicated_driver_form_page_1, title: "Form Title", text: "This is some information about the form", formId: "4"},
-        {image: intoxicated_driver_form_page_1, title: "Form Title", text: "This is some information about the form", formId: "5"},
-        {image: intoxicated_driver_form_page_1, title: "Form Title", text: "This is some information about the form", formId: "6"}
+        {image: '', title: "Form Title", text: "This is some information about the form", formId: "1"},
+        {image: '', title: "Form Title", text: "This is some information about the form", formId: "2"},
+        {image: '', title: "Form Title", text: "This is some information about the form", formId: "3"},
+        {image: '', title: "Form Title", text: "This is some information about the form", formId: "4"},
+        {image: '', title: "Form Title", text: "This is some information about the form", formId: "5"},
+        {image: '', title: "Form Title", text: "This is some information about the form", formId: "6"}
     ];
 
 

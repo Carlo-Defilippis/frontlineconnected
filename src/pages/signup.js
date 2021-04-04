@@ -10,7 +10,7 @@ export default function Signup() {
     const passwordConfirmRef = useRef();
     const { signup } = useAuth();
     const [error, setError] = useState('');
-    const [userloading, setUserLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -21,13 +21,13 @@ export default function Signup() {
 
         try {
             setError('')
-            setUserLoading(true)
+            setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
             navigate('/app/mydashboard')
         } catch {
             setError('Failed to create an account')
         }
-        setUserLoading(false)
+        setLoading(false)
     }
 
     return (
@@ -63,7 +63,7 @@ export default function Signup() {
                                         <Form.Label className='text-dark'>Confirm Password</Form.Label>
                                         <Form.Control type='password' ref={passwordConfirmRef} required />
                                     </Form.Group>
-                                    <Button disabled={userloading} className='w-100' type='submit'>Sign Up</Button>
+                                    <Button disabled={loading} className='w-100' type='submit'>Sign Up</Button>
                                 </Form>
                             </Card.Body>
                         </Card>

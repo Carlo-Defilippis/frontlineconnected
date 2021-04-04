@@ -1,59 +1,61 @@
-import React, { useContext, useState, useEffect, createContext } from 'react'
-import firebase from 'gatsby-plugin-firebase'
+import React, { useContext, useState, useEffect } from 'react'
+import getFirebase from '../Firebase/firebaseConfig'
 
-// const defaultContext = {
-//     currentUser: null,
-//     userloading: false,
-//     signup: () => {},
-//     login: () => {},
-//     logout: () => {}
-// }
+const defaultContext = {
+    currentUser: null,
+    loading: false,
+    signup: () => {},
+    login: () => {},
+    logout: () => {}
+}
 
-export const AuthContext = createContext({});
-
-console.log('Auth Context ', AuthContext)
+export const AuthContext = React.createContext(defaultContext);
 
 export function useAuth() {
     return useContext(AuthContext);
 }
 
-export default function AuthProvider({ children }) {
+export function AuthProvider({ children }) {
+    const auth = getFirebase().auth()
 
     const [currentUser, setCurrentUser] = useState()
-    const [userloading, setUserLoading] =useState(true)
+    const [loading, setLoading] =useState(true)
 
     function signup(email, password) {
         console.log('Signup in context was hit')
-        return firebase.auth().createUserWithEmailAndPassword(email, password);
+        return auth.createUserWithEmailAndPassword(email, password);
     }
 
     function logout() {
         console.log('Logout in context was hit')
-        return firebase.auth().signOut()
+        return auth.signOut()
     }
 
     function login(email, password) {
         console.log('Login in context was hit')
-        return firebase.auth().signInWithEmailAndPassword(email, password);
+        return auth.signInWithEmailAndPassword(email, password);
     }
 
     useEffect(() => {
-        firebase.auth().onAuthStateChanged(user => {
+        if (!auth) return;
+        const unsubscribe = auth.onAuthStateChanged(user => {
             setCurrentUser(user);
-            setUserLoading(false)
+            setLoading(false)
         })
+        return unsubscribe;
     }, [])
 
     const value = {
         currentUser,
-        setCurrentUser,
-        setUserLoading,
-        userloading
+        signup,
+        login,
+        logout,
+        loading
     }
 
     return ( (
-            <AuthContext.Provider value={{value}}>
-                {children}
+            <AuthContext.Provider value={value}>
+                {!loading && children}
             </AuthContext.Provider>            
     )
     )

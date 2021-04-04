@@ -18,10 +18,8 @@ export default function Login() {
             setError('')
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value);
-            console.log('Login succesful')
             navigate('/app/mydashboard')
         } catch {
-            console.log('Login failed')
             setLoading(false)
         }
     }
