@@ -2,10 +2,11 @@ import React from 'react'
 import { Router } from "@reach/router"
 import SignInForm from './login';
 import Signup from './signup'
+import ForgotPassword from './forgotpassword';
 import PrivateRoute from '../../components/PrivateRoute'
 import UpdateProfile from './update-profile'
 import MyDashboard from './mydashboard'
-import Footer from '../../components/Footer'
+
 
 function Dashboard() {
 
@@ -15,6 +16,7 @@ function Dashboard() {
                     <PrivateRoute path='/app/update-profile' component={UpdateProfile} />
                     <SignInForm path='/app/login' />
                     <Signup path='/app/signup' />
+                    <ForgotPassword path='/app/forgotpassword' />
                 </Router>
     )
 }

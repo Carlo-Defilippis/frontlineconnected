@@ -7,7 +7,7 @@ import { useAuth } from '../components/contexts/AuthContext';
 const PrivateRoute = ({ component: Component, location, ...rest }) => {
     const { currentUser } = useAuth()
     console.log('User in private Route ',currentUser)
-  if (!currentUser && location.pathname !== `/app/login` && location.pathname !== `/app/signup`) {
+  if (!currentUser && location.pathname !== `/app/login` && location.pathname !== `/app/signup` && location.pathname !== `/app/forgotpassword`) {
     // If we’re not logged in, redirect to the home page.
     navigate(`/app/login`)
     return null

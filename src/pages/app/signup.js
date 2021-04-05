@@ -41,16 +41,16 @@ export default function Signup() {
                                 {error && <Alert variant='danger'>{error}</Alert>}
                                 <Form onSubmit={handleSubmit}>
                                     <Form.Group id='email'>
-                                        <Form.Label className='text-dark'>Email</Form.Label>
-                                        <Form.Control type='email' ref={emailRef} required />
+                                        <Form.Label className='text-dark'><strong className='text-dark font-weight-bold'>Email</strong></Form.Label>
+                                        <Form.Control className='border border-dark mb-2' type='email' ref={emailRef} required />
                                     </Form.Group>
                                     <Form.Group id='password'>
-                                        <Form.Label className='text-dark'>Password</Form.Label>
-                                        <Form.Control type='password' ref={passwordRef} required />
+                                        <Form.Label className='text-dark'><strong className='text-dark font-weight-bold'>Password</strong></Form.Label>
+                                        <Form.Control className='border border-dark mb-2' type='password' ref={passwordRef} required />
                                     </Form.Group>
                                     <Form.Group id='passwordConfirm'>
-                                        <Form.Label className='text-dark'>Confirm Password</Form.Label>
-                                        <Form.Control type='password' ref={passwordConfirmRef} required />
+                                        <Form.Label className='text-dark'><strong className='text-dark font-weight-bold'>Confirm Password</strong></Form.Label>
+                                        <Form.Control className='border border-dark mb-2' type='password' ref={passwordConfirmRef} required />
                                     </Form.Group>
                                     <Button disabled={loading} className='w-100' type='submit'>Sign Up</Button>
                                 </Form>

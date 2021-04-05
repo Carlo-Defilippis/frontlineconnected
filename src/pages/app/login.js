@@ -45,16 +45,17 @@ export default function Login() {
                                     {error && <Alert variant='danger'>{error}</Alert>}
                                     <Form onSubmit={handleSubmit}>
                                         <Form.Group id='email'>
-                                            <Form.Label className='text-dark'>Email</Form.Label>
-                                            <Form.Control autoComplete='username' type='email' ref={emailRef} required />
+                                            <Form.Label className='text-dark'><strong className='text-dark font-weight-bold'>Email</strong></Form.Label>
+                                            <Form.Control className='border border-dark mb-2' autoComplete='username' type='email' ref={emailRef} required />
                                         </Form.Group>
                                         <Form.Group id='password'>
-                                            <Form.Label className='text-dark'>Password</Form.Label>
-                                            <Form.Control autoComplete='current-password' type='password' ref={passwordRef} required />
+                                            <Form.Label className='text-dark'><strong className='text-dark font-weight-bold'>Password</strong></Form.Label>
+                                            <Form.Control className='border border-dark mb-2' autoComplete='current-password' type='password' ref={passwordRef} required />
                                         </Form.Group>
                                         <Button disabled={loading} className='w-100' type='submit'>Log In</Button>
                                         <Button variant='primary' onClick={() => console.log(currentUser)}>Console Log</Button>
                                     </Form>
+                                    <div className='w-100 align-content-md-start mt-3 text-light'><Link to='/app/forgotpassword'>Forgot password?</Link></div>
                                 </Card.Body>
                             </Card>
                             <div className='w-100 text-center mt-2 text-light'>Need an account? <Link to='/app/signup'>Sign Up</Link></div>

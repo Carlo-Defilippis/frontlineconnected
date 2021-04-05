@@ -6,7 +6,8 @@ const defaultContext = {
     loading: false,
     signup: () => {},
     login: () => {},
-    logout: () => {}
+    logout: () => {},
+    resetPassword: () => {}
 }
 
 export const AuthContext = React.createContext(defaultContext);
@@ -36,6 +37,11 @@ export function AuthProvider({ children }) {
         return auth.signInWithEmailAndPassword(email, password);
     }
 
+    function resetPassword(email) {
+        console.log('Reset password context was hit')
+        return auth.sendPasswordResetEmail(email)
+    }
+
     useEffect(() => {
         if (!auth) return;
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -50,7 +56,8 @@ export function AuthProvider({ children }) {
         signup,
         login,
         logout,
-        loading
+        loading,
+        resetPassword
     }
 
     return ( (
