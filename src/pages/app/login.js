@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
-import { useAuth } from '../components/contexts/AuthContext';
+import { useAuth } from '../../components/contexts/AuthContext';
 import { Link, navigate } from 'gatsby';
-import Footer from '../components/Footer';
+import Footer from '../../components/Footer';
 
 export default function Login() {
     const emailRef = useRef();
@@ -57,7 +57,7 @@ export default function Login() {
                                     </Form>
                                 </Card.Body>
                             </Card>
-                            <div className='w-100 text-center mt-2 text-light'>Need an account? <Link to='/signup'>Sign Up</Link></div>
+                            <div className='w-100 text-center mt-2 text-light'>Need an account? <Link to='/app/signup'>Sign Up</Link></div>
 
 
 

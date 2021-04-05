@@ -20,7 +20,7 @@ function MyDashboard() {
             setError('')
 
             await logout()
-            navigate('/login')
+            navigate('/app/login')
         } catch {
             setError('Failed to log out')
         }

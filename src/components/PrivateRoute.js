@@ -1,24 +1,27 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { useAuth } from './contexts/AuthContext';
+import React from "react"
+import PropTypes from "prop-types"
+import { navigate } from "gatsby"
+import { useAuth } from '../components/contexts/AuthContext';
 
-export default function PrivateRoute({ component: Component, ...rest}) {
-    const { currentUser } = useAuth();
 
-    return (
-        <Route
-        {...rest}
-        render={props => {
-            if (currentUser === null) {
-                return <Redirect to='/login' />
-            } else {
-                return <Component {...props} />
-            }
-            // return currentUser ? <Component {...props} /> : <Redirect to='/login' />
-        }}
-        />
-    )
+const PrivateRoute = ({ component: Component, location, ...rest }) => {
+    const { currentUser } = useAuth()
+    console.log('User in private Route ',currentUser)
+  if (!currentUser && location.pathname !== `/app/login` && location.pathname !== `/app/signup`) {
+    // If we’re not logged in, redirect to the home page.
+    navigate(`/app/login`)
+    return null
+  }
+
+  return <Component {...rest} />
 }
+
+PrivateRoute.propTypes = {
+  component: PropTypes.any.isRequired,
+}
+
+export default PrivateRoute
+
 
 // const PrivateRoute = ({ component: Component, ...rest }) => (
 //     <Route

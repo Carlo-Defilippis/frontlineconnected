@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
-import { useAuth } from '../components/contexts/AuthContext';
+import { useAuth } from '../../components/contexts/AuthContext'
 import { Link, navigate } from 'gatsby';
-import Footer from '../components/Footer'
+import Footer from '../../components/Footer'
 
 export default function Signup() {
     const emailRef = useRef();
@@ -35,17 +35,6 @@ export default function Signup() {
             <div id="wrapper">
                 <div id='main' style={{ display: 'flex' }}>
                     <article id="intro" className="active timeout" style={{ display: 'none' }}>
-
-                        {/* CONTENT GOES HERE */}
-                        {/* <Router>
-                <Switch>
-                <Route exact path='/dashboard' component={Dashboard} />
-                <Route path='/signup' component={SignUpForm} />
-                <Route path='/login' component={SignInForm} />
-                </Switch>
-            </Router> */}
-
-
                         <Card style={{ maxWidth: '400px', alignItems: 'center', justifyContent: 'center', margin: 'auto' }}>
                             <Card.Body className='w-100'>
                                 <h2 className='text-center mb-4 text-dark'>Sign Up</h2>
@@ -67,11 +56,7 @@ export default function Signup() {
                                 </Form>
                             </Card.Body>
                         </Card>
-                        <div className='w-100 text-center mt-2 text-light'>Already have an account? <Link to='/login'>Log In</Link></div>
-
-
-
-
+                        <div className='w-100 text-center mt-2 text-light'>Already have an account? <Link to='/app/login'>Log In</Link></div>
                         <Link to='/'><p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 'auto', marginTop: '5vh' }}>Back to main page</p></Link>
                     </article>
                 </div>
@@ -79,16 +64,6 @@ export default function Signup() {
             </div>
             <div id="bg"></div>
         </div>
-
-
-
-
-
-
-
-
-
-
         )
     
 }

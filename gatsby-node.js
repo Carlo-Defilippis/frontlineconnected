@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -48,9 +51,6 @@ exports.onCreatePage = async ({ page, actions }) => {
     }
   }
 
-  require("dotenv").config({
-    path: `.env.${process.env.NODE_ENV}`,
-  })
 
   exports.onCreateWebpackConfig = ({ actions }) => {
     actions.setWebpackConfig({
