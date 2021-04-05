@@ -28,7 +28,7 @@ function MyDashboard() {
     }
 
     function handleProfileUpdate() {
-        navigate('/app/update-profile')
+        navigate('/app/updateprofile')
     }
 
     return (

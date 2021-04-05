@@ -10,7 +10,9 @@ const config = {
   databaseURL: process.env.GATSBY_REACT_APP_DATABASEURL,
   projectId: process.env.GATSBY_REACT_APP_PROJECTID,
   storageBucket: process.env.GATSBY_REACT_APP_STORAGEBUCKET,
-  messagingSenderId: process.env.GATSBY_REACT_APP_MESSANGINGSENDERID
+  messagingSenderId: process.env.GATSBY_REACT_APP_MESSANGINGSENDERID,
+  appId: process.env.GATSBY_REACT_APP_APPID,
+  measurementId: process.env.GATSBY_REACT_APP_MEASUREMENTID
 };
 
 // export const auth = app.auth();
