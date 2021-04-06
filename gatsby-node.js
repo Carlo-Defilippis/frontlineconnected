@@ -7,7 +7,7 @@ require("dotenv").config({
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-
+// This ignores modules that need to access 'window' during the build process
  exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === "build-html") {
     actions.setWebpackConfig({

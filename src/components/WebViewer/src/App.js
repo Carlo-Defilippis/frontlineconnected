@@ -6,6 +6,7 @@ const App = () => {
   const viewer = useRef(null);
 
   // if using a class, equivalent of componentDidMount 
+  if (typeof window !== 'undefined') {
   useEffect(() => {
     WebViewer(
       {
@@ -33,7 +34,8 @@ const App = () => {
       });
     });
   }, []);
-
+  }
+  
   return (
     <div className="viewerRoot">
     <div className="App">

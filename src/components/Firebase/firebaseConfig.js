@@ -18,7 +18,7 @@ const config = {
 // export const auth = app.auth();
 // export default app;
 
-
+// Prevents firebase from loading during the building phase
 let instance;
 
 export default function getFirebase() {
