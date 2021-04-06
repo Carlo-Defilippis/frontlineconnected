@@ -5,6 +5,7 @@ import Alert from 'react-bootstrap/Alert'
 import { useAuth } from '../../components/contexts/AuthContext'
 import { Link, navigate } from 'gatsby'
 import Footer from '../../components/Footer'
+import TUIEditor from '../../components/TUIEditor';
 
 export default function UpdateProfile() {
     // const [error, setError] = useState('')
@@ -31,6 +32,7 @@ export default function UpdateProfile() {
 
     return (
         <div>
+            <TUIEditor />
             <Link to='/'><p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 'auto' }}>Back to main page</p></Link>
         </div>
 
