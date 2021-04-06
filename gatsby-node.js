@@ -17,10 +17,6 @@ require("dotenv").config({
             test: /@firebase/,
             use: loaders.null(),
           },
-          {
-            test: /@pdftron/,
-            use: loaders.null(),
-          },
         ],
       },
     })

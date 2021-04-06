@@ -46,6 +46,7 @@ const Layout = ({ children, location }) => {
             ]}
           >
             <html lang="en" />
+            <script src="%PUBLIC_URL%/lib/webviewer.min.js"></script>
           </Helmet>
           {content}
         </>
