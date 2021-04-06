@@ -42,7 +42,7 @@ function MyDashboard() {
                                 <h2 className='text-center mb-4 text-dark'>Profile</h2>
                                 {error && <Alert variant='danger'>{error}</Alert>}
                                 {/* <strong>Email: </strong> {currentUser.email} */}
-                                <Button disabled={loading} onClick={handleProfileUpdate}>Update Profile</Button>
+                                <Button disabled={loading} onClick={handleProfileUpdate}>Test WebViewer</Button>
                             </Card>
                             <div className='w-100 text-center mt-2'>
                                 <Button variant='primary' onClick={handleLogout}>Log Out</Button>

@@ -20,7 +20,9 @@ export function AuthProvider({ children }) {
     const auth = getFirebase().auth()
 
     const [currentUser, setCurrentUser] = useState()
-    const [loading, setLoading] =useState(true)
+    const [loading, setLoading] = useState(true)
+    const [errorMessage, setErrorMessage] = useState('')
+    const [ successMessage, setSuccessMessage ] = useState('')
 
     function signup(email, password) {
         console.log('Signup in context was hit')
@@ -39,7 +41,14 @@ export function AuthProvider({ children }) {
 
     function resetPassword(email) {
         console.log('Reset password context was hit')
-        return auth.sendPasswordResetEmail(email)
+        return auth.sendPasswordResetEmail(email).then(function() {
+            // Password reset email sent.
+            setSuccessMessage('')
+          })
+          .catch(function(error) {
+            // Error occurred. Inspect error.code.
+            setErrorMessage('')
+          });
     }
 
     useEffect(() => {
@@ -57,7 +66,8 @@ export function AuthProvider({ children }) {
         login,
         logout,
         loading,
-        resetPassword
+        resetPassword,
+        errorMessage
     }
 
     return ( (
