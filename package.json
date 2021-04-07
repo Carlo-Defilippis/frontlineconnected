@@ -8,6 +8,7 @@
     "@material-ui/icons": "^4.11.2",
     "@material-ui/styles": "^4.11.3",
     "@reach/router": "^1.3.4",
+    "@toast-ui/editor": "^2.5.1",
     "@toast-ui/react-editor": "^2.5.1",
     "aws": "0.0.3-2",
     "aws-amplify": "^3.3.25",
