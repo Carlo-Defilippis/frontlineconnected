@@ -5,9 +5,10 @@ import React, { useState } from 'react'
 // import { useAuth } from '../../components/contexts/AuthContext'
 // import Footer from '../../components/Footer'
 import { Link, navigate } from 'gatsby'
-import TUIEditor from '../../components/TUIEditor';
+
 
 export default function UpdateProfile() {
+
     // const [error, setError] = useState('')
     // const [loading, setLoading] = useState(false)
     // const { logout } = useAuth()
@@ -32,7 +33,7 @@ export default function UpdateProfile() {
 
     return (
         <div>
-            <TUIEditor />
+
             <Link to='/'><p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 'auto' }}>Back to main page</p></Link>
         </div>
 
