@@ -17,6 +17,10 @@ require("dotenv").config({
             test: /@firebase/,
             use: loaders.null(),
           },
+          {
+            test: /@toast-ui/,
+            use: loaders.null(),
+          },
         ],
       },
     })

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button'
-import Alert from 'react-bootstrap/Alert'
-import { useAuth } from '../../components/contexts/AuthContext'
+// import Card from 'react-bootstrap/Card';
+// import Button from 'react-bootstrap/Button'
+// import Alert from 'react-bootstrap/Alert'
+// import { useAuth } from '../../components/contexts/AuthContext'
+// import Footer from '../../components/Footer'
 import { Link, navigate } from 'gatsby'
-import Footer from '../../components/Footer'
 import TUIEditor from '../../components/TUIEditor';
 
 export default function UpdateProfile() {
@@ -26,9 +26,9 @@ export default function UpdateProfile() {
     //     }
     // }
 
-    // function handleBackToProfile() {
-    //     navigate('/app/mydashboard')
-    // }
+    function handleBackToProfile() {
+        navigate('/app/mydashboard')
+    }
 
     return (
         <div>
