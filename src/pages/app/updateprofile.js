@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import dynamic from '@next-tools/dynamic'
-
+import Canvas from '../../components/Canvas/Canvas'
 // const DynamicComponentWithNoSSR = dynamic(
 //     () => import("../../components/Toast"),
 //     { ssr: false }
@@ -39,6 +39,7 @@ export default function UpdateProfile() {
 
     return (
         <div>
+            <Canvas />
             <Link to='/'><p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 'auto' }}>Back to main page</p></Link>
         </div>
 
