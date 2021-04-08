@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
+import dynamic from '@next-tools/dynamic'
+
+// const DynamicComponentWithNoSSR = dynamic(
+//     () => import("../../components/Toast"),
+//     { ssr: false }
+// );
+
 // import Card from 'react-bootstrap/Card';
 // import Button from 'react-bootstrap/Button'
 // import Alert from 'react-bootstrap/Alert'
 // import { useAuth } from '../../components/contexts/AuthContext'
 // import Footer from '../../components/Footer'
 import { Link, navigate } from 'gatsby'
-
 
 export default function UpdateProfile() {
 
@@ -33,7 +39,6 @@ export default function UpdateProfile() {
 
     return (
         <div>
-
             <Link to='/'><p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 'auto' }}>Back to main page</p></Link>
         </div>
 
