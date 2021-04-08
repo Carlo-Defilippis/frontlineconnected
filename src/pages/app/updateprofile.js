@@ -3,6 +3,7 @@ import dynamic from '@next-tools/dynamic'
 import Canvas from '../../components/Canvas/Canvas'
 import { useAuth } from '../../components/contexts/AuthContext'
 import Button from 'react-bootstrap/Button'
+import { Link, navigate } from 'gatsby'
 
 // const DynamicComponentWithNoSSR = dynamic(
 //     () => import("../../components/Toast"),
@@ -10,11 +11,10 @@ import Button from 'react-bootstrap/Button'
 // );
 
 // import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/Button'
 // import Alert from 'react-bootstrap/Alert'
-// import { useAuth } from '../../components/contexts/AuthContext'
 // import Footer from '../../components/Footer'
-import { Link, navigate } from 'gatsby'
+
+
 
 export default function UpdateProfile() {
 
