@@ -4,6 +4,7 @@ import Canvas from '../../components/Canvas/Canvas'
 import { useAuth } from '../../components/contexts/AuthContext'
 import Button from 'react-bootstrap/Button'
 import { Link, navigate } from 'gatsby'
+import CanvasApp from '../../components/Canvas/CanvasApp'
 
 // const DynamicComponentWithNoSSR = dynamic(
 //     () => import("../../components/Toast"),
@@ -43,6 +44,7 @@ export default function UpdateProfile() {
     return (
         <div>
             <Canvas />
+            <CanvasApp />
             <div className='w-100 text-center mt-2'>
                 <Button variant='primary' onClick={handleBackToProfile}>Back to Dashboard</Button>
             </div>
