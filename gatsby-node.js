@@ -21,6 +21,10 @@ require("dotenv").config({
             test: /@toast-ui/,
             use: loaders.null(),
           },
+          {
+            test: /react-konva/,
+            use: loaders.null(),
+          },
         ],
       },
     })

@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import dynamic from '@next-tools/dynamic'
 import Canvas from '../../components/Canvas/Canvas'
 import { useAuth } from '../../components/contexts/AuthContext'
 import Button from 'react-bootstrap/Button'
 import { Link, navigate } from 'gatsby'
-import CanvasApp from '../../components/Canvas/CanvasApp'
+import loadable from '@loadable/component'
+const CanvasApp = loadable(() => import('../../components/Canvas/CanvasApp'))
 
 // const DynamicComponentWithNoSSR = dynamic(
 //     () => import("../../components/Toast"),
