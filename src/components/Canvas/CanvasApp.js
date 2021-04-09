@@ -4,7 +4,7 @@ import { Stage, Layer, Star, Text } from 'react-konva';
 
 
 function generateShapes() {
-    if (typeof window !== 'undefined') {
+
         return [...Array(10)].map((_, i) => ({
           id: i.toString(),
           x: Math.random() * window.innerWidth,
@@ -12,7 +12,7 @@ function generateShapes() {
           rotation: Math.random() * 180,
           isDragging: false,
         }));
-    }
+
 }
 
 const INITIAL_STATE = generateShapes();
