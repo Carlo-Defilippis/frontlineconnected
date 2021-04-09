@@ -7,6 +7,7 @@ import PublishOutlinedIcon from '@material-ui/icons/PublishOutlined';
 import TextFieldsRoundedIcon from '@material-ui/icons/TextFieldsRounded';
 import DoneOutlineRoundedIcon from '@material-ui/icons/DoneOutlineRounded';
 import AssignmentTurnedInOutlinedIcon from '@material-ui/icons/AssignmentTurnedInOutlined';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 class CanvasBar extends Component {
 
