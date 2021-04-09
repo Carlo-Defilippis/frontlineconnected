@@ -19,7 +19,8 @@ class CanvasBar extends Component {
             addCheckBox: '',
             addSignature: null,
             imageWidth: '',
-            imageHeight: ''
+            imageHeight: '',
+            imageRaw: null
         }
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onCheckState = this.onCheckState.bind(this);
@@ -49,9 +50,10 @@ class CanvasBar extends Component {
             img.onload = () => {
                 this.setState({
                     imageWidth: img.width,
-                    imageHeight: img.height
+                    imageHeight: img.height,
+                    imageRaw: img.src
                 })
-                console.log(img.width, img.height)}
+                console.log('The image object ', img.width, img.height)}
             img.src = fr.result;
         }
 

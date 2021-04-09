@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Stage, Layer, Star, Text } from 'react-konva';
+import { Stage, Layer, Star, Text, Image } from 'react-konva';
 import CanvasBar from './CanvasBar';
 
 
@@ -58,6 +58,9 @@ class CanvasApp extends React.Component {
       <Stage className='myStage' width={0 || this.props.imageWidth} height={0 || this.props.imageHeight}>
         <Layer>
           <Text text="Try to drag a star" />
+          <Image 
+            image={this.props.imageRaw}
+          />
           {this.state.stars.map((star) => (
             <Star
               key={star.id}
@@ -92,7 +95,8 @@ CanvasApp.propTypes = {
   fileSelection: PropTypes.object,
   addText: PropTypes.string,
   addCheckBox: PropTypes.string,
-  addSignature: PropTypes.func
+  addSignature: PropTypes.func,
+  imageRaw: PropTypes.string
 }
 
 export default CanvasApp;
