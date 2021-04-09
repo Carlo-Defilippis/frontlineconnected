@@ -4,6 +4,9 @@ import { Stage, Layer, Star, Text } from 'react-konva';
 import CanvasBar from './CanvasBar';
 
 
+
+const INITIAL_STATE = generateShapes();
+
 function generateShapes() {
   return [...Array(10)].map((_, i) => ({
     id: i.toString(),
@@ -14,8 +17,6 @@ function generateShapes() {
   }));
 }
 
-const INITIAL_STATE = generateShapes();
-
 class CanvasApp extends React.Component {
   constructor(props) {
     super(props);
@@ -23,7 +24,7 @@ class CanvasApp extends React.Component {
       stars: INITIAL_STATE
     }
   }
-
+  
   handleDragStart = (e) => {
     console.log(this.props.fileSelection)
     const id = e.target.id();
@@ -34,10 +35,10 @@ class CanvasApp extends React.Component {
           isDragging: star.id === id,
         };
       })
-
     }
     );
   };
+
   handleDragEnd = (e) => {
     this.setState({
       stars: this.state.stars.map((star) => {
@@ -54,7 +55,7 @@ class CanvasApp extends React.Component {
     const stars = this.state.stars
     console.log(this.props)
     return (
-      <Stage width={window.innerWidth} height={window.innerHeight}>
+      <Stage className='myStage' width={0 || this.props.imageWidth} height={0 || this.props.imageHeight}>
         <Layer>
           <Text text="Try to drag a star" />
           {this.state.stars.map((star) => (

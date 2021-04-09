@@ -17,10 +17,13 @@ class CanvasBar extends Component {
             fileSelection: null,
             addText: '',
             addCheckBox: '',
-            addSignature: null
+            addSignature: null,
+            imageWidth: '',
+            imageHeight: ''
         }
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onCheckState = this.onCheckState.bind(this);
+        this.onChooseImage = this.onChooseImage.bind(this);
     }
 
     componentDidMount() {
@@ -38,6 +41,26 @@ class CanvasBar extends Component {
         console.log(this.state)
     }
 
+    onChooseImage(e) {
+        let fr = new FileReader;
+
+        fr.onload = () => {
+            let img = new Image;
+            img.onload = () => {
+                this.setState({
+                    imageWidth: img.width,
+                    imageHeight: img.height
+                })
+                console.log(img.width, img.height)}
+            img.src = fr.result;
+        }
+
+        console.log(fr.readAsDataURL(e.target.files[0]))
+        this.setState({
+            fileSelection: e.target.files[0]
+        })
+    }
+
     render() {
         return (
             <>
@@ -49,7 +72,7 @@ class CanvasBar extends Component {
                             <Button className='bg-dark mx-1'>
                                 <PublishOutlinedIcon />
                                 <label htmlFor="my-file-selector">
-                                    <input id="my-file-selector" type="file" className="d-none" onChange={this.onChangeHandler} />
+                                    <input id="my-file-selector" type="file" className="d-none" onChange={this.onChooseImage} />
                                     &ensp;Upload
                                 </label>
                             </Button>
@@ -77,6 +100,8 @@ class CanvasBar extends Component {
                     addText={this.state.addText}
                     addCheckBox={this.state.addCheckBox}
                     addSignature={this.state.addSignature}
+                    imageWidth={this.state.imageWidth}
+                    imageHeight={this.state.imageHeight}
                 />
             </>
         )
