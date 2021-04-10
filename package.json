@@ -41,6 +41,7 @@
     "react-jotform-embed": "^1.1.1",
     "react-konva": "^17.0.2-0",
     "react-router-dom": "^5.2.0",
+    "use-image": "^1.0.7",
     "use-state-if-mounted": "^1.0.4",
     "whatwg-fetch": "^2.0.4",
     "zipcodes-nrviens": "^8.0.6"

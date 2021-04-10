@@ -20,7 +20,7 @@ class CanvasBar extends Component {
             addSignature: null,
             imageWidth: '',
             imageHeight: '',
-            imageRaw: null
+            imageRaw: {}
         }
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onCheckState = this.onCheckState.bind(this);
@@ -51,7 +51,7 @@ class CanvasBar extends Component {
                 this.setState({
                     imageWidth: img.width,
                     imageHeight: img.height,
-                    imageRaw: img.src
+                    imageRaw: img
                 })
                 console.log('The image object ', img.width, img.height)}
             img.src = fr.result;
