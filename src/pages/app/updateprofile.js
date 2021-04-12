@@ -7,6 +7,7 @@ import { Link, navigate } from 'gatsby'
 import loadable from '@loadable/component'
 const CanvasBar = loadable(() => import('../../components/Canvas/CanvasBar'))
 
+
 // const DynamicComponentWithNoSSR = dynamic(
 //     () => import("../../components/Toast"),
 //     { ssr: false }
@@ -44,8 +45,6 @@ export default function UpdateProfile() {
 
     return (
         <div>
-            <Canvas />
-
             <CanvasBar />
             <div className='w-100 text-center mt-2'>
                 <Button variant='primary' onClick={handleBackToProfile}>Back to Dashboard</Button>

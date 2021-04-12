@@ -63,30 +63,9 @@ class CanvasApp extends React.Component {
             draggable={false}
           />
           <Text text="Try to drag a star" />
-          {this.state.stars.map((star) => (
-            <Star
-            key={star.id}
-            id={star.id}
-            x={star.x}
-            y={star.y}
-            numPoints={5}
-            innerRadius={20}
-            outerRadius={40}
-            fill="#89b717"
-            opacity={0.8}
-            draggable
-            rotation={star.rotation}
-            shadowColor="black"
-            shadowBlur={10}
-            shadowOpacity={0.6}
-            shadowOffsetX={star.isDragging ? 10 : 5}
-            shadowOffsetY={star.isDragging ? 10 : 5}
-            scaleX={star.isDragging ? 1.2 : 1}
-            scaleY={star.isDragging ? 1.2 : 1}
-            onDragStart={this.handleDragStart}
-            onDragEnd={this.handleDragEnd}
-            />
-            ))}
+
+          
+
         </Layer>
       </Stage>
     );
@@ -102,3 +81,27 @@ CanvasApp.propTypes = {
 }
 
 export default CanvasApp;
+{/* {this.state.stars.map((star) => (
+  <Star
+  key={star.id}
+  id={star.id}
+  x={star.x}
+  y={star.y}
+  numPoints={5}
+  innerRadius={20}
+  outerRadius={40}
+  fill="#89b717"
+  opacity={0.8}
+  draggable
+  rotation={star.rotation}
+  shadowColor="black"
+  shadowBlur={10}
+  shadowOpacity={0.6}
+  shadowOffsetX={star.isDragging ? 10 : 5}
+  shadowOffsetY={star.isDragging ? 10 : 5}
+  scaleX={star.isDragging ? 1.2 : 1}
+  scaleY={star.isDragging ? 1.2 : 1}
+  onDragStart={this.handleDragStart}
+  onDragEnd={this.handleDragEnd}
+  />
+  ))} */}
