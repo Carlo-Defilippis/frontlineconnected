@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Stage, Layer, Star, Text, Image } from 'react-konva';
 
-
 const INITIAL_STATE = generateShapes();
 
 function generateShapes() {
@@ -64,7 +63,7 @@ class CanvasApp extends React.Component {
           />
           <Text text="Try to drag a star" />
 
-          
+
 
         </Layer>
       </Stage>

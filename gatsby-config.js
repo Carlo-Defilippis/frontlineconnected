@@ -18,6 +18,14 @@ module.exports = {
         icon: 'src/images/FLSicon_02.png', // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        jsxPragma: `React`, // defaults to "React"
+        allExtensions: true, // defaults to false
+      },
+    },
     'gatsby-plugin-sass',
   ],
 }
