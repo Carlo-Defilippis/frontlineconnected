@@ -13,6 +13,9 @@ import { useUploader, UploadTypes } from './hooks/useUploader';
 import { Empty } from './components/Empty';
 import { Page } from './components/Page';
 import { Attachments } from './components/Attachments';
+import { prepareAssets } from './utils/prepareAssets';
+
+prepareAssets();
 
 const App: React.FC = () => {
     const [helpModalOpen, setHelpModalOpen] = useState(false);

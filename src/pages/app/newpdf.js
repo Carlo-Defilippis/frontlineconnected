@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import App from '../../components/Canvas/EditPDF/src/App'
+import loadable from '@loadable/component'
+const App = loadable(() => import('../../components/Canvas/EditPDF/src/App'))
 
 export default class NewPDF extends Component {
 

@@ -19,7 +19,18 @@
     "noUnusedParameters": true,
     "plugins": [{ "name": "typescript-styled-plugin" }],
     "target": "es5",
-    "types": ["react-scripts", "jest", "@testing-library/jest-dom"]
+    "types": ["react-scripts", "jest", "@testing-library/jest-dom"],
+    "typeRoots": [
+        "./node_modules/@types/",
+        "./node_modules/@types/node",
+        "./node_modules/@types/jest",
+        "./node_modules/@types/react-dom",
+        "./node_modules/@types/react",
+        "./node_modules/@types/styled-components",
+        "./src/components/Canvas/EditPDF/src/types/",
+        "./src/components/Canvas/EditPDF/src/",
+        "./src"
+      ]
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules/*", "public/*"]
