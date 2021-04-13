@@ -5,7 +5,6 @@ import { useAuth } from '../../components/contexts/AuthContext'
 import Button from 'react-bootstrap/Button'
 import { Link, navigate } from 'gatsby'
 import loadable from '@loadable/component'
-import App from '../../components/Canvas/EditPDF/src/App';
 const CanvasBar = loadable(() => import('../../components/Canvas/CanvasBar'))
 
 
@@ -46,7 +45,6 @@ export default function UpdateProfile() {
 
     return (
         <div>
-            <App />
             <CanvasBar />
             <div className='w-100 text-center mt-2'>
                 <Button variant='primary' onClick={handleBackToProfile}>Back to Dashboard</Button>

@@ -6,6 +6,7 @@ import ForgotPassword from './forgotpassword';
 import PrivateRoute from '../../components/PrivateRoute'
 import UpdateProfile from './updateprofile'
 import MyDashboard from './mydashboard'
+import NewPDF from './newpdf'
 
 
 function Dashboard() {
@@ -14,6 +15,7 @@ function Dashboard() {
                 <Router>
                     <PrivateRoute path='/app/mydashboard' component={MyDashboard} />
                     <PrivateRoute path='/app/updateprofile' component={UpdateProfile} />
+                    <PrivateRoute path='/app/newpdf' component={NewPDF} />
                     <SignInForm path='/app/login' />
                     <Signup path='/app/signup' />
                     <ForgotPassword path='/app/forgotpassword' />

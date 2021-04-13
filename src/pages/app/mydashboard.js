@@ -31,6 +31,10 @@ function MyDashboard() {
         navigate('/app/updateprofile')
     }
 
+    function handlePDFEdit() {
+        navigate('/app/newpdf')
+    }
+
     return (
         <>
             <div>
@@ -43,6 +47,7 @@ function MyDashboard() {
                                 {error && <Alert variant='danger'>{error}</Alert>}
                                 {/* <strong>Email: </strong> {currentUser.email} */}
                                 <Button disabled={loading} onClick={handleProfileUpdate}>Test Canvas</Button>
+                                <Button disabled={loading} onClick={handlePDFEdit}>Test PDF Editor</Button>
                             </Card>
                             <div className='w-100 text-center mt-2'>
                                 <Button variant='primary' onClick={handleLogout}>Log Out</Button>
