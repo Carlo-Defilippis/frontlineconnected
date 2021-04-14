@@ -1,5 +1,15 @@
 import React, { RefObject } from 'react';
 import { TextMode } from '../entities';
+import { Rnd } from 'react-rnd';
+
+const style = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  border: "solid 1px #ddd",
+  background: "yellow",
+  border: '2px solid'
+} as const;
 
 interface Props {
   inputRef: RefObject<HTMLInputElement>;
@@ -39,51 +49,63 @@ export const Text: React.FC<Props> = ({
   lineHeight,
 }) => {
   return (
-    <div
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseOut={handleMouseOut}
-      onDoubleClick={toggleEditMode}
-      style={{
-        width,
-        border: 1,
-        height,
-        fontFamily,
-        fontSize: size,
-        lineHeight,
-        cursor: mode === TextMode.COMMAND ? 'move' : 'default',
-        top: positionTop,
-        left: positionLeft,
-        borderColor: 'gray',
-        borderStyle: 'solid',
-        wordWrap: 'break-word',
-        padding: 0,
-        position: 'absolute',
+    <Rnd
+      style={style}
+      default={{
+        x: 0,
+        y: 0,
+        width: 200,
+        height: 200
       }}
-    >
-      <input
-        type="text"
-        ref={inputRef}
-        onChange={onChangeText}
-        readOnly={mode === TextMode.COMMAND}
-        style={{
-          width: '100%',
-          borderStyle: 'none',
-          borderWidth: 0,
-          fontFamily,
-          fontSize: size,
-          outline: 'none',
-          padding: 0,
-          boxSizing: 'border-box',
-          lineHeight,
-          height,
-          margin: 0,
-          backgroundColor: 'transparent',
-          cursor: mode === TextMode.COMMAND ? 'move' : 'text',
-        }}
-        value={text}
-      />
-    </div>
+    />
+
+
+    // <div
+    //   onMouseDown={handleMouseDown}
+    //   onMouseMove={handleMouseMove}
+    //   onMouseUp={handleMouseUp}
+    //   onMouseOut={handleMouseOut}
+    //   onDoubleClick={toggleEditMode}
+    //   style={{
+    //     width,
+    //     border: 1,
+    //     height,
+    //     fontFamily,
+    //     fontSize: size,
+    //     lineHeight,
+    //     cursor: mode === TextMode.COMMAND ? 'move' : 'default',
+    //     top: positionTop,
+    //     left: positionLeft,
+    //     borderColor: 'gray',
+    //     borderStyle: 'solid',
+    //     wordWrap: 'break-word',
+    //     padding: 0,
+    //     position: 'absolute',
+    //   }}
+    // >
+    //   <input
+    //     type="text"
+    //     ref={inputRef}
+    //     onChange={onChangeText}
+    //     readOnly={mode === TextMode.COMMAND}
+    //     style={{
+    //       width: '100%',
+    //       border: '2px solid',
+    //       fontFamily,
+    //       fontSize: size,
+    //       outline: 'none',
+    //       padding: 0,
+    //       boxSizing: 'border-box',
+    //       lineHeight,
+    //       height,
+    //       margin: 0,
+    //       resize: 'both',
+    //       overflow: 'auto',
+    //       backgroundColor: 'transparent',
+    //       cursor: mode === TextMode.COMMAND ? 'move' : 'text',
+    //     }}
+    //     value={text}
+    //   />
+    // </div>
   );
 };

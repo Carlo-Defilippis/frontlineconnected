@@ -23,7 +23,7 @@ export const MenuBar: React.FC<Props> = ({
   savePdf,
 }) => (
   <Menu pointing>
-    <Menu.Item header>PDF Editor</Menu.Item>
+    <Menu.Item header>FormEazy PDF Editor</Menu.Item>
     <Menu.Menu position="right">
       {isPdfLoaded && (
         <>

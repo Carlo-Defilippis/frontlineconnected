@@ -53,6 +53,8 @@ export const Text = ({
   };
 
   const handleMousedown = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
+
     if (textMode !== TextMode.COMMAND) {
       return;
     }
@@ -100,6 +102,7 @@ export const Text = ({
   };
 
   const handleMouseOut = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
     if (operation === DragActions.MOVE) {
       handleMouseUp(event);
     }

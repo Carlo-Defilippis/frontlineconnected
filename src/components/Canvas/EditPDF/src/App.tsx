@@ -49,7 +49,7 @@ const App: React.FC = () => {
             size: 16,
             lineHeight: 1.4,
             fontFamily: 'Times-Roman',
-            text: 'Enter Text Here',
+            text: 'Enter Text Here'
         };
         addAttachment(newTextAttachment);
     };
