@@ -50,6 +50,7 @@ export const Text: React.FC<Props> = ({
 }) => {
   return (
     <>
+    {/* This is a draggable component, it records the users box size and position on the page and will has an accept and deny button attached to it */}
     <Rnd
       style={style}
       default={{
