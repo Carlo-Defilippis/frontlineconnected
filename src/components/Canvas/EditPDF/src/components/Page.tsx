@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-
+import { Touch, Canvas } from 'react-touch-canvas'
 interface Props {
   page: any;
   dimensions?: Dimensions;
@@ -43,25 +42,7 @@ export const Page = ({ page, dimensions, updateDimensions }: Props) => {
 
   return (
     <div>
-      <TransformWrapper
-        defaultScale={1}
-        defaultPositionX={200}
-        defaultPositionY={100}
-      >
-        {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
-          <React.Fragment>
-            <div className="tools">
-              <button onClick={zoomIn}>+</button>
-              <button onClick={zoomOut}>-</button>
-              <button onClick={resetTransform}>x</button>
-            </div>
-            <TransformComponent>
-          <canvas ref={canvasRef} width={width} height={height} />
-          </TransformComponent>
-          </React.Fragment>
-        )}
-      </TransformWrapper>
-    );
+      <canvas ref={canvasRef} width={width} height={height} />
     </div>
   );
 };
