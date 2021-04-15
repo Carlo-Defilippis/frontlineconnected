@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
 import 'semantic-ui-css/semantic.min.css'
-
+import './index.css';
 import { Container, Grid, Button, Segment } from 'semantic-ui-react';
 import { MenuBar } from './components/MenuBar';
 import { DrawingModal } from './modals/components/DrawingModal';
@@ -99,7 +99,7 @@ const App: React.FC = () => {
     const handleSavePdf = () => savePdf(allPageAttachments);
 
     return (
-        <Container 
+      <Container 
             style={{ margin: 30 }}
         >
             { hiddenInputs }
@@ -122,12 +122,12 @@ const App: React.FC = () => {
             ) : (
                 <Grid>
                 <Grid.Row>
-                  <Grid.Column width={3} verticalAlign="middle" textAlign="left">
+                  <Grid.Column width={10} verticalAlign="middle" textAlign="left">
                     {isMultiPage && !isFirstPage && (
                       <Button circular icon="angle left" onClick={previousPage} />
                     )}
                   </Grid.Column>
-                  <Grid.Column width={10}>
+                  <Grid.Column width={10} verticalAlign="middle">
                     { currentPage && (
                       <Segment
                         data-testid="page"
@@ -168,12 +168,12 @@ const App: React.FC = () => {
                 open={drawingModalOpen} 
                 dismiss={() => setDrawingModalOpen(false)}
                 confirm={addDrawing}
-            />
+                />
 
             <HelpModal 
                 open={helpModalOpen}
                 dismiss={() => setHelpModalOpen(false)}
-            />
+                />
         </Container>
     );
 }
