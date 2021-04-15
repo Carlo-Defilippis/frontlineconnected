@@ -7,8 +7,7 @@ const style = {
   alignItems: "center",
   justifyContent: "center",
   border: "solid 1px #ddd",
-  background: "yellow",
-  border: '2px solid'
+  background: "yellow"
 } as const;
 
 interface Props {
@@ -47,8 +46,10 @@ export const Text: React.FC<Props> = ({
   handleMouseOut,
   handleMouseUp,
   lineHeight,
+  DraggableEventHandler
 }) => {
   return (
+    <>
     <Rnd
       style={style}
       default={{
@@ -57,9 +58,17 @@ export const Text: React.FC<Props> = ({
         width: 200,
         height: 200
       }}
+      ref={c => { console.log(c); }}
+      onResize={(delta) => {
+        console.log(delta);
+      }}
+      onDragStop={(delta) => {
+        console.log(delta, inputRef);
+      }}
     />
-
-
+      <button className='yesBtn confirmBtnArea'>Test Button</button>
+      <button className='noBtn confirmBtnArea'>Test Button</button>
+      </>
     // <div
     //   onMouseDown={handleMouseDown}
     //   onMouseMove={handleMouseMove}

@@ -144,6 +144,10 @@ export const Text = ({
     setContent(value);
   };
 
+  const handleConsoleLog = () => {
+    console.log(positionTop, positionLeft, width, height, size)
+  }
+
   return (
     <Component
       text={content}

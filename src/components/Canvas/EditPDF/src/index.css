@@ -8,3 +8,34 @@ body {
   margin-right: auto;
   width: 100%;
 } */
+
+.confirmBtnArea {
+  display: inline-flex;
+  padding: 0.3em 1.2em;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#4eb5f1;
+  text-align:center;
+  transition: all 10s;
+  height: 100%;
+  width: 100%;
+}
+
+.confirmBtnArea:hover {
+  background-color:#4095c6;
+}
+
+@media all and (max-width:30em){
+   .confirmBtnArea {
+      display:block;
+      margin:0.2em auto;
+    };
+  };
