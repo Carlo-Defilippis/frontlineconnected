@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Touch, Canvas } from 'react-touch-canvas'
+
 interface Props {
   page: any;
   dimensions?: Dimensions;

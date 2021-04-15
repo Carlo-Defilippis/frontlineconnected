@@ -10,6 +10,7 @@ body {
 } */
 
 .confirmBtnArea {
+  position: absolute;
   display: inline-flex;
   padding: 0.3em 1.2em;
   margin-top: 2%;

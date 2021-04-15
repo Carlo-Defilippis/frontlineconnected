@@ -46,7 +46,6 @@ export const Text: React.FC<Props> = ({
   handleMouseOut,
   handleMouseUp,
   lineHeight,
-  DraggableEventHandler
 }) => {
   return (
     <>

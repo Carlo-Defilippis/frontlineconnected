@@ -76,6 +76,7 @@
     "type-check": "tsc --pretty --noEmit"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.12.13",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "11.0.2",
     "@testing-library/user-event": "12.1.3",
