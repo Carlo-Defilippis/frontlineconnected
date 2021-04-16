@@ -151,6 +151,7 @@ export const Text = ({
       height={height}
       mode={textMode}
       size={size}
+      RndProps={inputRef}
       lineHeight={lineHeight}
       inputRef={inputRef}
       fontFamily={fontFamily}

@@ -17,6 +17,7 @@ interface Props {
   mode: string;
   width: number;
   size?: number;
+  RndProps: any;
   height: number;
   lineHeight?: number;
   fontFamily?: string;
@@ -37,6 +38,7 @@ export const Text: React.FC<Props> = ({
   inputRef,
   mode,
   size,
+  RndProps,
   fontFamily,
   positionTop,
   positionLeft,
@@ -48,6 +50,7 @@ export const Text: React.FC<Props> = ({
   handleMouseUp,
   lineHeight,
 }) => {
+
   return (
     <>
     {/* This is a draggable component, it records the users box size and position on the page and will has an accept and deny button attached to it */}
@@ -59,12 +62,11 @@ export const Text: React.FC<Props> = ({
         width: 200,
         height: 200,
       }}
-      ref={c => { console.log(c); }}
-      onResize={(delta) => {
-        console.log(delta, size);
-      }}
+      ref={c => { 
+        RndProps = c}}
+      onResize={() => { console.log('This is the RndProps! ', RndProps, 'This is state', ); }}
       onDragStop={(delta) => {
-        console.log(delta, inputRef, size);
+        console.log(delta.view, inputRef, size);
       }}
       bounds="canvas"
       enableResizing={{ 
@@ -77,8 +79,8 @@ export const Text: React.FC<Props> = ({
         bottomLeft:false, 
         topLeft:false }}
         resizeHandleComponent={{
-          bottomRight: <CallReceived style={{ transform: 'rotate(270deg)', fontSize: '10', marginLeft: '10%', marginBottom: '45%'}} />,
-          topRight: <CallReceived style={{ transform: 'rotate(180deg)', fontSize: '10', marginLeft: '10%', marginTop: '23%'}} />,
+          bottomRight: <CallReceived style={{ transform: 'rotate(270deg)', fontSize: '8', marginLeft: '10%', marginBottom: '45%'}} />,
+          topRight: <CallReceived style={{ transform: 'rotate(180deg)', fontSize: '8', marginLeft: '10%', marginTop: '23%'}} />,
         }}
     />
       <button className='yesBtn confirmBtnArea'>Test Button</button>
