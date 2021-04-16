@@ -11,6 +11,10 @@ const style = {
   background: "yellow"
 } as const;
 
+const handleButtonPlacement = () => {
+  
+}
+
 interface Props {
   inputRef: RefObject<HTMLInputElement>;
   text?: string;
@@ -64,7 +68,7 @@ export const Text: React.FC<Props> = ({
       }}
       ref={c => { 
         RndProps = c}}
-      onResize={() => { console.log('This is the RndProps! ', RndProps, 'This is state', ); }}
+      onResize={() => { console.log('This is the RndProps! ', RndProps ); }}
       onDragStop={(delta) => {
         console.log(delta.view, inputRef, size);
       }}
@@ -79,13 +83,13 @@ export const Text: React.FC<Props> = ({
         bottomLeft:false, 
         topLeft:false }}
         resizeHandleComponent={{
-          bottomRight: <CallReceived style={{ transform: 'rotate(270deg)', fontSize: '8!important', marginLeft: '10%!important', marginBottom: '45%!important'}} />,
-          topRight: <CallReceived style={{ transform: 'rotate(180deg)', fontSize: '8!important', marginLeft: '10%!important', marginTop: '23%!important'}} />,
+          bottomRight: <CallReceived style={{ transform: 'rotate(270deg)', fontSize: '8', marginLeft: '10%', marginBottom: '45%'}} />,
+          topRight: <CallReceived style={{ transform: 'rotate(180deg)', fontSize: '8', marginLeft: '10%', marginTop: '23%'}} />,
         }}
+        onMouseUp={handleButtonPlacement}
     />
       <button className='yesBtn confirmBtnArea'>Test Button</button>
       <button className='noBtn confirmBtnArea'>Test Button</button>
-
       </>
     // <div
     //   onMouseDown={handleMouseDown}
