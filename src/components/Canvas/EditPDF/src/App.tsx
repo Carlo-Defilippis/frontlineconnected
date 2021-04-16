@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react';
 import 'semantic-ui-css/semantic.min.css'
 import './index.css';
-import { Container, Grid, Button, Segment } from 'semantic-ui-react';
+import { Container, Grid, Button, Segment, Card, Image, Icon } from 'semantic-ui-react';
 import { MenuBar } from './components/MenuBar';
 import { DrawingModal } from './modals/components/DrawingModal';
 import { HelpModal } from './modals/components/HelpModal';
@@ -101,7 +101,7 @@ const App: React.FC = () => {
 
   const panOptions = {
     disableOnTarget: ['react-draggable'],
-} as any;
+  } as any;
 
   return (
     <Container
@@ -125,55 +125,81 @@ const App: React.FC = () => {
           uploadPdf={handlePdfClick}
         />
       ) : (
-        <TransformWrapper 
-          pan={panOptions}
-        >
-          <TransformComponent>
-            <Grid>
-              <Grid.Row>
-                <Grid.Column width={10} verticalAlign="middle" textAlign="left">
-                  {isMultiPage && !isFirstPage && (
-                    <Button circular icon="angle left" onClick={previousPage} />
-                  )}
-                </Grid.Column>
-                <Grid.Column width={10} verticalAlign="middle">
-                  {currentPage && (
-                    <Segment
-                      data-testid="page"
-                      compact
-                      stacked={isMultiPage && !isLastPage}
-                    >
-                      <div
-                        style={{ position: 'relative' }}
-                      >
-                        <Page
-                          dimensions={dimensions}
-                          updateDimensions={setDimensions}
-                          page={currentPage}
-                        />
-                        {dimensions && (
-                          <Attachments
-                            pdfName={name}
-                            removeAttachment={remove}
-                            updateAttachment={update}
-                            pageDimensions={dimensions}
-                            attachments={pageAttachments}
-                          />
+        <Grid columns='two' divided>
+          <Grid.Row>
+            <Grid.Column width={12}>
+              <TransformWrapper
+                pan={panOptions}
+              >
+                <TransformComponent>
+                  <Grid>
+                    <Grid.Row>
+                      <Grid.Column width={10} verticalAlign="middle" textAlign="left">
+                        {isMultiPage && !isFirstPage && (
+                          <Button circular icon="angle left" onClick={previousPage} />
                         )}
-                      </div>
-                    </Segment>
-                  )}
+                      </Grid.Column>
+                      <Grid.Column width={10} verticalAlign="middle">
+                        {currentPage && (
+                          <Segment
+                            data-testid="page"
+                            compact
+                            stacked={isMultiPage && !isLastPage}
+                          >
+                            <div
+                              style={{ position: 'relative' }}
+                            >
+                              <Page
+                                dimensions={dimensions}
+                                updateDimensions={setDimensions}
+                                page={currentPage}
+                              />
+                              {dimensions && (
+                                <Attachments
+                                  pdfName={name}
+                                  removeAttachment={remove}
+                                  updateAttachment={update}
+                                  pageDimensions={dimensions}
+                                  attachments={pageAttachments}
+                                />
+                              )}
+                            </div>
+                          </Segment>
+                        )}
 
-                </Grid.Column>
-                <Grid.Column width={3} verticalAlign="middle" textAlign="right">
-                  {isMultiPage && !isLastPage && (
-                    <Button circular icon="angle right" onClick={nextPage} />
-                  )}
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          </TransformComponent>
-        </TransformWrapper>
+                      </Grid.Column>
+                      <Grid.Column width={3} verticalAlign="middle" textAlign="right">
+                        {isMultiPage && !isLastPage && (
+                          <Button circular icon="angle right" onClick={nextPage} />
+                        )}
+                      </Grid.Column>
+                    </Grid.Row>
+                  </Grid>
+                </TransformComponent>
+              </TransformWrapper>
+            </Grid.Column>
+            <Grid.Column width={4}>
+              <Card>
+                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                <Card.Content>
+                  <Card.Header>Matthew</Card.Header>
+                  <Card.Meta>
+                    <span className='date'>Joined in 2015</span>
+                  </Card.Meta>
+                  <Card.Description>
+                    Matthew is a musician living in Nashville.
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <a>
+                    <Icon name='user' />
+                    22 Friends
+                  </a>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       )}
       <DrawingModal
         open={drawingModalOpen}

@@ -2,6 +2,7 @@ import React, { RefObject } from 'react';
 import { TextMode } from '../entities';
 import { Rnd } from 'react-rnd';
 import { CallReceived } from '@material-ui/icons/';
+import { Container, Grid, Button, Segment, Card, Image, Icon } from 'semantic-ui-react';
 
 const style = {
   display: "flex",
@@ -12,7 +13,7 @@ const style = {
 } as const;
 
 const handleButtonPlacement = () => {
-  
+
 }
 
 interface Props {
@@ -57,40 +58,41 @@ export const Text: React.FC<Props> = ({
 
   return (
     <>
-    {/* This is a draggable component, it records the users box size and position on the page and will has an accept and deny button attached to it */}
-    <Rnd
-      style={style}
-      default={{
-        x: 0,
-        y: 0,
-        width: 200,
-        height: 200,
-      }}
-      ref={c => { 
-        RndProps = c}}
-      onResize={() => { console.log('This is the RndProps! ', RndProps ); }}
-      onDragStop={(delta) => {
-        console.log(delta.view, inputRef, size);
-      }}
-      bounds="canvas"
-      enableResizing={{ 
-        top:false, 
-        right:true, 
-        bottom:false, 
-        left:false, 
-        topRight:true, 
-        bottomRight:true, 
-        bottomLeft:false, 
-        topLeft:false }}
+      {/* This is a draggable component, it records the users box size and position on the page and will has an accept and deny button attached to it */}
+
+      <Rnd
+        style={style}
+        default={{
+          x: 0,
+          y: 0,
+          width: 200,
+          height: 200,
+        }}
+        ref={c => {
+          RndProps = c
+        }}
+        onResize={() => { console.log('This is the RndProps! ', RndProps); }}
+        onDragStop={(delta) => {
+          console.log(delta.view, inputRef, size);
+        }}
+        bounds="canvas"
+        enableResizing={{
+          top: false,
+          right: true,
+          bottom: false,
+          left: false,
+          topRight: true,
+          bottomRight: true,
+          bottomLeft: false,
+          topLeft: false
+        }}
         resizeHandleComponent={{
-          bottomRight: <CallReceived style={{ transform: 'rotate(270deg)', fontSize: '8', marginLeft: '10%', marginBottom: '45%'}} />,
-          topRight: <CallReceived style={{ transform: 'rotate(180deg)', fontSize: '8', marginLeft: '10%', marginTop: '23%'}} />,
+          bottomRight: <CallReceived style={{ transform: 'rotate(270deg)', fontSize: '8', marginLeft: '10%', marginBottom: '45%' }} />,
+          topRight: <CallReceived style={{ transform: 'rotate(180deg)', fontSize: '8', marginLeft: '10%', marginTop: '23%' }} />,
         }}
         onMouseUp={handleButtonPlacement}
-    />
-      <button className='yesBtn confirmBtnArea'>Test Button</button>
-      <button className='noBtn confirmBtnArea'>Test Button</button>
-      </>
+        />
+    </>
     // <div
     //   onMouseDown={handleMouseDown}
     //   onMouseMove={handleMouseMove}

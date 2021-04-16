@@ -8,13 +8,25 @@ body {
   margin-right: auto;
   width: 100%;
 } */
+.react-transform-component {
+  width: unset !important;
+  height: unset !important;
+}
+
+.react-transform-element {
+  width: unset !important;
+  height: unset !important;
+}
 
 .confirmBtnArea {
+  position: inherit;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -104.5px; /*104.5px is half of the button's width*/
   display: inline-flex;
   padding: 0.3em 1.2em;
   margin-top: 2%;
   margin-bottom: 2%;
-  margin-left: 2%;
   margin-right: 2%;
   border-radius: 2em;
   box-sizing: border-box;
@@ -28,7 +40,7 @@ body {
   height: 100%;
   width: 100%;
 }
-
+/* 
 .confirmBtnArea:hover {
   background-color:#4095c6;
 }
@@ -38,4 +50,4 @@ body {
       display:block;
       margin:0.2em auto;
     };
-  };
+  }; */
