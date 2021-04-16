@@ -1,6 +1,7 @@
 import React, { RefObject } from 'react';
 import { TextMode } from '../entities';
 import { Rnd } from 'react-rnd';
+import { CallReceived } from '@material-ui/icons/';
 
 const style = {
   display: "flex",
@@ -56,18 +57,33 @@ export const Text: React.FC<Props> = ({
         x: 0,
         y: 0,
         width: 200,
-        height: 200
+        height: 200,
       }}
       ref={c => { console.log(c); }}
       onResize={(delta) => {
-        console.log(delta);
+        console.log(delta, size);
       }}
       onDragStop={(delta) => {
-        console.log(delta, inputRef);
+        console.log(delta, inputRef, size);
       }}
+      bounds="canvas"
+      enableResizing={{ 
+        top:false, 
+        right:true, 
+        bottom:false, 
+        left:false, 
+        topRight:true, 
+        bottomRight:true, 
+        bottomLeft:false, 
+        topLeft:false }}
+        resizeHandleComponent={{
+          bottomRight: <CallReceived style={{ transform: 'rotate(270deg)', fontSize: '10', marginLeft: '10%', marginBottom: '45%'}} />,
+          topRight: <CallReceived style={{ transform: 'rotate(180deg)', fontSize: '10', marginLeft: '10%', marginTop: '23%'}} />,
+        }}
     />
       <button className='yesBtn confirmBtnArea'>Test Button</button>
       <button className='noBtn confirmBtnArea'>Test Button</button>
+
       </>
     // <div
     //   onMouseDown={handleMouseDown}

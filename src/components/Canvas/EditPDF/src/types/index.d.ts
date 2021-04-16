@@ -57,7 +57,8 @@ type DraggableData = {
   x: number,
   y: number,
   deltaX: number, deltaY: number,
-  lastX: number, lastY: number
+  lastX: number, lastY: number,
+  bounds: string
 };
 
 type DraggableEventHandler = (
