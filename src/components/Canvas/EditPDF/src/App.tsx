@@ -180,14 +180,14 @@ const App: React.FC = () => {
             </Grid.Column>
             <Grid.Column width={4}>
               <Card>
-                <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+                <Image src='https://placeimg.com/640/480/tech' wrapped ui={false} />
                 <Card.Content>
-                  <Card.Header>Matthew</Card.Header>
+                  <Card.Header>Example</Card.Header>
                   <Card.Meta>
-                    <span className='date'>Joined in 2015</span>
+                    <span className='date'>Example</span>
                   </Card.Meta>
                   <Card.Description>
-                    Matthew is a musician living in Nashville.
+                    This card will have text fields for the user to type the question and define if they want numbers, letters, etc.
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
