@@ -22,7 +22,7 @@ export const Text = ({
   pageWidth,
   updateTextAttachment,
 }: TextAttachment & Props) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLDivElement>(null);
   const [content, setContent] = useState(text || '');
   const [mouseDown, setMouseDown] = useState(false);
   const [positionTop, setPositionTop] = useState(y);

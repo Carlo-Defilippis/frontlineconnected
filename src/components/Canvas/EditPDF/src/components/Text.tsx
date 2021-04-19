@@ -1,4 +1,4 @@
-import React, { RefObject } from 'react';
+import React, { RefObject, useRef } from 'react';
 import { TextMode } from '../entities';
 import { Rnd } from 'react-rnd';
 import { CallReceived } from '@material-ui/icons/';
@@ -13,18 +13,8 @@ const style = {
   background: "yellow"
 } as const;
 
-type DraggableEventHandler = (
-  e: SyntheticMouseEvent | SyntheticTouchEvent, data: DraggableData,
-) => void | false;
-
 interface Props {
-  node: HTMLElement,
-  x: number,
-  y: number,
-  deltaX: number, deltaY: number,
-  lastX: number, lastY: number,
-  bounds: string
-  inputRef: RefObject<HTMLInputElement>;
+  inputRef: RefObject<Rnd>;
   text?: string;
   mode: string;
   width: number;
@@ -41,40 +31,32 @@ interface Props {
   handleMouseMove: DragEventListener<HTMLDivElement>;
   handleMouseOut: DragEventListener<HTMLDivElement>;
   onChangeText: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (e: React.ChangeEvent<Rnd>) => void;
 }
 
 export const Text: React.FC<Props> = ({
-  node,
-  x,
-  y,
-  deltaX,
-  deltaY,
-  lastX,
-  lastY,
-  bounds,
   text,
   width,
   height,
-  inputRef,
   mode,
   size,
   RndProps,
   fontFamily,
   positionTop,
   positionLeft,
-  onChangeText,
   toggleEditMode,
   handleMouseDown,
   handleMouseMove,
   handleMouseOut,
   handleMouseUp,
+  onChangeText,
   lineHeight,
+  handleChange
 }) => {
-
+  const inputRef = useRef<Rnd>(null);
   const handleButtonPlacement = () => {
     console.log(document.getElementsByClassName('react-draggable'))
-    console.log(Attachments);
-    console.log(node, x, y, deltaX, deltaY, lastX, lastY, bounds);
+    console.log(inputRef.current);
   }
 
 
@@ -83,8 +65,6 @@ export const Text: React.FC<Props> = ({
       {/* This is a draggable component, it records the users box size and position on the page and will has an accept and deny button attached to it */}
 
       <Rnd
-        onMouseMove={handleMouseMove}
-        onMouseOut={handleMouseOut}
         style={style}
         default={{
           x: 0,
@@ -92,11 +72,7 @@ export const Text: React.FC<Props> = ({
           width: 200,
           height: 200,
         }}
-        ref={c => {
-          RndProps = c
-        }}
-        onResize={() => { console.log('This is the RndProps! ', RndProps); }}
-        onDragStop={handleButtonPlacement}
+        ref={inputRef}
         bounds="canvas"
         enableResizing={{
           top: false,
@@ -113,6 +89,9 @@ export const Text: React.FC<Props> = ({
           topRight: <CallReceived style={{ transform: 'rotate(180deg)', fontSize: '8', marginLeft: '10%', marginTop: '23%' }} />,
         }}
         onMouseUp={handleButtonPlacement}
+        onResizeStop={handleChange}
+        onChange={handleChange}
+        onDrag={c => console.log(c)}
         />
     </>
     // <div

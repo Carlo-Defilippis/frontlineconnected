@@ -28,7 +28,7 @@ type DraggableData = {
   bounds: string
 };
 
-const App: React.FC = ({node, x, y, deltaX, deltaY, lastX, lastY, bounds}: DraggableData) => {
+const App: React.FC = ({children}) => {
   const [helpModalOpen, setHelpModalOpen] = useState(false);
   const [drawingModalOpen, setDrawingModalOpen] = useState(false);
   const { file, initialize, pageIndex, isMultiPage, isFirstPage, isLastPage, currentPage, isSaving, savePdf, previousPage, nextPage, setDimensions, name, dimensions } = usePdf();
@@ -51,7 +51,6 @@ const App: React.FC = ({node, x, y, deltaX, deltaY, lastX, lastY, bounds}: Dragg
   });
 
   const addText = () => {
-    console.log(node, x, y, deltaX, deltaY, lastX, lastY, bounds);
     const newTextAttachment: TextAttachment = {
       id: ggID(),
       type: AttachmentTypes.TEXT,
@@ -65,7 +64,7 @@ const App: React.FC = ({node, x, y, deltaX, deltaY, lastX, lastY, bounds}: Dragg
       text: 'Enter Text Here'
     };
     addAttachment(newTextAttachment);
-    console.log([Text]);
+    console.log({children});
   };
 
   const addDrawing = (drawing?: { width: number, height: number, path: string }) => {
