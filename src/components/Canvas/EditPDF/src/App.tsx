@@ -15,15 +15,26 @@ import { Page } from './components/Page';
 import { Attachments } from './components/Attachments';
 import { prepareAssets } from './utils/prepareAssets';
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { Text } from './containers/Text'
 
 prepareAssets();
 
-const App: React.FC = () => {
+type DraggableData = {
+  node: HTMLElement,
+  x: number,
+  y: number,
+  deltaX: number, deltaY: number,
+  lastX: number, lastY: number,
+  bounds: string
+};
+
+const App: React.FC = ({node, x, y, deltaX, deltaY, lastX, lastY, bounds}: DraggableData) => {
   const [helpModalOpen, setHelpModalOpen] = useState(false);
   const [drawingModalOpen, setDrawingModalOpen] = useState(false);
   const { file, initialize, pageIndex, isMultiPage, isFirstPage, isLastPage, currentPage, isSaving, savePdf, previousPage, nextPage, setDimensions, name, dimensions } = usePdf();
   const { add: addAttachment, allPageAttachments, pageAttachments, reset: resetAttachments, update, remove, setPageIndex } = useAttachments();
 
+  
   const initializePageAndAttachments = (pdfDetails: Pdf) => {
     initialize(pdfDetails);
     const numberOfPages = pdfDetails.pages.length;
@@ -40,6 +51,7 @@ const App: React.FC = () => {
   });
 
   const addText = () => {
+    console.log(node, x, y, deltaX, deltaY, lastX, lastY, bounds);
     const newTextAttachment: TextAttachment = {
       id: ggID(),
       type: AttachmentTypes.TEXT,
@@ -53,6 +65,7 @@ const App: React.FC = () => {
       text: 'Enter Text Here'
     };
     addAttachment(newTextAttachment);
+    console.log([Text]);
   };
 
   const addDrawing = (drawing?: { width: number, height: number, path: string }) => {
@@ -180,7 +193,7 @@ const App: React.FC = () => {
             </Grid.Column>
             <Grid.Column width={4}>
               <Card>
-                <Image src='https://placeimg.com/640/480/tech' wrapped ui={false} />
+                <Image src='' wrapped ui={false} />
                 <Card.Content>
                   <Card.Header>Example</Card.Header>
                   <Card.Meta>

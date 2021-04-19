@@ -3,6 +3,7 @@ import { TextMode } from '../entities';
 import { Rnd } from 'react-rnd';
 import { CallReceived } from '@material-ui/icons/';
 import { Container, Grid, Button, Segment, Card, Image, Icon } from 'semantic-ui-react';
+import { Attachments } from '../components/Attachments';
 
 const style = {
   display: "flex",
@@ -12,11 +13,17 @@ const style = {
   background: "yellow"
 } as const;
 
-const handleButtonPlacement = () => {
-
-}
+type DraggableEventHandler = (
+  e: SyntheticMouseEvent | SyntheticTouchEvent, data: DraggableData,
+) => void | false;
 
 interface Props {
+  node: HTMLElement,
+  x: number,
+  y: number,
+  deltaX: number, deltaY: number,
+  lastX: number, lastY: number,
+  bounds: string
   inputRef: RefObject<HTMLInputElement>;
   text?: string;
   mode: string;
@@ -37,6 +44,14 @@ interface Props {
 }
 
 export const Text: React.FC<Props> = ({
+  node,
+  x,
+  y,
+  deltaX,
+  deltaY,
+  lastX,
+  lastY,
+  bounds,
   text,
   width,
   height,
@@ -56,11 +71,20 @@ export const Text: React.FC<Props> = ({
   lineHeight,
 }) => {
 
+  const handleButtonPlacement = () => {
+    console.log(document.getElementsByClassName('react-draggable'))
+    console.log(Attachments);
+    console.log(node, x, y, deltaX, deltaY, lastX, lastY, bounds);
+  }
+
+
   return (
     <>
       {/* This is a draggable component, it records the users box size and position on the page and will has an accept and deny button attached to it */}
 
       <Rnd
+        onMouseMove={handleMouseMove}
+        onMouseOut={handleMouseOut}
         style={style}
         default={{
           x: 0,
@@ -72,9 +96,7 @@ export const Text: React.FC<Props> = ({
           RndProps = c
         }}
         onResize={() => { console.log('This is the RndProps! ', RndProps); }}
-        onDragStop={(delta) => {
-          console.log(delta.view, inputRef, size);
-        }}
+        onDragStop={handleButtonPlacement}
         bounds="canvas"
         enableResizing={{
           top: false,
