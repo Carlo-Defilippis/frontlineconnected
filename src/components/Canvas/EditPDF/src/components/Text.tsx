@@ -89,7 +89,6 @@ export const Text: React.FC<Props> = ({
           topRight: <CallReceived style={{ transform: 'rotate(180deg)', fontSize: '8', marginLeft: '10%', marginTop: '23%' }} />,
         }}
         onMouseUp={handleButtonPlacement}
-        onResizeStop={handleChange}
         onChange={handleChange}
         onDrag={c => console.log(c)}
         />

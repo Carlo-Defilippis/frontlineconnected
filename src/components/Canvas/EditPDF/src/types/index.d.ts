@@ -52,6 +52,7 @@ type Attachments = Attachment[];
 
 type DragEventListener<T> = (e: React.MouseEvent<T>) => void;
 
+
 type DraggableData = {
   node: HTMLElement,
   x: number,
@@ -60,6 +61,7 @@ type DraggableData = {
   lastX: number, lastY: number,
   bounds: string
 };
+
 
 type DraggableEventHandler = (
   e: SyntheticMouseEvent | SyntheticTouchEvent, data: DraggableData,

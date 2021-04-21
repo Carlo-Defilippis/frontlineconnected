@@ -15,7 +15,6 @@ import { Page } from './components/Page';
 import { Attachments } from './components/Attachments';
 import { prepareAssets } from './utils/prepareAssets';
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import { Text } from './containers/Text'
 
 prepareAssets();
 
@@ -28,12 +27,28 @@ type DraggableData = {
   bounds: string
 };
 
-const App: React.FC = ({children}) => {
+const App: React.FC<DraggableData> = ({
+  node,
+  x,
+  y,
+  deltaX,
+  deltaY,
+  lastX,
+  lastY,
+  bounds
+}) => {
   const [helpModalOpen, setHelpModalOpen] = useState(false);
   const [drawingModalOpen, setDrawingModalOpen] = useState(false);
   const { file, initialize, pageIndex, isMultiPage, isFirstPage, isLastPage, currentPage, isSaving, savePdf, previousPage, nextPage, setDimensions, name, dimensions } = usePdf();
   const { add: addAttachment, allPageAttachments, pageAttachments, reset: resetAttachments, update, remove, setPageIndex } = useAttachments();
-
+  console.log(  node,
+    x,
+    y,
+    deltaX,
+    deltaY,
+    lastX,
+    lastY,
+    bounds);
   
   const initializePageAndAttachments = (pdfDetails: Pdf) => {
     initialize(pdfDetails);
@@ -64,7 +79,6 @@ const App: React.FC = ({children}) => {
       text: 'Enter Text Here'
     };
     addAttachment(newTextAttachment);
-    console.log({children});
   };
 
   const addDrawing = (drawing?: { width: number, height: number, path: string }) => {
