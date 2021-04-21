@@ -22,7 +22,12 @@ export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState()
     const [loading, setLoading] = useState(true)
     const [errorMessage, setErrorMessage] = useState('')
-    const [ successMessage, setSuccessMessage ] = useState('')
+    const [successMessage, setSuccessMessage] = useState('')
+    const [moveInfo, setMoveInfo] = useState({})
+
+    function moveFunction(info) {
+        setMoveInfo({info})
+    }
 
     function signup(email, password) {
         console.log('Signup in context was hit')

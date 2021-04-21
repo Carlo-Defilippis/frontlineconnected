@@ -22,7 +22,7 @@ export const Text = ({
   pageWidth,
   updateTextAttachment
 }: TextAttachment & Props) => {
-  const inputRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<typeof Rnd>(null);
   const [content, setContent] = useState(text || '');
   const [mouseDown, setMouseDown] = useState(false);
   const [positionTop, setPositionTop] = useState(y);
@@ -31,6 +31,7 @@ export const Text = ({
     DragActions.NO_MOVEMENT
   );
   const [textMode, setTextMode] = useState<TextMode>(TextMode.COMMAND);
+
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     event.preventDefault();
 
@@ -52,12 +53,10 @@ export const Text = ({
   };
 
   const handleMousedown = (event: React.MouseEvent<HTMLDivElement>) => {
-    event.preventDefault();
-
     if (textMode !== TextMode.COMMAND) {
       return;
     }
-
+    
     setMouseDown(true);
     setOperation(DragActions.MOVE);
   };
@@ -152,7 +151,7 @@ export const Text = ({
       size={size}
       RndProps={inputRef}
       lineHeight={lineHeight}
-      // inputRef={inputRef} inputRef is showing error in typescript
+      inputRef={inputRef}
       fontFamily={fontFamily}
       positionTop={positionTop}
       onChangeText={onChangeText}

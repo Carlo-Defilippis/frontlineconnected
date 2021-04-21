@@ -32,7 +32,7 @@ interface DrawingAttachment extends AttachmentBase {
 }
 
 interface TextAttachment extends AttachmentBase {
-  text?: string;
+  text?: {};
   fontFamily?: string;
   size?: number;
   lineHeight?: number;

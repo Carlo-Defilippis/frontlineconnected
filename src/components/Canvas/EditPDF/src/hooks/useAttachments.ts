@@ -33,7 +33,6 @@ const initialState: State = {
 
 const reducer = (state: State, action: Action) => {
   const { pageIndex, allPageAttachments, pageAttachments } = state;
-
   switch (action.type) {
     case ActionType.ADD_ATTACHMENT: {
       const newAllPageAttachmentsAdd = allPageAttachments.map(
@@ -42,7 +41,7 @@ const reducer = (state: State, action: Action) => {
             ? [...attachments, action.attachment]
             : attachments
       );
-
+      console.log(state)
       return {
         ...state,
         allPageAttachments: newAllPageAttachmentsAdd,
