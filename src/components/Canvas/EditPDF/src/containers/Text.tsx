@@ -140,11 +140,11 @@ export const Text = ({
     }
   };
 
-  const onChangeText = (e: DraggableEventHandler) => {
+  const onChangeText = (e: DraggableEventHandler, data: DraggableData) => {
     const value = e;
     // const myData = data
     setContent(value);
-    console.log('Value: ', value);
+    console.log('Value: ', value, 'Data: ', data);
 
     updateTextAttachment({
       x: value.layerX,

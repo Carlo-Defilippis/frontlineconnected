@@ -51,8 +51,7 @@ type Attachment = ImageAttachment | DrawingAttachment | TextAttachment;
 type Attachments = Attachment[];
 
 type DragEventListener<T> = (e: React.MouseEvent<T>) => void;
-
-
+// Data from Rnd type
 type DraggableData = {
   node: HTMLElement,
   x: number,
@@ -61,11 +60,11 @@ type DraggableData = {
   lastX: number, lastY: number,
   bounds: string
 };
-
+// Rnd type
 type DraggableEventHandler = (
   attachment: SyntheticMouseEvent | SyntheticTouchEvent, data: DraggableData,
 ) => void | false;
-
+// Ract-zoom-pan-zoom props
 type TransformWrapper = {
   scale: number
 }
