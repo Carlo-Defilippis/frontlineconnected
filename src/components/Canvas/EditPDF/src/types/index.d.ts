@@ -62,7 +62,10 @@ type DraggableData = {
   bounds: string
 };
 
-
 type DraggableEventHandler = (
-  e: SyntheticMouseEvent | SyntheticTouchEvent, data: DraggableData,
+  attachment: SyntheticMouseEvent | SyntheticTouchEvent, data: DraggableData,
 ) => void | false;
+
+type TransformWrapper = {
+  scale: number
+}

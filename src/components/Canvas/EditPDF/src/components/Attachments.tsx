@@ -9,7 +9,7 @@ interface Props {
   pdfName: string;
   pageDimensions: Dimensions;
   removeAttachment: (index: number) => void;
-  updateAttachment: (index: number, attachment: Partial<Attachment>) => void;
+  updateAttachment: (index: number, attachment: DraggableEventHandler) => void;
 }
 
 export const Attachments: React.FC<Props> = ({

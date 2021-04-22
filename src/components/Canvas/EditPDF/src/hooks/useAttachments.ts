@@ -21,7 +21,7 @@ type Action =
   | {
       type: ActionType.UPDATE_ATTACHMENT;
       attachmentIndex: number;
-      attachment: Partial<Attachment>;
+      attachment: DraggableEventHandler;
     }
   | { type: ActionType.RESET; numberOfPages: number };
 
@@ -117,12 +117,15 @@ export const useAttachments = () => {
   const remove = (attachmentIndex: number) =>
     dispatch({ type: ActionType.REMOVE_ATTACHMENT, attachmentIndex });
 
-  const update = (attachmentIndex: number, attachment: Partial<Attachment>) =>
-    dispatch({
-      type: ActionType.UPDATE_ATTACHMENT,
-      attachmentIndex,
-      attachment,
-    });
+  const update = (attachmentIndex: number, attachment: DraggableEventHandler) =>
+    {
+      dispatch({
+        type: ActionType.UPDATE_ATTACHMENT,
+        attachmentIndex,
+        attachment,
+      });
+      console.log(attachment)
+    }
 
   const reset = (numberOfPages: number) =>
     dispatch({ type: ActionType.RESET, numberOfPages });

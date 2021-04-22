@@ -9,7 +9,8 @@ const style = {
   alignItems: "center",
   justifyContent: "center",
   border: "solid 1px #ddd",
-  background: "yellow"
+  background: "yellow",
+  cursor: 'move'
 } as const;
 
 interface Props {
@@ -25,20 +26,19 @@ interface Props {
   positionTop: number;
   positionLeft: number;
   toggleEditMode: () => void;
-  handleMouseDown: DragEventListener<HTMLDivElement>;
+  handleMouseDown: (e: DraggableEventHandler) => void;
   handleMouseUp: DragEventListener<HTMLDivElement>;
   handleMouseMove: DragEventListener<HTMLDivElement>;
   handleMouseOut: DragEventListener<HTMLDivElement>;
-  onChangeText: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleChange: (e: React.ChangeEvent<Rnd>) => void;
+  onChangeText: (e: DraggableEventHandler) => void;
+  handleChange: (e: DraggableEventHandler) => void;
 }
-
-export let myInput = []
 
 export const Text: React.FC<Props> = ({
   text,
   mode,
   width,
+  height,
   RndProps,
   fontFamily,
   positionTop,
@@ -57,12 +57,6 @@ export const Text: React.FC<Props> = ({
     console.log(document.getElementsByClassName('react-draggable'))
     console.log(inputRef.current);
   }
-  if(inputRef.current !== null) {
-    console.log(inputRef.current);
-    myInput.push(inputRef.current)
-    console.log(myInput);
-  }
-console.log(inputRef);
   return (
     <>
       {/* This is a draggable component, it records the users box size and position on the page and will has an accept and deny button attached to it */}
@@ -93,12 +87,8 @@ console.log(inputRef);
           topRight: <CallReceived style={{ transform: 'rotate(180deg)', fontSize: '8', marginLeft: '10%', marginTop: '23%' }} />,
         }}
         onMouseUp={handleButtonPlacement}
-        onChange={handleChange}
-        onDrag={data => {
-          text = data;
-          console.log(text);
-          }
-        }
+        onDragStop={onChangeText}
+        onResizeStop={onChangeText}
         />
     </>
     // <div

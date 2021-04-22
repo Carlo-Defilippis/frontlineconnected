@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { Text as Component } from '../components/Text';
 import { getMovePosition } from '../utils/helpers';
 import { DragActions, TextMode } from '../entities';
+import { TransformComponent } from 'react-zoom-pan-pinch';
+import { PropsList } from 'react-zoom-pan-pinch/dist/store/interfaces/propsInterface';
 
 interface Props {
   pageWidth: number;
@@ -22,7 +24,7 @@ export const Text = ({
   pageWidth,
   updateTextAttachment
 }: TextAttachment & Props) => {
-  const inputRef = useRef<typeof Rnd>(null);
+  const inputRef = useRef<HTMLDivElement>(null);
   const [content, setContent] = useState(text || '');
   const [mouseDown, setMouseDown] = useState(false);
   const [positionTop, setPositionTop] = useState(y);
@@ -32,15 +34,15 @@ export const Text = ({
   );
   const [textMode, setTextMode] = useState<TextMode>(TextMode.COMMAND);
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    event.preventDefault();
+  const handleMouseMove = (e: DraggableEventHandler) => {
+    console.log(e);
 
     if (mouseDown) {
       const { top, left } = getMovePosition(
         positionLeft,
         positionTop,
-        event.movementX,
-        event.movementY,
+        e.movementX,
+        e.movementY,
         width,
         height,
         pageWidth,
@@ -52,7 +54,8 @@ export const Text = ({
     }
   };
 
-  const handleMousedown = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleMousedown = (attachment: DraggableEventHandler, data: DraggableEventHandler) => {
+    console.log(attachment, data);
     if (textMode !== TextMode.COMMAND) {
       return;
     }
@@ -137,9 +140,17 @@ export const Text = ({
     }
   };
 
-  const onChangeText = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.currentTarget.value;
+  const onChangeText = (e: DraggableEventHandler) => {
+    const value = e;
+    // const myData = data
     setContent(value);
+    console.log('Value: ', value);
+
+    updateTextAttachment({
+      x: value.layerX,
+      y: value.layerY,
+    });
+
   };
 
   return (

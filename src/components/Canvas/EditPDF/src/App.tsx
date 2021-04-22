@@ -54,9 +54,10 @@ const App: React.FC = ({}) => {
       size: 16,
       lineHeight: 1.4,
       fontFamily: 'Times-Roman',
-      text: myInput
+      text: "My input text"
     };
     addAttachment(newTextAttachment);
+    console.log(allPageAttachments);
   };
 
 
